@@ -1,0 +1,22 @@
+\subsection{Cyclus and SWU}
+Cyclus is an agent-based \gls{nfc} simulator that is incredibly versatile,
+one of the initial core developers (Professor Katy Huff) likes to say
+that, "Cyclus can be used to model any process from making a
+grilled-cheese to international nuclear fuel cycles." The software
+achieves this versatility through a series of generic archetypes that are
+primarily transaction based. Over the years, the user community and
+developers have created a litany of nuclear specific archetypes for
+everything from proliferation assessment to fuel burnup.
+
+We have referenced \gls{swu} several times now without explaining how the
+measure is derived, so we will rectify that now. \gls{swu}, or Separative
+Work Units, is a ubiquitous measure of effort that goes into producing
+nuclear fuel. It is simplified as:
+\begin{align}
+    SWU&= Q(C_p−C_f)
+    \intertext{Where:}
+    SWU&= \mbox{Separative Work Units [kgSWU]}\nonumber\\
+    Q&= \mbox{ Quantity of material processed [kg]}\nonumber\\
+    C_p&=\mbox{ Enrichment level of the product [$\%$]}\nonumber\\
+    C_f&= \mbox{ Enrichment level of the feed [$\%$].}\nonumber
+\end{align}
