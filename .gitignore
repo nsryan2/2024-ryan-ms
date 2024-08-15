@@ -10,3 +10,4 @@
 *.bbl
 *.blg
 *.pdf
+*.synctex(busy)
