@@ -11,7 +11,9 @@ The questions that guide this work are:
 6. What are the impacts of deployment schemes in FC scenarios, and what parts are realistic or unrealistic in each?
 7. Is there a significant benefit in memory and time efficiency from altering the frequency that agents interact with the DRE?
 
-I'm breaking this work up into parts: 1) replication of Amanda's method with TRISO fuel; 2) DRE frequency evaluation; 3) waste and volume characterization.
+I'm breaking this work up into parts: 1) replication of Amanda's method with
+TRISO fuel; 2) DRE frequency evaluation; 3) waste and volume characterization
+(different recycling technologies and latencies).
 
 ## Thesis Outline
 1. Abstract.
