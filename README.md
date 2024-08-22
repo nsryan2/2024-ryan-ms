@@ -4,12 +4,11 @@ This repository holds Nathan Ryan's Master's thesis.
 ## Guiding Questions
 The questions that guide this work are:
 1. What are the SWU requirements for TRISO fueled reactor transitions that incorporate the proposed LEU+ to HALEU scheme?
-2. How quickly/often does it meet the energy demand (we would need to identify different limiting factors on the deployment in that case)?
-3. If we have x growth of SMRs, how much TRISO do we need, and when do we exceed the demand?
-4. What are the most sensitive facilities/parameters in the process?
-5. What is the volume of waste and when will we run out of capacity in a Yucca mountain like facility?
-6. What are the impacts of deployment schemes in FC scenarios, and what parts are realistic or unrealistic in each?
-7. Is there a significant benefit in memory and time efficiency from altering the frequency that agents interact with the DRE?
+2. If we have x growth of SMRs, how much TRISO do we need, and when do we exceed the demand?
+3. What are the most sensitive facilities/parameters in the process?
+4. What is the volume of waste and when will we run out of capacity in a Yucca mountain like facility?
+5. What are the impacts of deployment schemes in NFC scenarios, and what parts are realistic or unrealistic in each? How quickly/often does the scenario meet the energy demand (we would need to identify different limiting factors on the deployment in that case)?
+6. Is there a significant benefit in memory and time efficiency from altering the frequency that agents interact with the DRE on?
 
 I'm breaking this work up into parts: 1) replication of Amanda's method with
 TRISO fuel; 2) DRE frequency evaluation; 3) waste and volume characterization
@@ -51,17 +50,17 @@ TRISO fuel; 2) DRE frequency evaluation; 3) waste and volume characterization
          3. How is it calculated?
          4. How does Cyclus treat this metric? (is that a valuable question, distinct from the above by relating to the software)
          5. What assumptions impact this metric?
-
 5. Transition scenarios.
       1. Outline Amanda's methodology.
       2. Identify the intersection of scope and highlight the differences.
 6. Deployment Scenarios (Results).
-   1. Single reactor scenarios.
-   2. Greedy deployment.
-   3. Pre-determined deployment.
-   4. Deployment cap.
-   5. Random deployment.
-   6. Initially random, then greedy deployment.
+   1. Give a paragraph about the regions/institutions you use.
+   2. Single reactor scenarios.
+   3. Greedy deployment.
+   4. Pre-determined deployment.
+   5. Deployment cap.
+   6. Random deployment.
+   7. Initially random, then greedy deployment.
 7. Sensitivity
 8. Conclusions
    1. High-level overview: What were the guiding questions (not in question form), and how were they addressed?
@@ -75,9 +74,21 @@ TRISO fuel; 2) DRE frequency evaluation; 3) waste and volume characterization
    3. the mass of enriched uranium, mass of feed uranium,
    4. SWU capacity required to produce the enriched uranium,
    5. and the UNF discharged from the reactors.
-2. Sensitivity Study
-   1. 
-   2. Comparisons
+2. Transition Scenarios
+   1. Used a greedy algorithm to predetermine when they would be deployed.
+   2. Simulation details
+      1. Ran from 1965-2090.
+      2. Timestep of 1 month.
+      3. Deployed solo LWRs, LWRs + MMR/Xe, LWRs + MMR/Xe + VOYGR, and  LWRs + MMR + Xe + VOYGR in no growth and 1% growth scenarios.
+      4. All in the same region, but one Deployinst for LWRs and another for ARs.
+   3. Reactors
+      1. LWRs from PRIS, USNC MMR, X-energy Xe-100, VOYGR (look at her thesis table 3.1)
+      2. Started ARs in 2025 for "a bounding case for an aggressive deployment of these reactors."
+      3. Didn't have the new Vogtle reactors.
+      4. Only reactors over 400 MWe to avoid test or research reactors.
+   4. Fuel cycle facilities: mine, enrichment, reactor, tails sink, cooling pool, repository.
+3. Sensitivity Study
+   1. Comparisons
       1. Build-share (x), transition start time (y), on SWU (z)
       2. Build-share (x), transition start time (y), on fuel mass (z)
       3. Build-share (x), burnup (y), on fuel mass (z)
