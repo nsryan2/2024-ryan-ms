@@ -45,6 +45,13 @@ TRISO fuel; 2) DRE frequency evaluation; 3) waste and volume characterization
       2. SWU.
       3. Energy production.
       4. Mass of fresh and used fuel.
+      5. Questions:
+         1. Why do we use this metric?
+         2. Where in the fuel cycle is it impacted?
+         3. How is it calculated?
+         4. How does Cyclus treat this metric? (is that a valuable question, distinct from the above by relating to the software)
+         5. What assumptions impact this metric?
+
 5. Transition scenarios.
       1. Outline Amanda's methodology.
       2. Identify the intersection of scope and highlight the differences.
@@ -69,10 +76,12 @@ TRISO fuel; 2) DRE frequency evaluation; 3) waste and volume characterization
    4. SWU capacity required to produce the enriched uranium,
    5. and the UNF discharged from the reactors.
 2. Sensitivity Study
-   1. Build-share (x), transition start time (y), on SWU (z)
-   2. Build-share (x), transition start time (y), on fuel mass (z)
-   3. Build-share (x), burnup (y), on fuel mass (z)
-   4. Build-share (x), percent of LWR lifetime extended (y), on fuel mass (z)
+   1. 
+   2. Comparisons
+      1. Build-share (x), transition start time (y), on SWU (z)
+      2. Build-share (x), transition start time (y), on fuel mass (z)
+      3. Build-share (x), burnup (y), on fuel mass (z)
+      4. Build-share (x), percent of LWR lifetime extended (y), on fuel mass (z)
 
 # ms-thesis-template
 This repo holds the template for UIUC master's thesis.
