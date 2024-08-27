@@ -1,7 +1,7 @@
 \section{\cyclus}
 % fix that, too informal and introduces archetypes without context.
 \cyclus is an agent-based \gls{nfc} simulator that is incredibly
-versatile, one of the initial core developers (Professor Katy Huff)
+versatile, one of the initial, and core, developers (Professor Katy Huff)
 likes to say that, "\cyclus can be used to model any process from making
 a grilled-cheese to international nuclear fuel cycles." The software
 achieves this versatility through a series of generic archetypes that are
@@ -9,11 +9,37 @@ primarily transaction based. Over the years, the user community and
 developers have created a litany of nuclear specific archetypes for
 everything from proliferation assessment to fuel burnup.
 
+% discuss archetypes
+Users can incorporate different fuel cycle facilities into their \cyclus
+simulations using generic facilities that are referred to as archetypes
+in the \cyclus ecosystem. Many standard fuel cycle facilities hae been
+implemented in the \cycamore repository, which holds technology agnostic
+archetypes for material sources, material sinks, enrichment services,
+separations capabilities, and a generic reactor.
+
 % discuss recipes
 As \cyclus is a transactions code and not necessarily a physics code,
 the reactors incorporate reactor physics through pre-defined "recipes,"
 where the user specifies the isotopic concentration of the fresh and
-used fuel. Users approximate the burnup of each fuel element with the
+used fuel.
+
+An example of this is the \gls{triso} fuel that is used in this work: (((((((((((update recipe with actual values)))))))))))
+% \begin{minted}{xml}
+%     <recipe>
+%         <name>TRISO</name>
+%         <basis>mass</basis>
+%         <nuclide>
+%             <id>U235</id>
+%             <comp>0.045</comp>
+%         </nuclide>
+%         <nuclide>
+%             <id>U238</id>
+%             <comp>0.955</comp>
+%         </nuclide>
+%     </recipe>
+% \end{minted}
+
+Users approximate the burnup of each fuel element with the
 same input recipe as the same; however, in this work we incorporate a
 cascading enrichment from \gls{leu+} to \gls{haleu}.
 % find a citation or source that companies are actually going to do that
@@ -26,13 +52,6 @@ Novel in this work is our use of a low fidelity archetype based on the
 \gls{ever} allows the user to specify multiple recipes for the fuel and
 change between them at specific times.
 
-% discuss archetypes
-Users can incorporate different fuel cycle facilities into their \cyclus
-simulations using generic facilities that are referred to as archetypes
-in the \cyclus ecosystem. Many standard fuel cycle facilities hae been
-implemented in the \cycamore repository, which holds technology agnostic
-archetypes for material sources, material sinks, enrichment,
-separations, and reactors.
 
 % discuss DRE
 As we have discussed, \cyclus's primary function is to keep track of

@@ -1,18 +1,26 @@
 # 2024-ryan-ms
 This repository holds Nathan Ryan's Master's thesis.
 
+## Cocktail Hour Summary
+I investigated how the staggered enrichment approach (where they go from a LEU+
+to a HALEU-level of enrichment) certain companies proposed for their reactors
+impacts the SWU and used fuel characteristics in TRISO-fueled
+reactors, and worked on improving Cyclus's memory efficiency by allowing
+facilities to wait until they need more material before putting out requests.
+
 ## Guiding Questions
 The questions that guide this work are:
 1. What are the SWU requirements for TRISO fueled reactor transitions that incorporate the proposed LEU+ to HALEU scheme?
-2. If we have x growth of SMRs, how much TRISO do we need, and when do we exceed the demand?
+2. If we have x growth of demand met by ARs, how much TRISO do we need, and when do we meet the demand?
 3. What are the most sensitive facilities/parameters in the process?
 4. What is the volume of waste and when will we run out of capacity in a Yucca mountain like facility?
-5. What are the impacts of deployment schemes in NFC scenarios, and what parts are realistic or unrealistic in each? How quickly/often does the scenario meet the energy demand (we would need to identify different limiting factors on the deployment in that case)?
+5. What are the impacts of deployment schemes in NFC scenarios, and what parts are realistic or unrealistic in each? How quickly/often does the scenario meet the energy demand (we would need to identify limiting factors)?
 6. Is there a significant benefit in memory and time efficiency from altering the frequency that agents interact with the DRE on?
 
 I'm breaking this work up into parts: 1) replication of Amanda's method with
-TRISO fuel; 2) DRE frequency evaluation; 3) waste and volume characterization
-(different recycling technologies and latencies).
+TRISO fuel (with the LEU+ to HALEU where applicable); 2) DRE frequency
+evaluation; 3) waste and volume characterization (different recycling
+technologies and latencies).
 
 ## Thesis Outline
 1. Abstract.
@@ -55,6 +63,7 @@ TRISO fuel; 2) DRE frequency evaluation; 3) waste and volume characterization
       2. Identify the intersection of scope and highlight the differences.
 6. Deployment Scenarios (Results).
    1. Give a paragraph about the regions/institutions you use.
+      1. Highlight how the replacement at decommissioning works (ARs vs LWRs), and how new demand is met.
    2. Single reactor scenarios.
    3. Greedy deployment.
    4. Pre-determined deployment.
@@ -93,6 +102,9 @@ TRISO fuel; 2) DRE frequency evaluation; 3) waste and volume characterization
       2. Build-share (x), transition start time (y), on fuel mass (z)
       3. Build-share (x), burnup (y), on fuel mass (z)
       4. Build-share (x), percent of LWR lifetime extended (y), on fuel mass (z)
+
+# Questions for the literature
+1.
 
 # ms-thesis-template
 This repo holds the template for UIUC master's thesis.
