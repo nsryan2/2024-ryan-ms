@@ -1,0 +1,128 @@
+\section{\cyclus}
+% fix that, too informal and introduces archetypes without context.
+\cyclus is an agent-based \gls{nfc} simulator that is incredibly
+versatile, one of the initial, and core, developers (Professor Katy Huff)
+likes to say that, "\cyclus can be used to model any process from making
+a grilled-cheese to international nuclear fuel cycles." The software
+achieves this versatility through a series of generic archetypes that are
+primarily transaction based. Over the years, the user community and
+developers have created a litany of nuclear specific archetypes for
+everything from proliferation assessment to fuel burnup.
+
+% discuss archetypes
+Users can incorporate different fuel cycle facilities into their \cyclus
+simulations using generic facilities that are referred to as archetypes
+in the \cyclus ecosystem. Many standard fuel cycle facilities hae been
+implemented in the \cycamore repository, which holds technology agnostic
+archetypes for material sources, material sinks, enrichment services,
+separations capabilities, and a generic reactor.
+
+% discuss recipes
+As \cyclus is a transactions code and not necessarily a physics code,
+the reactors incorporate reactor physics through pre-defined "recipes,"
+where the user specifies the isotopic concentration of the fresh and
+used fuel.
+
+An example of this is the \gls{triso} fuel that is used in this work: (((((((((((update recipe with actual values)))))))))))
+% \begin{minted}{xml}
+%     <recipe>
+%         <name>TRISO</name>
+%         <basis>mass</basis>
+%         <nuclide>
+%             <id>U235</id>
+%             <comp>0.045</comp>
+%         </nuclide>
+%         <nuclide>
+%             <id>U238</id>
+%             <comp>0.955</comp>
+%         </nuclide>
+%     </recipe>
+% \end{minted}
+
+Users approximate the burnup of each fuel element with the
+same input recipe as the same; however, in this work we incorporate a
+cascading enrichment from \gls{leu+} to \gls{haleu}.
+% find a citation or source that companies are actually going to do that
+% (best case scenario is find it for each reactor you do it for)
+
+% discuss EVER and CLOVER?
+Novel in this work is our use of a low fidelity archetype based on the
+\cycamore reactor %\cite{the summer poster}. \gls{ever}
+
+\gls{ever} allows the user to specify multiple recipes for the fuel and
+change between them at specific times.
+
+
+% discuss DRE
+As we have discussed, \cyclus's primary function is to keep track of
+material transactions between agents. This is accomplished through the
+\gls{dre}, which functions like a market where each agent brings a bid
+for what and how much material they need and suppliers are matched with
+buyers % cite something here.
+
+% discuss time step stuff?
+In this work we have incorporated and analyzed an alteration to the
+frequency that each agent interacts with the \gls{dre} to better
+understand the potential for simulation efficiency in run time and
+memory usage.
+
+\section{Metrics}
+% discuss the metrics you are using
+In this work we have chosen to focus on
+a few key metrics to understand the
+performance of each deployment scenario.
+These metrics are: \gls{swu}, energy
+output, mass of fuel, isotopic
+composition, and reactor deployment.
+
+\subsection{Separative Work Units}
+
+\gls{swu}, or Separative Work Units, is a ubiquitous measure of effort
+that goes into producing nuclear fuel. It is simplified as:
+\begin{align}
+    SWU&= Q(C_p-C_f)
+    \intertext{Where:}
+    SWU&= \mbox{Separative Work Units [kgSWU]}\nonumber\\
+    Q&= \mbox{ Quantity of material processed [kg]}\nonumber\\
+    C_p&=\mbox{ Enrichment level of the product [$\%$]}\nonumber\\
+    C_f&= \mbox{ Enrichment level of the feed [$\%$].}\nonumber
+\end{align}
+
+% discuss sensitivity analysis
+
+
+\subsection{Energy Output}
+% just spit balling
+The deployment of reactors in this work is based on energy demand, which
+approximates the complicated relationship that generators and utilities
+have with power expansions.
+
+The reactors simulated herein have a static peak energy output, so the
+nuance in the fleet's ability to meet the demand comes from the
+deployment scheme and limitations in the fuel supply chain.
+
+We have created a toy scenario to understand the ways in which the
+deployment schemes under and over perform, and we will devote time to
+discussing the realistic features of each scheme.
+
+% sensitivity analysis?
+
+\subsection{Mass of Fuel}
+
+\cyclus has an understanding of the mass of material in each
+transaction, in this work we will couple this tracking with an idea of
+the volume of the fuel elements to get a relative sense of the volume
+each scenario would produce.
+
+We will further compare this with the storage capacity of proposed
+projects in the \gls{us}--like Yucca Mountain.
+% improve with comprehensive list
+
+In addition to the volume, the mass % sensitivity analysis?
+
+\subsection{Isotopic Composition}
+
+The individual output composition of each reactor's fuel is
+predetermined in this work through the recipes, but this metric is to
+approximate fleet-wide results in each of the deployment scenarios we
+have outlined.

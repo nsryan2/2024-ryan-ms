@@ -7,8 +7,8 @@
 
 \usepackage{xspace}
 \usepackage{graphics}
-\newcommand{\Cycamore}{\textsc{Cycamore}\xspace}
-\newcommand{\Cyclus}{\textsc{Cyclus}\xspace}
+\newcommand{\cycamore}{\textsc{Cycamore}\xspace}
+\newcommand{\cyclus}{\textsc{Cyclus}\xspace}
 
 
 \usepackage{placeins}
@@ -75,14 +75,13 @@
 
 
 \title{Example Template}
-\author{Charles Bae}
+\author{Nathan Sean Ryan}
 \department{Nuclear, Plasma, Radiological Engineering}
-\schools{B.S., University of Illinois - Urbana Champaign, 2017}
+\schools{B.S., University of Illinois - Urbana Champaign, 2022}
 \msthesis
-\advisor{Kathryn D. Huff}
-\degreeyear{2018}
-\committee{Assistant Professor Kathryn D. Huff, Adviser \\ Professor Segundo Lector }
-
+\advisor{Madicken Munk}
+\degreeyear{2024}
+\committee{Assistant Professor Madicken Munk \\ Professor Kathryn D. Huff}
 
 \begin{document}
 \maketitle
@@ -92,13 +91,21 @@
 %% Note that ProQuest truncates their abstracts at 350 words.
 \begin{abstract}
 
-Abstract.
+\input{abstract}
 
 \end{abstract}
 
 \chapter*{Acknowledgments}
 
-Acks.
+I would like to thank Prof. Madicken Munk, who introduced me into
+the nuclear community as a newly minted graduate student and who I
+continue to learn from and be inspired by.
+
+
+
+I learned much from my group mates, advisors, and mentors, but would be
+remiss to not acknowledge that I went to the school of open source and
+learned much from countless developers who work openly to better science.
 
 %% The thesis format requires the Table of Contents to come
 %% before any other major sections, all of these sections after
@@ -126,9 +133,49 @@ Acks.
 \mainmatter
 
 \chapter{Introduction}
+\label{ch:introduction}
+
 \input{introduction}
 
-\chapter*{Appendix}
+% \input{legislative_framework}
+
+
+\section{The Nuclear Fuel Cycle}
+\input{nfc}
+
+\section{TRISO Fuel}
+\input{triso_fuel}
+
+\chapter{Background}
+\label{background}
+
+\input{lit_review}
+
+\input{cyclus_metrics}
+
+\chapter{Transition Scenarios}
+\label{ch:ts}
+
+\chapter{Deployment Scenarios}
+\label{ch:scenarios}
+
+\input{scenarios}
+
+\chapter{Sensitivity}
+\label{ch:sensitivity}
+
+\chapter{Conclusions}
+\label{ch:conclusions}
+
+\input{assumptions}
+
+\input{limitations}
+
+
+
+
+
+\chapter{Appendix}
 \input{appendix}
 
 \backmatter
