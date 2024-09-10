@@ -11,3 +11,6 @@
 *.blg
 *.pdf
 *.synctex(busy)
+*.pyg
+
+_minted-main/
