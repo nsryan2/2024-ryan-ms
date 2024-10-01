@@ -1,0 +1,60 @@
+\section{Metrics}
+% discuss the metrics you are using
+In this work we have chosen to focus on
+a few key metrics to understand the
+performance of each deployment scenario.
+These metrics are: \gls{swu}, energy
+output, mass of fuel, isotopic
+composition, and reactor deployment.
+
+\subsection{Separative Work Units}
+
+\gls{swu}, or Separative Work Units, is a ubiquitous measure of effort
+that goes into producing nuclear fuel. It is simplified as:
+\begin{align}
+    SWU&= Q(C_p-C_f)
+    \intertext{Where:}
+    SWU&= \mbox{Separative Work Units [kgSWU]}\nonumber\\
+    Q&= \mbox{ Quantity of material processed [kg]}\nonumber\\
+    C_p&=\mbox{ Enrichment level of the product [$\%$]}\nonumber\\
+    C_f&= \mbox{ Enrichment level of the feed [$\%$].}\nonumber
+\end{align}
+
+% discuss sensitivity analysis
+
+
+\subsection{Energy Output}
+% just spit balling
+The deployment of reactors in this work is based on energy demand, which
+approximates the complicated relationship that generators and utilities
+have with power expansions.
+
+The reactors simulated herein have a static peak energy output, so the
+nuance in the fleet's ability to meet the demand comes from the
+deployment scheme and limitations in the fuel supply chain.
+
+We have created a toy scenario to understand the ways in which the
+deployment schemes under and over perform, and we will devote time to
+discussing the realistic features of each scheme.
+
+% sensitivity analysis?
+
+\subsection{Mass of Fuel}
+
+\cyclus has an understanding of the mass of material in each
+transaction, in this work we will couple this tracking with an idea of
+the volume of the fuel elements to get a relative sense of the volume
+each scenario would produce.
+
+We will further compare this with the storage capacity of proposed
+projects in the \gls{us}--like Yucca Mountain.
+% improve with comprehensive list
+
+In addition to the volume, the mass % sensitivity analysis?
+
+\subsection{Isotopic Composition}
+
+The individual output composition of each reactor's fuel is
+predetermined in this work through the recipes, but this metric is to
+approximate fleet-wide results in each of the deployment scenarios we
+have outlined.
