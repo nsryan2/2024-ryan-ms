@@ -1,20 +1,21 @@
+In this work we explore the deployment of advanced reactors in the future energy landscape of the \gls{usa}. As the landscape evolves, compounding factors will drive actual deployment of these reactors in ways this work does not capture. The value of energy system modeling, and this type of transition scenario, is to understand the implications of deployment compared with and measured relatively to business as usual cases with similar approximations.
+
+We use this chapter to explore the deployment schemes we have implemented---outlined in Table \ref{tab:deployment_schemes}---, and the demand growth scenarios we have considered---outlined in Table \ref{tab:demand_scenarios}. We will also discuss two additional deployment schemes that were implemented, but not incorporated as they are more useful for problems not considered herein.
+
 \begin{table}[htbp]
     \centering
     \caption{Deployment Schemes}
     \label{tab:deployment_schemes}
-    \begin{tabular}{p{0.3\linewidth} p{0.6\linewidth}}
+    \begin{tabular}{p{0.15\linewidth} p{0.27\linewidth} p{0.50\linewidth}}
         \hline
-        \textbf{Scheme} & \textbf{Description} \\
+        \textbf{Status} & \textbf{Scheme} & \textbf{Description} \\
         \hline
-        Greedy Deployment & Deploy the largest reactor first at each time step, fill in the remaining capacity with the next smallest, and so on. \\
-        \vspace{0.4mm}
-        Capped Deployment & There is a single-number capacity for one or more of the reactor models. \\
-        \vspace{0.4mm}
-        Pre-Determined Distribution Deployment & One or more reactors have a preset distribution, and a smaller capacity model fills in the gaps. \\
-        \vspace{0.4mm}
-        Random Deployment & Uses a date and hour as seed to randomly sample the reactors list. \\
-        \vspace{0.4mm}
-        Initially Random, Greedy Deployment & Randomly deploys reactors until a reactor bigger than the remaining capacity is proposed for each year, then fills remaining capacity with a greedy algorithm. \\
+        \multirow{3}{*}{Incorporated} & Greedy Deployment & Deploy the largest reactor first at each time step, fill in the remaining capacity with the next smallest, and so on. \\
+        & Random Deployment & Uses a date and hour as seed to randomly sample the reactors list. \\
+        & Initially Random, Greedy Deployment & Randomly deploys reactors until a reactor bigger than the remaining capacity is proposed for each year, then fills remaining capacity with a greedy algorithm. \\
+        \hline
+        \multirow{2}{*}{Not Incorporated} & Capped Deployment & There is a single-number capacity for one or more of the reactor models. \\
+        & Pre-Determined Distribution Deployment & One or more reactors have a preset distribution, and a smaller capacity model fills in the gaps. \\
         \hline
     \end{tabular}
 \end{table}
@@ -57,45 +58,6 @@ roughly efficient manner.
 
 % when does it over or under perform
 
-\section{Capped Deployment}
-% describe the algorithm in detail
-To use this deployment scheme, a user needs to have some idea of the supply chain constraints that will limit the deployment of the reactors they are deploying.
-
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[scale=0.4]{images/schemes/cap_diagram.png}
-    \caption{Capped Deployment Diagram}
-    \label{fig:cap_diagram}
-\end{figure}
-
-% what are the realistic and the unrealistic parts
-The realism of this deployment scheme mirrors some elements of the pre-determined distribution (this is a flat distribution after all), but the cap is a less granular way to account for supply chain constraints
-
-% when does it over or under perform
-
-\section{Pre-Determined Distribution Deployment}
-% describe the algorithm in detail
-This deployment scheme allows users to incorporate the projections and
-commitments of rate payers and utilities by setting a distribution over the
-time of the simulation. In this scheme the distribution serves as a cap to the
-number of reactors deployed in a time step, and reactors are preferentially
-deployed first to meet those caps. After that has been completed, the remaining
-reactors without caps are deployed to meet the demand. In this way, we are able
-to incorporate knowledge of supply chain constraints for specific technologies
-without having to model the supply chain in detail.
-% would be great to find some sources for this, and see what the literature says
-
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[scale=0.4]{images/schemes/pre_det_diagram.png}
-    \caption{Pre-Determined Distribution Deployment Diagram}
-    \label{fig:pre_det_diagram}
-\end{figure}
-
-% what are the realistic and the unrealistic parts
-
-% when does it over or under perform
-This scheme is most useful when there are known commitments to specific technologies.
 
 \section{Random Deployment}
 % describe the algorithm in detail
@@ -140,3 +102,49 @@ not explored in this work. %%% Should I? I'm not sure how long this would take t
 
 % when does it over or under perform
 
+
+\section{Considered Deployment Schemes}
+
+In addition to the deployment schemes outlined above, we also considered a few other deployment schemes that were not included in the final analysis. These schemes were considered for their potential to capture the complexity of the deployment problem, but were ultimately not included due to the egregious nature of approximation required to make the implementation or the lack of a clear benefit over the other schemes.
+
+\subsection{Capped Deployment}
+% describe the algorithm in detail
+In this scheme, there is a constant limit placed on the number of a specific reactor that can be deployed at any given time step. This is a simple way to model aggregate supply chain constrains that could limit vendors from deploying reactors freely. With the right constraints, this scheme would better succeed at roughly incorporating the limits of a workforce over a short to medium time scale. As workforce constraints are outside the scope of this work, this scheme was implemented but not incorporated in this work.
+
+To use this deployment scheme, a user needs some idea of the supply chain constraints that will limit the deployment of the reactors they are deploying. In Figure \ref{fig:cap_diagram}, we illustrate the defining steps of the capped deployment scheme. The main loop in the logic is consistent with the greedy deployment scheme, but adds a check to see if the current deployment exceeds the limit on that model. If it does, the reactor is removed from the list of reactors to be deployed in that time step.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[scale=0.4]{images/schemes/cap_diagram.png}
+    \caption{Capped Deployment Diagram}
+    \label{fig:cap_diagram}
+\end{figure}
+
+% what are the realistic and the unrealistic parts
+The realism of this deployment scheme mirrors some elements of the pre-determined distribution (this is a flat distribution after all), but the cap is a less granular way to account for supply chain constraints
+
+% when does it over or under perform
+
+\section{Pre-Determined Distribution Deployment}
+% describe the algorithm in detail
+This deployment scheme allows users to incorporate the projections and
+commitments of rate payers and utilities by setting a distribution over the
+time of the simulation. In this scheme the distribution serves as a cap to the
+number of reactors deployed in a time step, and reactors are preferentially
+deployed first to meet those caps. After that has been completed, the remaining
+reactors without caps are deployed to meet the demand. In this way, we are able
+to incorporate knowledge of supply chain constraints for specific technologies
+without having to model the supply chain in detail.
+% would be great to find some sources for this, and see what the literature says
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[scale=0.4]{images/schemes/pre_det_diagram.png}
+    \caption{Pre-Determined Distribution Deployment Diagram}
+    \label{fig:pre_det_diagram}
+\end{figure}
+
+% what are the realistic and the unrealistic parts
+
+% when does it over or under perform
+This scheme is most useful when there are known commitments to specific technologies.
