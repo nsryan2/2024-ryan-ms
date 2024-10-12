@@ -3,16 +3,16 @@ Appendix.
 \section{LWRs Simulated}
 \label{app:lwrs}
 
-In this work we pull publicly available information from the \gls{pris} database to simulate the \gls{lwr} fleet in the \gls{us}. The \gls{pris} database is a collection of information on nuclear power plants around the world, and is maintained by the \gls{iaea}. For the sake of completeness and replication of this work, we have included the \gls{lwr} fleet that we have simulated in this work and a notebook is available on GitHub to pull the same information we did.
+In this work we pull publicly available information from the \gls{pris} database to simulate the \gls{lwr} fleet in the \gls{usa}. The \gls{pris} database is a collection of information on nuclear power plants around the world, and is maintained by the \gls{iaea}. For the sake of completeness and replication of this work in Tables \ref{tab:lwr_fleet_1}, \ref{tab:lwr_fleet2}, and \ref{tab:lwr_fleet3}; we have also included the \gls{lwr} fleet that we have simulated in this work and a notebook is available on GitHub ((((((((((((cite)))))))))))) to pull the same information we used.
 
-We assumed that operating reactors would continue to operate for 80 years after they began operation. Other assumptions.
 
-The \gls{lwr} fleet is as follows:
 \begin{table}[h!]
     \centering
+    \caption{LWR Fleet Simulated Part 1}
+    \label{tab:lwr_fleet_1}
     \begin{tabular}{c c c c c c c c c c}
     \hline
-    \textbf{Name} & \textbf{State} & \textbf{Type} & \textbf{Vendor} & \textbf{Core size} & \textbf{Startup date} & \textbf{License expiration} & \textbf{Retirement} & \textbf{Power cap} \\
+    \textbf{Name} & \textbf{State} & \textbf{Type} & \textbf{Vendor} & \textbf{Core size} & \textbf{Startup date} & \textbf{License} & \textbf{Retirement} & \textbf{Power cap} \\
     \hline
     Arkansas Nuclear One 1 & AR & PWR & B\&W & 177 & 1974 & 2034 &  & 836.0 \\
     Arkansas Nuclear One 2 & AR & PWR & CE & 177 & 1978 & 2038 &  & 988.0 \\
@@ -66,6 +66,18 @@ The \gls{lwr} fleet is as follows:
     Indian Point 3 & NY & PWR & WE & 193 & 1975 & 2025 &  & 1030.0 \\
     Kewaunee & WI & PWR & WE & 121 & 1973 & 2033 & 2013 & 566.0 \\
     La Crosse & WI & BWR & AC & 72 & 1967 &  & 1987 & 48.0 \\
+    \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{LWR Fleet Simulated Part 2}
+    \label{tab:lwr_fleet2}
+    \begin{tabular}{c c c c c c c c c c}
+    \hline
+    \textbf{Name} & \textbf{State} & \textbf{Type} & \textbf{Vendor} & \textbf{Core size} & \textbf{Startup date} & \textbf{License} & \textbf{Retirement} & \textbf{Power cap} \\
+    \hline
     LaSalle County 1 & IL & BWR & GE & 764 & 1982 & 2042 &  & 1137.0 \\
     LaSalle County 2 & IL & BWR & GE & 764 & 1983 & 2043 &  & 1140.0 \\
     Limerick 1 & PA & BWR & GE & 764 & 1985 & 2044 &  & 1134.0 \\
@@ -117,9 +129,22 @@ The \gls{lwr} fleet is as follows:
     Summer 1 & SC & PWR & WE & 157 & 1982 & 2042 &  & 973.0 \\
     Surry 1 & VA & PWR & WE & 157 & 1972 & 2032 &  & 838.0 \\
     Surry 2 & VA & PWR & WE & 157 & 1973 & 2033 &  & 838.0 \\
+    \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{LWR Fleet Simulated Part 3}
+    \label{tab:lwr_fleet3}
+    \begin{tabular}{c c c c c c c c c c}
+    \hline
+    \textbf{Name} & \textbf{State} & \textbf{Type} & \textbf{Vendor} & \textbf{Core size} & \textbf{Startup date} & \textbf{License} & \textbf{Retirement} & \textbf{Power cap} \\
+    \hline
     Susquehanna 1 & PA & BWR & GE & 764 & 1982 & 2042 &  & 1257.0 \\
     Susquehanna 2 & PA & BWR & GE & 764 & 1984 & 2044 &  & 1257.0 \\
     Three Mile Island 1 & PA & PWR & B\&W & 177 & 1974 & 2034 & 2019 & 819.0 \\
+    Three Mile Island 2 & PA & PWR & B\&W & 177 & 1978 & 2038 & 1979 & 880.0 \\
     Trojan & OR & PWR & WE & 193 & 1975 &  & 1992 & 1095.0 \\
     Turkey Point 3 & FL & PWR & WE & 157 & 1972 & 2052* &  & 837.0 \\
     Turkey Point 4 & FL & PWR & WE & 157 & 1973 & 2053* &  & 821.0 \\
@@ -137,8 +162,5 @@ The \gls{lwr} fleet is as follows:
     Vogtle 4 & GA & PWR & WE & 193 & 2024 & 2063 &  & 1117.0 \\
     \hline
     \end{tabular}
-    \caption{LWR Fleet Simulated}
-    \label{tab:lwr_fleet}
 \end{table}
-
 
