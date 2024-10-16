@@ -1,6 +1,14 @@
 # 2024-ryan-ms
 This repository holds Nathan Ryan's Master's thesis.
 
+Chapters:
+- [x] Introduction
+- [ ] Background
+- [ ] Deployment Schemes
+- [ ] Time Management
+- [ ] Conclusions
+- [ ] Appendix: LWRs
+
 ## Cocktail Hour Summary
 I investigated how the staggered enrichment approach (where they go from a LEU+
 to a HALEU-level of enrichment) certain companies proposed for their reactors
@@ -8,7 +16,7 @@ impacts the SWU and used fuel characteristics in TRISO-fueled
 reactors, and worked on improving Cyclus's memory efficiency by allowing
 facilities to wait until they need more material before putting out requests.
 
-## Guiding Questions
+## Potential Guiding Questions
 The questions that guide this work are:
 1. What are the SWU requirements for TRISO fueled reactor transitions that incorporate the proposed LEU+ to HALEU scheme?
 2. If we have x growth of demand met by ARs, how much TRISO do we need, and when do we meet the demand?
@@ -17,10 +25,9 @@ The questions that guide this work are:
 5. What are the impacts of deployment schemes in NFC scenarios, and what parts are realistic or unrealistic in each? How quickly/often does the scenario meet the energy demand (we would need to identify limiting factors)?
 6. Is there a significant benefit in memory and time efficiency from altering the frequency that agents interact with the DRE on?
 
-I'm breaking this work up into parts: 1) replication of Amanda's method with
-TRISO fuel (with the LEU+ to HALEU where applicable); 2) DRE frequency
-evaluation; 3) waste and volume characterization (different recycling
-technologies and latencies).
+I set out to answer Q1 and Q6. I broke this work up into two parts: 1) replication of Amanda's method with
+TRISO fuel (with the LEU+ to HALEU where applicable); and 2) DRE frequency
+evaluation.
 
 ## Thesis Outline
 1. Abstract.
