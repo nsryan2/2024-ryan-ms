@@ -1,6 +1,17 @@
-In this work we explore the deployment of advanced reactors in the future energy landscape of the \gls{usa}. As the landscape evolves, compounding factors will drive actual deployment of these reactors in ways this work does not capture. The value of energy system modeling, and this type of transition scenario, is to understand the implications of deployment compared with and measured relatively to business as usual cases with similar approximations.
+In this work, we explore the deployment of advanced reactors in the future
+energy landscape of the \gls{usa}. As the landscape evolves, compounding
+factors will drive the actual deployment of these reactors in ways this work
+does not capture. The value of energy system modeling and this type of
+transition scenario is to understand the implications of deployment compared
+with and measured relatively to business-as-usual cases with similar
+approximations.
 
-We use this chapter to explore the deployment schemes we have implemented---outlined in Table \ref{tab:deployment_schemes}---, and the demand growth scenarios we have considered---outlined in Table \ref{tab:demand_scenarios}. We will also discuss two additional deployment schemes that were implemented, but not incorporated as they are more useful for problems not considered herein.
+We use this chapter to explore the deployment schemes we have
+implemented---outlined in Table \ref{tab:deployment_schemes}---, and the demand
+growth scenarios we have considered---outlined in Table
+\ref{tab:demand_scenarios}. We will also discuss two additional deployment
+schemes that we implemented, but not incorporated as they are more useful for
+problems not considered herein.
 
 \begin{table}[htbp]
     \centering
@@ -10,18 +21,34 @@ We use this chapter to explore the deployment schemes we have implemented---outl
         \hline
         \textbf{Status} & \textbf{Scheme} & \textbf{Description} \\
         \hline
-        \multirow{3}{*}{Incorporated} & Greedy Deployment & Deploy the largest reactor first at each time step, fill in the remaining capacity with the next smallest, and so on. \\
-        & Random Deployment & Uses a date and hour as seed to randomly sample the reactors list. \\
-        & Initially Random, Greedy Deployment & Randomly deploys reactors until a reactor bigger than the remaining capacity is proposed for each year, then fills remaining capacity with a greedy algorithm. \\
+        \multirow{3}{*}{Incorporated} & Greedy Deployment & Deploy the largest
+        reactor first at each time step, fill in the remaining capacity with
+        the next smallest, and so on. \\
+        & Random Deployment & Uses a date and hour as seed to sample the
+        reactors list randomly. \\
+        & Initially Random, Greedy Deployment & Randomly deploys reactors until
+        a reactor bigger than the remaining capacity is proposed for each year,
+        then fills the remaining capacity with a greedy algorithm. \\
         \hline
-        \multirow{2}{*}{Not Incorporated} & Capped Deployment & There is a single-number capacity for one or more of the reactor models. \\
-        & Pre-Determined Distribution Deployment & One or more reactors have a preset distribution, and a smaller capacity model fills in the gaps. \\
+        \multirow{2}{*}{Not Incorporated} & Capped Deployment & There is a
+        single-number capacity for one or more of the reactor models. \\
+        & Pre-Determined Distribution Deployment & One or more reactors have a
+        preset distribution, and a smaller capacity model fills in the gaps. \\
         \hline
     \end{tabular}
 \end{table}
 
-We apply each of these deployment schemes to a series of demand growth scenarios based on two predictions. The \gls{eia} publishes demand expansion projections for the totality of \gls{usa} .
-% source name and citation with
+We apply these deployment schemes to demand growth scenarios based on two
+predictions. The \gls{eia} publishes demand expansion projections for the
+totality of \gls{usa} \cite{eia_aeo_2023}. As we have discussed, the
+administration has refrained from publishing AEO 2024 in light of recent
+accelerations in demand growth. Our assumptions for the low-growth scenarios
+are that the relative percentage of nuclear power remains constant and that the
+relative performance of the various fuel cycle metrics we simulate will hold.
+The \gls{doe} Liftoff Report \cite{julie_liftoff_pathways_2024} does not
+reflect this constant percentage assumption for nuclear power in their demand
+scenarios, which are specific to nuclear deployment increases and the number is
+agnostic to the total increase.
 
 \begin{table}[htbp]
     \centering
@@ -31,21 +58,30 @@ We apply each of these deployment schemes to a series of demand growth scenarios
         \hline
         \textbf{Demand Growth} & \textbf{Range} & \textbf{Source}\\
         \hline
-        No growth & 0\% & na\\
-        Low growth & 1\%, 5\%, 10\%, 15\% & (eia)\\
-        High growth & 100\%, 200\% & (liftoff)\\
+ No growth & 0\% & na\\
+ Low growth & 1\%, 5\%, 10\%, 15\% & \cite{eia_aeo_2023}\\
+ High growth & 100\%, 200\% & \cite{julie_liftoff_pathways_2024}\\
         \hline
     \end{tabular}
 \end{table}
 
 \section{Greedy Deployment}
-% describe the algorithm in detail
-In this deployment scheme, the largest reactor is deployed first until another
-deployment of that reactor would exceed the demand. Then the next largest
-reactor is deployed in the same pattern until the next deployment of the
-smallest reactor would exceed the demand. This scheme is not a proxy for
-strategic decisions by individual actors, it merely meets the demand in a
-roughly efficient manner.
+\label{sec:greedy_deployment}
+
+In this scheme, we deploy the largest reactor first until another
+deployment of that reactor exceeds the demand---as outlined in
+\ref{fig:greedy_diagram}. Then we move to the next largest reactor until the
+next deployment of the smallest capacity reactor exceeds the
+demand. This scheme is not a proxy for strategic decisions by individual
+actors it merely meets the demand in a roughly efficient manner.
+
+Previous work from Bachmann \textit{et al.} \cite{bachmann_enrichment_2021}
+employed a similar deployment scheme to explore the deployment of advanced
+reactors in the \gls{usa}. This scheme is computationally efficient and allows
+for the exploration of the deployment of advanced reactors in a way that is not
+overly complex. This scheme is most useful for scenarios where the user is
+interested in comparing metrics relative to the number of specific reactors
+deployed outside of the context of the problem.
 
 \begin{figure}[!htbp]
     \centering
@@ -54,29 +90,45 @@ roughly efficient manner.
     \label{fig:greedy_diagram}
 \end{figure}
 
-% what are the realistic and the unrealistic parts
+Through the greedy deployment, we are not attempting to capture the complexity
+of the deployment problem but rather to explore the implications of deploying a
+certain number of reactors. As such, we limit the discussion of realism to the
+extent that the scheme meets the demand and could mirror large actors in a
+market. The scheme will deploy reactors until the demand is met within the
+amount of the smallest capacity reactor.
 
-% when does it over or under perform
 
 
 \section{Random Deployment}
-% describe the algorithm in detail
+\label{sec:random_deployment}
 
-% what are the realistic and the unrealistic parts
-Advanced reactor concepts, like the ones outlined in this work, are often designed for a different use-cases. ((((((((((((cite))))))))))))
+Advanced reactor concepts, like the ones outlined in this work, are often
+designed for use cases ranging from industrial steam production to microgrid
+integration ((((((((((((cite?)))))))))))). Our deployment of these reactors is
+a complex problem that requires a nuanced understanding of the energy market,
+the regulatory environment, the intended use of the technology, and the
+technical capabilities of the reactor.
 
+This random deployment is a proxy for the complexity of the real-world
+deployment problem but does not include the nuance of how individual
+deployments meet an end user's needs, which will drive the strategic decisions
+that utilities and ratepayers behind the meter make in their reactor choices
+The random deployment scheme has the potential to capture some of the
+complexities in overall market development, but the extent we capture these
+details is not explored in this work.
 
-The deployment of these reactors is a complex problem that requires a nuanced
-understanding of the energy market, the regulatory environment, the intended
-use of the technology, and the technical capabilities of the reactor. This
-random deployment is a proxy for the complexity of the real-world deployment
-problem, but does not include the nuance of future user needs, which will drive
-the strategic decisions that utilities and rate payers behind the meter make in
-their reactor choices.
-
-This deployment scheme has the potential to capture some of the complexities in
-overall market development, but the extent that these details are captured is
-not explored in this work. %%% Should I? I'm not sure how long this would take to do, maybe something with ORSAGE?
+The random deployment scheme is implemented by randomly selecting reactors from
+the list of deployable reactors until the demand is covered. We illustrate this
+scheme in Figure \ref{fig:random_diagram}, which shows the single loop in the
+logic from the top down. There is an irreducible demand that cannot be met
+because the power capacity is assumed to be constant. As such the random
+deployment scheme, at its best, will meet the demand, but has the potential to
+fall short of the demand by one of the smallest capacity reactors. To reduce
+the computational cost of this scheme, we have implemented a rough random case
+that deploys until the randomly selected reactor exceeds the demand. This rough
+approximation is what we couple with the greedy deployment scheme in the
+initially random, greedy deployment scheme in Section
+\ref{sec:initially_random_greedy}.
 
 \begin{figure}[!htbp]
     \centering
@@ -85,33 +137,81 @@ not explored in this work. %%% Should I? I'm not sure how long this would take t
     \label{fig:random_diagram}
 \end{figure}
 
-% when does it over or under perform
+The seed for the random number generator is set by the date and time of the
+simulation, which allows for the reproducibility of the results. This scheme is
+a proxy for aggregate decisions by actors and would fail to reliably capture
+individual actor decisions. This scheme is most useful for scenarios or
+timescales where there is a high degree of uncertainty in the deployment of
+reactors.
 
 
 \section{Initially Random, Greedy Deployment}
-% describe the algorithm in detail
+\label{sec:initially_random_greedy}
+
+Combining the random and greedy deployment schemes allows us to inject some of
+the uncertainty around which reactor will be deployed at any given time while
+ensuring that the demand is met in a reasonably computationally efficient
+manner. This scheme does not give us more insight than the random or greedy
+deployment schemes it merely allows us to leverage the strengths of both.
+
+In this deployment scheme, we randomly deploy reactors until a reactor bigger
+than the remaining capacity is proposed for each year, then fill the remaining
+capacity with a greedy algorithm. We outline this scheme in Figure
+\ref{fig:init_random_greedy_diagram}, which shows the two loops (first random,
+then greedy) in the logic from the top down.
 
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[scale=0.4]{images/schemes/random_diagram.png}
+    \includegraphics[scale=0.7]{images/schemes/random_greedy_diagram.png}
     \caption{Initially Random, Greedy Deployment Diagram}
     \label{fig:init_random_greedy_diagram}
 \end{figure}
 
-% what are the realistic and the unrealistic parts
+As highlighted in Section \ref{sec:random_deployment}, we did not implement the
+initially random, greedy deployment scheme to capture additional realism in the
+deployment problem. This scheme combines random and greedy deployment schemes
+and inherits their realistic and unrealistic elements. The random deployment
+scheme captures some of the complexity of the deployment problem but does not
+guarantee the capture of the nuance of future user needs. The greedy deployment
+scheme captures the efficiency of the deployment problem but does not capture
+the complexity of the deployment problem. This scheme is a compromise between
+the two and does not capture the nuance of the deployment problem.
 
-% when does it over or under perform
+The degree to which this scheme captures features of the random or greedy
+deployment schemes varies with the number of reactors deployed in the random
+phase. Instead of randomly deploying until the demand is met, this
+implementation randomly deploys until the selected reactor exceeds the demand.
+This means that when the reactors are different sizes, there is a chance that
+the random phase will deploy a reactor that is much larger than the demand, and
+the greedy phase will make up more of the deployment.
 
 
 \section{Considered Deployment Schemes}
-
-In addition to the deployment schemes outlined above, we also considered a few other deployment schemes that were not included in the final analysis. These schemes were considered for their potential to capture the complexity of the deployment problem, but were ultimately not included due to the egregious nature of approximation required to make the implementation or the lack of a clear benefit over the other schemes.
+\label{sec:considered_deployment_schemes}
+In addition to the deployment schemes outlined above, we also considered a few
+others that we did not include in the final analysis. We examined these schemes
+for their potential to capture the complexity of the deployment problem but
+were ultimately not included due to the egregious nature of approximation
+required to implement or the lack of a clear benefit over the other schemes for
+the questions explored in this work.
 
 \subsection{Capped Deployment}
-% describe the algorithm in detail
-In this scheme, there is a constant limit placed on the number of a specific reactor that can be deployed at any given time step. This is a simple way to model aggregate supply chain constrains that could limit vendors from deploying reactors freely. With the right constraints, this scheme would better succeed at roughly incorporating the limits of a workforce over a short to medium time scale. As workforce constraints are outside the scope of this work, this scheme was implemented but not incorporated in this work.
+\label{sec:capped_deployment}
+This scheme places a constant limit on the number of specific reactors deployed
+at any given time step. This is a simple way to model aggregate supply chain
+constraints that could limit vendors from deploying reactors freely. With the
+right constraints, this scheme would better succeed at roughly incorporating
+the limits of a workforce over a short to medium time scale. As workforce
+constraints are outside the scope of this work, we implement this scheme but do
+not incorporate it into this work.
 
-To use this deployment scheme, a user needs some idea of the supply chain constraints that will limit the deployment of the reactors they are deploying. In Figure \ref{fig:cap_diagram}, we illustrate the defining steps of the capped deployment scheme. The main loop in the logic is consistent with the greedy deployment scheme, but adds a check to see if the current deployment exceeds the limit on that model. If it does, the reactor is removed from the list of reactors to be deployed in that time step.
+To use this deployment scheme, a user needs to understand the supply chain
+constraints that will limit the deployment of the reactors they are deploying.
+We illustrate the defining steps of the capped deployment scheme in Figure
+\ref{fig:cap_diagram}. The main loop in the logic is consistent with the greedy
+deployment scheme but adds a check to see if the current deployment exceeds the
+limit on that reactor. If it does, the reactor is removed from the list of
+reactors to be deployed in that time step.
 
 \begin{figure}[!htbp]
     \centering
@@ -120,31 +220,56 @@ To use this deployment scheme, a user needs some idea of the supply chain constr
     \label{fig:cap_diagram}
 \end{figure}
 
-% what are the realistic and the unrealistic parts
-The realism of this deployment scheme mirrors some elements of the pre-determined distribution (this is a flat distribution after all), but the cap is a less granular way to account for supply chain constraints
+The realism of this deployment scheme mirrors some elements of the
+pre-determined distribution (this is a flat distribution after all), but the
+cap is a less granular way to account for supply chain constraints. This scheme
+is most useful for scenarios or timescales where there is a known limit on the
+workforce. The unrealistic element of this deployment scheme comes from two
+places: 1) the current implementation requires one reactor to be unrestrained
+(preferably the smallest reactor from the deployment standpoint); 2) the cap is
+a flat distribution, which is not a realistic representation of the supply
+chain constraints for most technologies.
 
-% when does it over or under perform
+When the unconstrained reactor is not the smallest power reactor, this scheme
+will fall below demand moreso than when the unconstrained reactor is the
+smallest in power. This scheme has the potential to overperform by one reactor
+in the case where the unconstrained reactor is the smallest in power as it can
+over-deploy by one reactor's capacity in that case.
 
-\section{Pre-Determined Distribution Deployment}
-% describe the algorithm in detail
+\subsection{Pre-Determined Distribution Deployment}
+\label{sec:pre_determined_distribution_deployment}
 This deployment scheme allows users to incorporate the projections and
-commitments of rate payers and utilities by setting a distribution over the
-time of the simulation. In this scheme the distribution serves as a cap to the
-number of reactors deployed in a time step, and reactors are preferentially
-deployed first to meet those caps. After that has been completed, the remaining
-reactors without caps are deployed to meet the demand. In this way, we are able
-to incorporate knowledge of supply chain constraints for specific technologies
-without having to model the supply chain in detail.
-% would be great to find some sources for this, and see what the literature says
+commitments of ratepayers and utilities by setting a distribution over the
+simulation time. In this scheme, the distribution serves as a cap to the
+number of reactors deployed in a time step, and we preferentially
+deploy reactors first to meet those caps. After completion, we deploy the
+remaining reactors without caps to meet the demand. In this way, we incorporate
+knowledge of supply chain constraints for specific technologies without having
+to model the supply chain in detail.
 
-\begin{figure}[!htbp]
+To use this deployment scheme, a user needs some idea of the distribution of
+reactors deployed over the simulation time. We illustrate the defining steps of
+the pre-determined distribution deployment scheme in Figure
+\ref{fig:pre_det_diagram}. The main loop in the logic is consistent with the
+greedy deployment scheme but adds a check to see if the current deployment
+exceeds the limit on that reactor. If it does, the scheme removes the reactor
+from the list of deployable reactors in that time step. This scheme varies from
+the capped deployment scheme in that the distribution is not flat, but a more
+granular distribution that varies by year.
+
+\begin{figure}[!hp]
     \centering
     \includegraphics[scale=0.4]{images/schemes/pre_det_diagram.png}
     \caption{Pre-Determined Distribution Deployment Diagram}
     \label{fig:pre_det_diagram}
 \end{figure}
 
-% what are the realistic and the unrealistic parts
-
-% when does it over or under perform
-This scheme is most useful when there are known commitments to specific technologies.
+The realism of this deployment scheme mirrors some elements of the capped
+deployment, but the distribution is a more granular way to account for supply
+chain constraints. This scheme is most useful when there are known commitments
+to specific technologies. It allows the user to indirectly incorporate the
+evolution of supply chains or workforce constraints over time, and to
+explicitly incorporate decisions from individual actors. If a user established
+the nuances of the supply chain constraints in other work, it could be
+incorporated through this scheme. Under and over-performance of this scheme is
+difficult to predict, as it depends on the distribution of reactors over time.
