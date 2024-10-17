@@ -1,13 +1,13 @@
 # 2024-ryan-ms
 This repository holds Nathan Ryan's Master's thesis.
 
-Chapters:
+Sections sent for review:
 - [x] Introduction
 - [ ] Background
-- [ ] Deployment Schemes
+- [x] Deployment Schemes
 - [ ] Time Management
 - [ ] Conclusions
-- [ ] Appendix: LWRs
+- [x] Appendix: LWRs
 
 ## Cocktail Hour Summary
 I investigated how the staggered enrichment approach (where they go from a LEU+
