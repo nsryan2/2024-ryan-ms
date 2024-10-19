@@ -4,6 +4,8 @@ This repository holds Nathan Ryan's Master's thesis.
 Sections sent for review:
 - [x] Introduction
 - [ ] Background
+- [ ] Methodology
+- [ ] Time Methodology
 - [x] Deployment Schemes
 - [ ] Time Management
 - [ ] Conclusions
