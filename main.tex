@@ -149,19 +149,18 @@ minimum height=4em]
 
 \input{nfc}
 
-\chapter{Methodology}
-\label{ch:methodology}
-\section{Transition Scenarios}
-\input{lit_review}
-
-\section{TRISO Fuel}
 \input{triso_fuel}
 
 \input{cyclus}
 
+
+\chapter{Methodology}
+\label{ch:methodology}
+\input{method}
+
 \input{metrics}
 
-
+\input{time_method}
 
 
 \chapter{Deployment Scenarios}
@@ -169,8 +168,10 @@ minimum height=4em]
 
 \input{scenarios}
 
-\chapter{Memory Efficiency}
-\label{ch:memory}
+\chapter{Time Management}
+\label{ch:time}
+
+\input{time}
 
 \chapter{Conclusions}
 \label{ch:conclusions}
@@ -179,14 +180,14 @@ minimum height=4em]
 
 \input{limitations}
 
-
-\chapter{Appendices}
-\input{appendix}
-
 \backmatter
 
 \bibliographystyle{apalike}
 \bibliography{bibliography}
+
+\chapter{Appendices}
+\input{appendix}
+
 
 \end{document}
 \endinput
