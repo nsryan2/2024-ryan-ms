@@ -1,3 +1,5 @@
+\pagebreak
+(((((((((((((remove page break)))))))))))))
 \section{\cyclus}
 % fix that, too informal and introduces archetypes without context.
 \cyclus is an agent-based \gls{nfc} simulator that is incredibly
@@ -22,22 +24,6 @@ As \cyclus is a transactions code and not necessarily a physics code,
 the reactors incorporate reactor physics through pre-defined "recipes,"
 where the user specifies the isotopic concentration of the fresh and
 used fuel.
-
-An example of this is the \gls{triso} fuel that is used in this work: (((((((((((update recipe with actual values)))))))))))
-% \begin{minted}{xml}
-%     <recipe>
-%         <name>TRISO</name>
-%         <basis>mass</basis>
-%         <nuclide>
-%             <id>U235</id>
-%             <comp>0.045</comp>
-%         </nuclide>
-%         <nuclide>
-%             <id>U238</id>
-%             <comp>0.955</comp>
-%         </nuclide>
-%     </recipe>
-% \end{minted}
 
 Users approximate the burnup of each fuel element with the
 same input recipe as the same; however, in this work we incorporate a
