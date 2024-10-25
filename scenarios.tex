@@ -9,9 +9,9 @@ approximations.
 We use this chapter to explore the deployment schemes we have
 implemented---outlined in Table \ref{tab:deployment_schemes}---, and the demand
 growth scenarios we have considered---outlined in Table
-\ref{tab:demand_scenarios}. We will also discuss two additional deployment
-schemes that we implemented, but not incorporated as they are more useful for
-problems not considered herein.
+\ref{tab:demand_scenarios}. In Appendix \ref{sec:considered_deployment_schemes}
+we will also discuss two additional deployment schemes that we implemented, but
+not incorporated as they are more useful for problems not considered herein.
 
 \begin{table}[htbp]
     \centering
@@ -184,92 +184,3 @@ implementation randomly deploys until the selected reactor exceeds the demand.
 This means that when the reactors are different sizes, there is a chance that
 the random phase will deploy a reactor that is much larger than the demand, and
 the greedy phase will make up more of the deployment.
-
-
-\section{Considered Deployment Schemes}
-\label{sec:considered_deployment_schemes}
-In addition to the deployment schemes outlined above, we also considered a few
-others that we did not include in the final analysis. We examined these schemes
-for their potential to capture the complexity of the deployment problem but
-were ultimately not included due to the egregious nature of approximation
-required to implement or the lack of a clear benefit over the other schemes for
-the questions explored in this work.
-
-\subsection{Capped Deployment}
-\label{sec:capped_deployment}
-This scheme places a constant limit on the number of specific reactors deployed
-at any given time step. This is a simple way to model aggregate supply chain
-constraints that could limit vendors from deploying reactors freely. With the
-right constraints, this scheme would better succeed at roughly incorporating
-the limits of a workforce over a short to medium time scale. As workforce
-constraints are outside the scope of this work, we implement this scheme but do
-not incorporate it into this work.
-
-To use this deployment scheme, a user needs to understand the supply chain
-constraints that will limit the deployment of the reactors they are deploying.
-We illustrate the defining steps of the capped deployment scheme in Figure
-\ref{fig:cap_diagram}. The main loop in the logic is consistent with the greedy
-deployment scheme but adds a check to see if the current deployment exceeds the
-limit on that reactor. If it does, the reactor is removed from the list of
-reactors to be deployed in that time step.
-
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[scale=0.4]{images/schemes/cap_diagram.png}
-    \caption{Capped Deployment Diagram}
-    \label{fig:cap_diagram}
-\end{figure}
-
-The realism of this deployment scheme mirrors some elements of the
-pre-determined distribution (this is a flat distribution after all), but the
-cap is a less granular way to account for supply chain constraints. This scheme
-is most useful for scenarios or timescales where there is a known limit on the
-workforce. The unrealistic element of this deployment scheme comes from two
-places: 1) the current implementation requires one reactor to be unrestrained
-(preferably the smallest reactor from the deployment standpoint); 2) the cap is
-a flat distribution, which is not a realistic representation of the supply
-chain constraints for most technologies.
-
-When the unconstrained reactor is not the smallest power reactor, this scheme
-will fall below demand moreso than when the unconstrained reactor is the
-smallest in power. This scheme has the potential to overperform by one reactor
-in the case where the unconstrained reactor is the smallest in power as it can
-over-deploy by one reactor's capacity in that case.
-
-\subsection{Pre-Determined Distribution Deployment}
-\label{sec:pre_determined_distribution_deployment}
-This deployment scheme allows users to incorporate the projections and
-commitments of ratepayers and utilities by setting a distribution over the
-simulation time. In this scheme, the distribution serves as a cap to the
-number of reactors deployed in a time step, and we preferentially
-deploy reactors first to meet those caps. After completion, we deploy the
-remaining reactors without caps to meet the demand. In this way, we incorporate
-knowledge of supply chain constraints for specific technologies without having
-to model the supply chain in detail.
-
-To use this deployment scheme, a user needs some idea of the distribution of
-reactors deployed over the simulation time. We illustrate the defining steps of
-the pre-determined distribution deployment scheme in Figure
-\ref{fig:pre_det_diagram}. The main loop in the logic is consistent with the
-greedy deployment scheme but adds a check to see if the current deployment
-exceeds the limit on that reactor. If it does, the scheme removes the reactor
-from the list of deployable reactors in that time step. This scheme varies from
-the capped deployment scheme in that the distribution is not flat, but a more
-granular distribution that varies by year.
-
-\begin{figure}[!hp]
-    \centering
-    \includegraphics[scale=0.4]{images/schemes/pre_det_diagram.png}
-    \caption{Pre-Determined Distribution Deployment Diagram}
-    \label{fig:pre_det_diagram}
-\end{figure}
-
-The realism of this deployment scheme mirrors some elements of the capped
-deployment, but the distribution is a more granular way to account for supply
-chain constraints. This scheme is most useful when there are known commitments
-to specific technologies. It allows the user to indirectly incorporate the
-evolution of supply chains or workforce constraints over time, and to
-explicitly incorporate decisions from individual actors. If a user established
-the nuances of the supply chain constraints in other work, it could be
-incorporated through this scheme. Under and over-performance of this scheme is
-difficult to predict, as it depends on the distribution of reactors over time.
