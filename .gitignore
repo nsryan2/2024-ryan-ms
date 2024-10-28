@@ -12,5 +12,6 @@
 main.pdf
 *.synctex(busy)
 *.pyg
+*.DS_Store
 
 _minted-main/
