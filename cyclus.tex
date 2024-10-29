@@ -1,34 +1,22 @@
 \section{\cyclus}
 \label{sec:cyclus}
 % fix that, too informal and introduces archetypes without context.
-\cyclus is an agent-based \gls{nfc} simulator that is versatile, open source, and modular. The software achieves this versatility through a series of generic archetypes that are primarily transaction based. Over the years, the user community and developers have created a litany of nuclear specific archetypes for everything from proliferation assessment to fuel burnup. Many standard fuel cycle facilities have been implemented in the \cycamore repository on GitHub, which holds technology-agnostic archetypes for material sources, material sinks, enrichment services, separations capabilities, and a generic reactor.
+\cyclus is an agent-based \gls{nfc} simulator that is versatile, open source, and modular. The software achieves this versatility through a series of generic archetypes that are primarily transaction based. Over the years, the user community and developers have created a litany of nuclear specific archetypes for everything from proliferation assessment to fuel burnup. Many standard fuel cycle facilities have been implemented in the \cycamore repository \cite{Carlsen_cycamore_2014}, which holds technology-agnostic archetypes for material sources, material sinks, enrichment services, separations capabilities, and a generic reactor.
+
+\cyclus treats each facility as an agent that can interact with other agents in the simulation. The agents are defined by their capabilities and the resources they can provide or consume. The agents are connected through a market mechanism called the \gls{dre} that allows agents to make requests for resources and respond to requests from other agents. The \gls{dre} is a key component of the \cyclus simulation framework that allows for the dynamic exchange of resources between agents. The \gls{dre} is responsible for matching requests for resources with offers from suppliers and ensuring that the resources are exchanged in a fair and efficient manner.
+
+Materials, or commodities in the parlance of the \cyclus ecosystem, are passed by agents through the \gls{dre} in recorded transactions. A commodity can be anything, from a raw material like uranium ore to contextual concepts (e.g., money, permits, emissions, or social acceptance). The transactions are recorded in a database that can be queried to determine the flow of materials through the simulation. As Huff et \textit{al.} outline in their 2016 paper \cite{huff_cyclus_intro_2016}, treating facilities and materials allows for flexibility in the level of fidelity for each.
 
 % discuss recipes
 As \cyclus is a transactions code and not necessarily a physics code,
 the reactors incorporate reactor physics through pre-defined "recipes,"
 where the user specifies the isotopic concentration of the fresh and
-used fuel.
-
-Users approximate the burnup of each fuel element with the
+used fuel. Users approximate the burnup of each fuel element with the
 same input recipe as the same; however, in this work we incorporate a
-cascading enrichment from \gls{leu+} to \gls{haleu}.
-% find a citation or source that companies are actually going to do that
-% (best case scenario is find it for each reactor you do it for)
+cascading enrichment from \gls{leu+} to \gls{haleu} as some advanced reactor companies have redesigned their cores to make use of both; \gls{leu+} in the short term, while they work with the government to establish the supply chain for \gls{haleu}.
 
 % discuss EVER and CLOVER?
-Novel in this work is our use of a low fidelity archetype based on the
-\cycamore reactor %\cite{the summer poster}. \gls{ever}
-
-\gls{ever} allows the user to specify multiple recipes for the fuel and
-change between them at specific times.
-
-
-% discuss DRE
-As we have discussed, \cyclus's primary function is to keep track of
-material transactions between agents. This is accomplished through the
-\gls{dre}, which functions like a market where each agent brings a bid
-for what and how much material they need and suppliers are matched with
-buyers % cite something here.
+% Novel in this work is our use of a low fidelity archetype based on the \cycamore reactor \gls{ever}, which allows the user to specify multiple recipes for the fuel and change between them at specific times.
 
 
 \subsection{Archetypes and Time Management}
@@ -36,9 +24,9 @@ buyers % cite something here.
 
 Throughout the \cyclus ecosystem, archetypes interact with the \gls{dre} and each other in a fixed, user defined, time step, forcing the entire simulation to operate on the smallest universal time step. For example, if a fabrication facility can produce material every 2 months but the enrichment facility can only provide material every 3 months, then we would need to use a 1 month time step to capture both. When the time step is smaller than the minimum for a given facility, that facility still participates in the \gls{dre} with a 0 bid. These zero bids, across hundreds of facilities, add complexity and inefficiencies to solving the transaction problem at each time step.
 
-Examining the \cyclus ecosystem, we identified an archetype called $Pattern_Sink$ wherein the user can alter the frequency that the material sink, often called the repository, can accept material. We have created an example of this archetype in action with a simple A-B-C scenario, shown in Figure \ref{fig:a-b-c}. In this scenario, material is received from a source (A) to a reactor (B) with a final (C) sink that can only accept material at a certain frequency.
+Examining the \cyclus ecosystem, we identified an archetype called PatternSink wherein the user can alter the frequency that the material sink, often called the repository, can accept material. We have created an example of this archetype in action with a simple A-B-C scenario, shown in Figure \ref{fig:a-b-c}. In this scenario, material is received from a source (A) to a reactor (B) with a final (C) sink that can only accept material at a certain frequency.
 
-\begin{figure}
+\begin{figure}[!ht]
     \centering
     \includegraphics[scale=0.4]{images/cyclus/a-b-c.png}
     \caption{Simple A-B-C Scenario}
@@ -47,10 +35,10 @@ Examining the \cyclus ecosystem, we identified an archetype called $Pattern_Sink
 
 If we track the material being received by the sink it becomes clear that this frequency simply alters how frequently the archetype updates its internal understanding of time. As a consequence, it appears in Figure \ref{fig:pattern_freq_50} as though multiple groups of material are received in one time step despite this archetype not having an idea of individual shipments. The way this archetype accomplishes the artificial restriction on accepting material is by simply not updating the time step that the archetype is at until the next universal time step is met. Regardless of function, this is the only example of flexibility of timestep we found in the ecosystem.
 
-\begin{figure}
+\begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.4]{images/cyclus/pattern_sink_fuel_transactions.pdf}
-    \caption{Production of $^{239}$Pu with a frequency of 50 months}
+    \includegraphics[scale=0.8]{images/cyclus/pattern_sink_fuel_transactions.pdf}
+    \caption{Acceptance of $^{239}$Pu into the sink with a frequency of 50 months}
     \label{fig:pattern_freq_50}
 \end{figure}
 
