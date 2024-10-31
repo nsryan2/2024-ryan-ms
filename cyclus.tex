@@ -3,7 +3,7 @@
 % fix that, too informal and introduces archetypes without context.
 \cyclus is an agent-based \gls{nfc} simulator that is versatile, open source, and modular. The software achieves this versatility through a series of generic archetypes that are primarily transaction based. Over the years, the user community and developers have created a litany of nuclear specific archetypes for everything from proliferation assessment to fuel burnup. Many standard fuel cycle facilities have been implemented in the \cycamore repository \cite{Carlsen_cycamore_2014}, which holds technology-agnostic archetypes for material sources, material sinks, enrichment services, separations capabilities, and a generic reactor.
 
-\cyclus treats each facility as an agent that can interact with other agents in the simulation. The agents are defined by their capabilities and the resources they can provide or consume. The agents are connected through a market mechanism called the \gls{dre} that allows agents to make requests for resources and respond to requests from other agents. The \gls{dre} is a key component of the \cyclus simulation framework that allows for the dynamic exchange of resources between agents. The \gls{dre} is responsible for matching requests for resources with offers from suppliers and ensuring that the resources are exchanged in a fair and efficient manner.
+\cyclus treats each facility as an agent that can interact with other agents in the simulation. The agents are defined by their capabilities and the resources they can provide or consume. The agents are connected through a market mechanism called the \gls{dre} that allows agents to make requests for resources and respond to requests from other agents, this is a unique feature of \cyclus. The \gls{dre} is a key component of the \cyclus simulation framework that allows for the dynamic exchange of resources between agents. The \gls{dre} is responsible for matching requests for resources with offers from suppliers and ensuring that the resources are exchanged in a fair and efficient manner.
 
 Materials, or commodities in the parlance of the \cyclus ecosystem, are passed by agents through the \gls{dre} in recorded transactions. A commodity can be anything, from a raw material like uranium ore to contextual concepts (e.g., money, permits, emissions, or social acceptance). The transactions are recorded in a database that can be queried to determine the flow of materials through the simulation. As Huff et \textit{al.} outline in their 2016 paper \cite{huff_cyclus_intro_2016}, treating facilities and materials allows for flexibility in the level of fidelity for each.
 
@@ -12,11 +12,14 @@ As \cyclus is a transactions code and not necessarily a physics code,
 the reactors incorporate reactor physics through pre-defined "recipes,"
 where the user specifies the isotopic concentration of the fresh and
 used fuel. Users approximate the burnup of each fuel element with the
-same input recipe as the same; however, in this work we incorporate a
+same input recipe to be the same; however, in this work we incorporate a
 cascading enrichment from \gls{leu+} to \gls{haleu} as some advanced reactor companies have redesigned their cores to make use of both; \gls{leu+} in the short term, while they work with the government to establish the supply chain for \gls{haleu}.
 
 % discuss EVER and CLOVER?
 % Novel in this work is our use of a low fidelity archetype based on the \cycamore reactor \gls{ever}, which allows the user to specify multiple recipes for the fuel and change between them at specific times.
+
+% discuss region, institution, and facility relationships
+In \cyclus, the user defines the simulation by specifying the regions, institutions, and facilities that will be present in the simulation. Regions are collections of institutions, and institutions are collections of facilities (facilities are the agents that interact with each other in the simulation). The user can define the relationships between regions, institutions, and facilities to model the flow of materials and resources through the simulation. Through initial conditions, the user can tailor their simulation for any historical or imagined starting point based on the expected facilities and resources available from the outset.
 
 
 \subsection{Archetypes and Time Management}
@@ -37,9 +40,15 @@ If we track the material being received by the sink it becomes clear that this f
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[scale=0.8]{images/cyclus/pattern_sink_fuel_transactions.pdf}
+    \includegraphics[scale=0.75]{images/cyclus/pattern_sink_fuel_transactions.pdf}
     \caption{Acceptance of $^{239}$Pu into the sink with a frequency of 50 months}
     \label{fig:pattern_freq_50}
 \end{figure}
 
-In this work we implement a fundamental toolkit capability that any archetype in the Cyclus ecosystem can take advantage of with one implementation.
+While archetypes like PatternSink introduce new, internal capabilities, they all inherit a set of base capabilities from the \cyclus toolkit. In this work we implement a fundamental toolkit capability that any archetype in the \cyclus ecosystem can use with one implementation. The \cyclus toolkit provides a modular and extensible framework for modeling \glspl{nfc}, allowing users to create custom archetypes that simulate various facilities and processes. These base capabilities standardize how archetypes create material buffers, interact with the \gls{dre}, and connect to the internal clock of the simulation, which are essential for coordinating the agents and commodities across their complex interactions within a \gls{nfc}. Additionally, the toolkit includes features such as dynamic resource allocation, customizable agent behaviors, and detailed tracking of material flows, which are crucial for simulating the lifecycle of nuclear materials.
+
+The \cyclus toolkit's modular architecture allows for the seamless integration of new archetypes and models, promoting innovation and collaboration within the \cyclus community. We aim to provide the most versatile and powerful foundation for \cyclus users by focusing on these core toolkit capabilities. This will enable researchers and developers to create more accurate and detailed simulations of \glspl{nfc}, ultimately allowing for better decision-making and policy development in the nuclear industry.
+
+We have identified the appropriate policy to update in material transactions and are working on developing a robust implementation that is compatible with the \cycamore archetypes to ensure the most users possible will benefit. This involves enhancing the material handling capabilities to support more complex transaction policies, improving the resource exchange mechanisms to allow for more flexible and efficient trading, and refining the agent-based simulation features to better represent the dynamic behaviors of different facilities.
+
+By implementing these improvements, we aim to ensure that the \cyclus toolkit remains at the forefront of \gls{nfc} simulation, providing a robust and flexible platform for users to explore and analyze various scenarios and strategies.
