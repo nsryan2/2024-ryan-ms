@@ -3,7 +3,7 @@ This repository holds Nathan Ryan's Master's thesis.
 
 Sections sent for review:
 - [x] Introduction
-- [ ] Background
+- [x] Background
 - [ ] Methodology
 - [ ] Time Methodology
 - [x] Deployment Schemes

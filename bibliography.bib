@@ -26,6 +26,149 @@ tributed in this work are examples of such contributions.},
 	month = nov,
 	year = {2014}
 }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% fuel depletion models %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@article{bae_deep_2020,
+	title = {Deep learning approach to nuclear fuel transmutation in a fuel cycle simulator},
+    author = {Bae, Jin Whan and Rykhlevskii, Andrei and Chee, Gwendolyn and Huff, Kathryn D.},
+	journal = {Annals of Nuclear Energy},
+    year = {2020},
+	volume = {139},
+	issn = {0306-4549},
+	url = {https://www.sciencedirect.com/science/article/pii/S0306454919307406},
+	doi = {10.1016/j.anucene.2019.107230},
+	abstract = {We trained a neural network model to predict Pressurized Water Reactor (PWR) Used Nuclear Fuel (UNF) composition given initial enrichment and burnup. This quick, flexible, medium-fidelity method to estimate depleted PWR fuel assembly compositions is used to model scenarios in which the PWR fuel burnup and enrichment vary over time. The Used Nuclear Fuel Storage, Transportation \& Disposal Analysis Resource and Data System (UNF-ST\&DARDS) Unified Database (UDB) provided a ground truth on which the model trained. We validated the model by comparing the U.S. UNF inventory profile predicted by the model with the UDB UNF inventory profile. The neural network yields less than 1\% error for UNF inventory decay heat and activity and less than 2\% error for major isotopic inventory. The neural network model takes 0.27 s for 100 predictions, compared to 118 s for 100 Oak Ridge Isotope GENeration (ORIGEN) calculations. We also implemented this model into Cyclus, an agent-based Nuclear Fuel Cycle (NFC) simulator, to perform rapid, medium-fidelity PWR depletion calculations. This model also allows discharge of batches with assemblies of varying burnup. Since the original private data cannot be retrieved from the model, this trained model can provide open-source depletion capabilities to NFC simulators. We show that training an artificial neural network with a dataset from a complex fuel depletion model can provide rapid, medium-fidelity depletion capabilities to large-scale fuel cycle simulations.},
+	urldate = {2024-10-31},
+	month = may,
+	keywords = {Artificial neural network, Machine learning, Nuclear fuel cycle, Simulation, Spent nuclear fuel},
+}
+
+
+@inproceedings{skutnik_cyborg_2016,
+	address = {Las Vegas, Nevada, United States},
+	series = {Fuel {Cycle} and {Waste} {Management}: {General}—{II}},
+	title = {{CyBORG}: {An} {ORIGEN}-{Based} {Reactor} {Analysis} {Capability} for {Cyclus}},
+	volume = {115},
+	booktitle = {Transactions of the {American} {Nuclear} {Society}},
+	publisher = {American Nuclear Society},
+	author = {Skutnik, Steven E. and Sly, Nicholas C. and Littell, Jennifer Lynn},
+	month = nov,
+	year = {2016},
+	keywords = {C++, Code, Fuel cycle, Geniusv2, Global Evaluation of Nuclear Infrastructure Utilization Scenarios (GENIUS), Simulation, Technology},
+	pages = {299--301},
+	file = {Skutnik et al. - 2016 - CyBORG An ORIGEN-Based Reactor Analysis Capabilit.pdf:C\:\\Users\\abachmann\\Zotero\\storage\\8R88JQVT\\43GGN9WD.pdf:application/pdf},
+}
+
+@article{schneider_nfcsim_2005,
+	title = {{NFCSim}: {A} {Dynamic} {Fuel} {Burnup} and {Fuel} {Cycle} {Simulation} {Tool}},
+	volume = {151},
+	number = {1},
+	journal = {Nuclear Technology},
+	author = {Schneider, Erich A. and Bathke, Charles G. and James, Michael R.},
+	month = jul,
+	year = {2005},
+	keywords = {Fuel cycle, Reactivity Modeling, Simulation},
+	pages = {35--50},
+	file = {NT-151-1-35-Schneider, et al.pdf:C\:\\Users\\abachmann\\Zotero\\storage\\FV66APMP\\NT-151-1-35-Schneider, et al.pdf:application/pdf},
+}
+
+@techreport{schneider_integrated_2016,
+	title = {An {Integrated} {Fuel} {Depletion} {Calculator} for {Fuel} {Cycle} {Options} {Analysis}},
+	url = {http://www.osti.gov/servlets/purl/1258475/},
+	language = {en},
+	number = {12-4065, 1258475},
+	urldate = {2019-12-03},
+	institution = {battelle Energy Alliance, LLC},
+	author = {Schneider, Erich and Scopatz, Anthony},
+	month = apr,
+	year = {2016},
+	doi = {10.2172/1258475},
+	pages = {12--4065, 1258475},
+	file = {[PDF] inl.gov:C\:\\Users\\abachmann\\Zotero\\storage\\7F44GAQ6\\Schneider and Scopatz - 2016 - An Integrated Fuel Depletion Calculator for Fuel C.pdf:application/pdf;Schneider and Scopatz - 2016 - An Integrated Fuel Depletion Calculator for Fuel C.pdf:C\:\\Users\\abachmann\\Zotero\\storage\\T8ZXE4A9\\Schneider and Scopatz - 2016 - An Integrated Fuel Depletion Calculator for Fuel C.pdf:application/pdf},
+}
+
+@article{yacout_visionverifiable_2006,
+	title = {{VISION}–{Verifiable} {Fuel} {Cycle} {Simulation} of {Nuclear} {Fuel} {Cycle} {Dynamics}},
+	journal = {Waste Management},
+	author = {Yacout, AM and Jacobson, JJ and Matthern, GE and Piet, SJ and Shropshire, DE and Laws, CT},
+	year = {2006},
+	file = {3394908.pdf:C\:\\Users\\abachmann\\Zotero\\storage\\3V77IV87\\9T3W4J57.pdf:application/pdf},
+}
+
+@article{richards_application_2021,
+	title = {Application of sensitivity analysis in {DYMOND}/{Dakota} to fuel cycle transition scenarios},
+	volume = {7},
+	copyright = {© S. Richards and B. Feng, Published by EDP Sciences, 2021},
+	issn = {2491-9292},
+	doi = {10.1051/epjn/2021024},
+	abstract = {The ability to perform sensitivity analysis has been enabled for the nuclear fuel cycle simulator DYMOND through its coupling with the design and analysis toolkit Dakota. To test and demonstrate these new capabilities, a transition scenario and multi-parameter study were devised. The transition scenario represents a partial transition from the US nuclear fleet to a closed fuel cycle with small modular LWRs and fast reactors fueled by reprocessed used nuclear fuel. Four uncertain parameters in this transition were studied – start date of reprocessing, total reprocessing capacity, the nuclear energy demand growth, and the rate at which the fast reactors are deployed – with respect to their impact on four response metrics. The responses – total natural uranium consumed, maximum annual enrichment capacity required, total disposed mass, and total cost of the nuclear fuel cycle – were chosen based on measures known to be of interest in transition scenarios [] and to be significantly impacted by the varying parameters. Analysis of this study was performed both from the direct sampling and through surrogate models developed in Dakota to calculate the global sensitivity measures Sobol’ indices. This example application of this new capability showed that the most consequential parameter to most metrics was the share of new build capacity that is fast reactors. However, for the cost metric, the scaling factor of the energy demand growth was significant and had synergistic behavior with the fast reactor new build share.},
+	language = {en},
+	urldate = {2022-02-09},
+	journal = {EPJ Nuclear Sciences \& Technologies},
+	author = {Richards, S. and Feng, B.},
+	year = {2021},
+	note = {Published: = https://www.epj-n.org/articles/epjn/abs/2021/01/epjn210022/epjn210022.html},
+	pages = {26},
+	annote = {Publisher: EDP Sciences},
+	file = {Application of sensitivity analysis in DYMOND_Dakota to fuel cycle transition scenarios - 1841572.pdf:C\:\\Users\\abachmann\\Zotero\\storage\\HHJRD9YK\\Application of sensitivity analysis in DYMOND_Dakota to fuel cycle transition scenarios - 1841572.pdf:application/pdf;Full Text PDF:C\:\\Users\\abachmann\\Zotero\\storage\\Q3G5TYM8\\BYDIMIBN.pdf:application/pdf;Snapshot:C\:\\Users\\abachmann\\Zotero\\storage\\I5FBNX4K\\epjn210022.html:text/html},
+}
+
+@article{feng_standardized_2016,
+	title = {Standardized verification of fuel cycle modeling},
+	volume = {94},
+	issn = {0306-4549},
+	url = {http://www.sciencedirect.com/science/article/pii/S0306454916301098},
+	doi = {10.1016/j.anucene.2016.03.002},
+	abstract = {A nuclear fuel cycle systems modeling and code-to-code comparison effort was coordinated across multiple national laboratories to verify the tools needed to perform fuel cycle analyses of the transition from a once-through nuclear fuel cycle to a sustainable potential future fuel cycle. For this verification study, a simplified example transition scenario was developed to serve as a test case for the four systems codes involved (DYMOND, VISION, ORION, and MARKAL), each used by a different laboratory participant. In addition, all participants produced spreadsheet solutions for the test case to check all the mass flows and reactor/facility profiles on a year-by-year basis throughout the simulation period. The test case specifications describe a transition from the current US fleet of light water reactors to a future fleet of sodium-cooled fast reactors that continuously recycle transuranic elements as fuel. After several initial coordinated modeling and calculation attempts, it was revealed that most of the differences in code results were not due to different code algorithms or calculation approaches, but due to different interpretations of the input specifications among the analysts. Therefore, the specifications for the test case itself were iteratively updated to remove ambiguity and to help calibrate interpretations. In addition, a few corrections and modifications were made to the codes as well, which led to excellent agreement between all codes and spreadsheets for this test case. Although no fuel cycle transition analysis codes matched the spreadsheet results exactly, all remaining differences in the results were due to fundamental differences in code structure and/or were thoroughly explained. The specifications and example results are provided so that they can be used to verify additional codes in the future for such fuel cycle transition scenarios.},
+	urldate = {2016-04-09},
+	journal = {Annals of Nuclear Energy},
+	author = {Feng, B. and Dixon, B. and Sunny, E. and Cuadra, A. and Jacobson, J. and Brown, N. R. and Powers, J. and Worrall, A. and Passerini, S. and Gregg, R.},
+	month = aug,
+	year = {2016},
+	keywords = {DYMOND, MARKAL, ORION, VISION},
+	pages = {300--312},
+	file = {1-s2.0-S0306454916301098-main.pdf:C\:\\Users\\abachmann\\Zotero\\storage\\L8ULABGR\\8WWHCWAD.pdf:application/pdf;Fulltext:C\:\\Users\\abachmann\\Zotero\\storage\\ADDSN88T\\Feng et al. - 2016 - Standardized verification of fuel cycle modeling.pdf:application/pdf;ScienceDirect Full Text PDF:C\:\\Users\\abachmann\\Zotero\\storage\\23J5WA76\\Feng et al. - 2016 - Standardized verification of fuel cycle modeling.pdf:application/pdf;ScienceDirect Snapshot:C\:\\Users\\abachmann\\Zotero\\storage\\MJNXGKS9\\S0306454916301098.html:text/html;ScienceDirect Snapshot:C\:\\Users\\abachmann\\Zotero\\storage\\9EZJ5QQW\\S0306454916301098.html:text/html;ScienceDirect Snapshot:C\:\\Users\\abachmann\\Zotero\\storage\\85J6G9RY\\S0306454916301098.html:text/html;Snapshot:C\:\\Users\\abachmann\\Zotero\\storage\\M48VDZVX\\S0306454916301098.html:text/html},
+}
+
+@article{openmcyclus_paper,
+  author = {Amanda M. Bachmann, Oleksandr Yardas and Madicken Munk},
+  title = {An Open-Source Coupling for Depletion During Fuel Cycle Modeling},
+  journal = {Nuclear Science and Engineering},
+  volume = {0},
+  number = {0},
+  pages = {1--14},
+  year = {2024},
+  publisher = {Taylor \& Francis},
+  doi = {10.1080/00295639.2024.2393940},
+  URL = {https://doi.org/10.1080/00295639.2024.2393940},
+  eprint = {https://doi.org/10.1080/00295639.2024.2393940},
+  abstract = { Fuel depletion is an important aspect of fuel cycle modeling, allowing a user to account for how loaded fuel compositions affect in-core and spent fuel compositions and their related fuel cycle metrics. Therefore, multiple methods have been developed to account for depletion within fuel cycle simulations. This work adds to that list of methods by introducing an open-source coupling between Cyclus and OpenMC to perform fuel depletion during a fuel cycle simulation, called OpenMCyclus. This work explains the methodology of OpenMCyclus and presents a benchmark comparison between the performance of OpenMCyclus and another Cyclus archetype that uses recipes to define spent fuel compositions. The development of this coupling expands the functionalities possible through Cyclus by providing real-time fuel depletion that is reactor agnostic and open source. }
+}
+
+
+@article{romano_openmc_2015,
+	series = {Joint {International} {Conference} on {Supercomputing} in {Nuclear} {Applications} and {Monte} {Carlo} 2013, {SNA} + {MC} 2013. {Pluri}- and {Trans}-disciplinarity, {Towards} {New} {Modeling} and {Numerical} {Simulation} {Paradigms}},
+	title = {{OpenMC}: {A} state-of-the-art {Monte} {Carlo} code for research and development},
+	volume = {82},
+	issn = {0306-4549},
+	shorttitle = {{OpenMC}},
+	url = {https://www.sciencedirect.com/science/article/pii/S030645491400379X},
+	doi = {10.1016/j.anucene.2014.07.048},
+	abstract = {This paper gives an overview of OpenMC, an open source Monte Carlo particle transport code recently developed at the Massachusetts Institute of Technology. OpenMC uses continuous-energy cross sections and a constructive solid geometry representation, enabling high-fidelity modeling of nuclear reactors and other systems. Modern, portable input/output file formats are used in OpenMC: XML for input, and HDF5 for output. High performance parallel algorithms in OpenMC have demonstrated near-linear scaling to over 100,000 processors on modern supercomputers. Other topics discussed in this paper include plotting, CMFD acceleration, variance reduction, eigenvalue calculations, and software development processes.},
+	urldate = {2024-10-31},
+	journal = {Annals of Nuclear Energy},
+	author = {Romano, Paul K. and Horelik, Nicholas E. and Herman, Bryan R. and Nelson, Adam G. and Forget, Benoit and Smith, Kord},
+	month = aug,
+	year = {2015},
+	keywords = {HDF5, Monte Carlo, Neutron transport, OpenMC, Parallel, XML},
+	pages = {90--97},
+	file = {ScienceDirect Snapshot:/Users/nsryan/Zotero/storage/ZPYNEHGW/S030645491400379X.html:text/html},
+}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%
 % legislative_framework %
 %%%%%%%%%%%%%%%%%%%%%%%%%
