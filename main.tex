@@ -17,6 +17,7 @@
 
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
+\hypersetup{hidelinks}
 \usepackage{subfig}
 \usepackage{hhline}
 \usepackage{amsmath}
@@ -84,7 +85,7 @@ text width=9em, text centered, rounded corners, minimum height=4em]
 minimum height=4em]
 
 
-\title{Optimizing TRISO Reactor Fuel Enrichment and Cyclus Memory Efficiency}
+\title{Optimizing TRISO Reactor Fuel Enrichment and Cyclus Archetype Timing}
 \author{Nathan Sean Ryan}
 \department{Nuclear, Plasma, Radiological Engineering}
 \schools{B.S., University of Illinois - Urbana Champaign, 2022}
@@ -184,7 +185,13 @@ minimum height=4em]
 \bibliographystyle{apalike}
 \bibliography{bibliography}
 
-\chapter{Appendices}
+\newcommand\mainmatterWithoutReset
+ {\edef\temppagenumber{\arabic{page}}%
+  \mainmatter
+  \setcounter{page}{\temppagenumber}%
+ }
+\mainmatterWithoutReset
+\appendix
 \input{appendix}
 \input{considered_dep}
 
