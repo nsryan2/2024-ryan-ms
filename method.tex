@@ -5,7 +5,7 @@ In this section, we will discuss the transition scenarios for the deployment of 
 \section{Reactor Models}
 \label{sec:reactor_models}
 
-In this work, we will explore various transition scenarios for the deployment in the \gls{usa} of the: 1) X-Energy Xe-100-like \glspl{htgr}; 2) \gls{usnc} \gls{mmr}-like \glspl{htgr}; and 3) and Westinghouse AP1000-like \glspl{pwr}. To accommodate our assumption that the \gls{haleu} fueled \gls{triso} reactors will first accept \gls{leup} fuel, we have adapted Bachmann's \gls{mmr}-like Serpent model \cite{bachmann_mmr_like_2023} to accept \gls{leup} fuel. These reactor models are not based on confidential or proprietary information, they are constructed from publicly available data to approximate the aggregate behavior.
+In this work, we will explore various transition scenarios for the deployment in the \gls{usa} of the: 1) \gls{xe}-like \glspl{htgr}; 2) \gls{usnc} \gls{mmr}-like \glspl{htgr}; and 3) and Westinghouse AP1000-like \glspl{pwr}. To accommodate our assumption that the \gls{haleu} fueled \gls{triso} reactors will first accept \gls{leup} fuel, we have adapted Bachmann's \gls{mmr}-like Serpent model \cite{bachmann_mmr_like_2023} to accept \gls{leup} fuel. These reactor models are not based on confidential or proprietary information, they are constructed from publicly available data to approximate the aggregate behavior.
 
 \begin{table}[htbp]
    \centering
@@ -13,7 +13,7 @@ In this work, we will explore various transition scenarios for the deployment in
    \label{tab:ar_defs}
    \begin{tabular}{c c c c}
       \hline
-      \textbf{Design Criteria} & \textbf{MMR-Like} \cite{usnc_design_2021} & \textbf{Xe-100-Like} \cite{nuscale_chapter_2018} & \textbf{AP1000} \\
+      \textbf{Design Criteria} & \textbf{MMR-Like} \cite{usnc_design_2021} & \textbf{\gls{xe}-Like} \cite{nuscale_chapter_2018} & \textbf{AP1000} \\
       \hline
       Reactor type & \gls{htgr} & \gls{htgr} & \gls{pwr} \\
       Power Output [MWth] & 15 & 100 & 1000 \\
@@ -36,12 +36,12 @@ The \gls{usnc} \gls{mmr} is a \gls{htgr} that uses \gls{triso} fuel. The reactor
 As of this writing, there is an active partnership between \gls{uiuc} and \gls{usnc} to deploy their \gls{mmr} in the pre-licensing phase with the \gls{nrc} and is expected to be operational in the 2030s.
 
 
-\subsection{Xe-100-like Reactor}
+\subsection{\gls{xe}-like Reactor}
 \label{sec:xe}
 
-The X-Energy Xe-100 is a \gls{htgr} that uses \gls{triso} fuel. The reactor has a thermal output of 100 MW and uses online refueling. The fuel is enriched to 9.95\% $^{235}$U and has a discharge burnup of 168 GWd/MTU. The reactor has a lifetime of 60 years. The reactor in this work is an approximation based on publicly available data and is not based on confidential or proprietary information. The model was originally developed by Richter et al. (((((((((cite xe zenodo))))))))), and is implemented in this work as-is for the \gls{haleu} version of the reactor while the \gls{leup} version is adapted from the \gls{haleu} version.
+The X-Energy \gls{xe} is a \gls{htgr} that uses \gls{triso} fuel. The reactor has a thermal output of 100 MW and uses online refueling. The fuel is enriched to 9.95\% $^{235}$U and has a discharge burnup of 168 GWd/MTU. The reactor has a lifetime of 60 years. The reactor in this work is an approximation based on publicly available data and is not based on confidential or proprietary information. The model was originally developed by Richter et al. (((((((((cite xe zenodo))))))))), and is implemented in this work as-is for the \gls{haleu} version of the reactor while the \gls{leup} version is adapted from the \gls{haleu} version.
 
-As of this writing, X-Energy has received a grant from the \gls{doe} to deploy their Xe-100 in the pre-licensing phase with the \gls{nrc} for projects in Texas and Washington and is expected to be operational in the 2030s. There are similar projects in early stages in Canada and the \gls{uk}.
+As of this writing, X-Energy has received a grant from the \gls{doe} to deploy their \gls{xe} in the pre-licensing phase with the \gls{nrc} for projects in Texas and Washington and is expected to be operational in the 2030s. There are similar projects in early stages in Canada and the \gls{uk}.
 
 
 \subsection{AP1000 Reactor}

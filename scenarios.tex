@@ -21,7 +21,7 @@ not incorporated as they are more useful for problems not considered herein.
         \hline
         \textbf{Status} & \textbf{Scheme} & \textbf{Description} \\
         \hline
-        \multirow{3}{*}{Incorporated} & Greedy Deployment & Deploy the largest
+        \multirow{4}{*}{Incorporated} & Greedy Deployment & Deploy the largest
         reactor first at each time step, fill in the remaining capacity with
         the next smallest, and so on. \\
         & Random Deployment & Uses a date and hour as seed to sample the
@@ -29,6 +29,7 @@ not incorporated as they are more useful for problems not considered herein.
         & Initially Random, Greedy Deployment & Randomly deploys reactors until
         a reactor bigger than the remaining capacity is proposed for each year,
         then fills the remaining capacity with a greedy algorithm. \\
+        Single Reactor & A single reactor model is deployed as the existing fleet is decommissioned.\\
         \hline
         \multirow{2}{*}{Not Incorporated} & Capped Deployment & There is a
         single-number capacity for one or more of the reactor models. \\
@@ -58,12 +59,17 @@ agnostic to the total increase.
         \hline
         \textbf{Demand Growth} & \textbf{Year-to-Year Increase} & \textbf{Source}\\
         \hline
- No growth & 0\% & na\\
- Low growth & 0.17\%, 0.5\%, 1\%, & \cite{eia_aeo_2023}\\
- High growth & 3.5\%, 5.6\% & \cite{julie_liftoff_pathways_2024}\\
+        No growth & 0\% & na\\
+        Low growth & 0.17\%, 0.5\%, 1\%, & \cite{eia_aeo_2023}\\
+        High growth & 3.5\%, 5.6\% & \cite{julie_liftoff_pathways_2024}\\
         \hline
     \end{tabular}
 \end{table}
+
+Each growth scenario is deployed under two regimes: 1) the reactors are never fueled with \gls{leup}; 2) the \gls{mmr} and \gls{xe} reactors are fueled with \gls{leup} until 2040, when they move to \gls{haleu}. \glspl{mmr} deployed before this fuel transition will continue to use \gls{leup} fuel until the end of their lifetime as they do not refuel. The \gls{xe} reactors will refuel with \gls{leup} until 2040, when they will refuel with \gls{haleu}. The AP1000 reactors will continue to use \gls{leu} fuel throughout the simulation.
+
+Under each regime, each growth scenario is met by deploying reactors using the deployment schemes outlined in Table \ref{tab:deployment_schemes}. We will discuss the results of these deployment schemes in the following sections. We will also discuss the limitations of this work and the future work that we will devote to this research.
+
 
 \section{Greedy Deployment}
 \label{sec:greedy_deployment}
