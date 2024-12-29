@@ -5,7 +5,7 @@ In this section, we will discuss the transition scenarios for the deployment of 
 \section{Reactor Models}
 \label{sec:reactor_models}
 
-In this work, we will explore various transition scenarios for the deployment in the \gls{usa} of the: 1) X-Energy Xe-100-like \glspl{htgr}; 2) \gls{usnc} \gls{mmr}-like \glspl{htgr}; and 3) and Westinghouse AP1000-like \glspl{pwr}. To accommodate our assumption that the \gls{haleu} fueled \gls{triso} reactors will first accept \gls{leu+} fuel, we have adapted Bachmann's \gls{mmr}-like Serpent model \cite{bachmann_mmr_like_2023} to accept \gls{leu+} fuel. These reactor models are not based on confidential or proprietary information, they are constructed from publicly available data to approximate the aggregate behavior.
+In this work, we will explore various transition scenarios for the deployment in the \gls{usa} of the: 1) X-Energy Xe-100-like \glspl{htgr}; 2) \gls{usnc} \gls{mmr}-like \glspl{htgr}; and 3) and Westinghouse AP1000-like \glspl{pwr}. To accommodate our assumption that the \gls{haleu} fueled \gls{triso} reactors will first accept \gls{leup} fuel, we have adapted Bachmann's \gls{mmr}-like Serpent model \cite{bachmann_mmr_like_2023} to accept \gls{leup} fuel. These reactor models are not based on confidential or proprietary information, they are constructed from publicly available data to approximate the aggregate behavior.
 
 \begin{table}[htbp]
    \centering
@@ -26,6 +26,13 @@ In this work, we will explore various transition scenarios for the deployment in
    \end{tabular}
 \end{table}
 
+\subsection{MMR-like Reactor}
+\label{sec:mmr}
+
+The \gls{usnc} \gls{mmr} is a \gls{htgr} that uses \gls{triso} fuel. The reactor has a thermal output of 15 MW and a cycle length of 20 years. The fuel is enriched to 9.95\% $^{235}$U and has a discharge burnup of 82 GWd/MTU. The reactor has a lifetime of 20 years. The reactor in this work is an approximation based on publicly available data and is not based on confidential or proprietary information. The model was originally developed by Bachmann et al. (((((((((cite mmr zenodo))))))))), and is implemented in this work as-is for the \gls{haleu} version of the reactor while the \gls{leup} version is adapted from the \gls{haleu} version.
+
+
+
 \section{Transition Scenarios}
 \label{sec:transition_scenarios}
 % Discuss the theoretical framework and key concepts that underpin the research.
@@ -42,7 +49,7 @@ As there are various definitions for each class of enrichment, we will use the f
       \hline
       Natural & < 0.711 \\
       \gls{leu} & 0.711-5 \\
-      \gls{leu+} & 5-10 \\
+      \gls{leup} & 5-10 \\
       \gls{haleu} & 10-20 \\
       \gls{heu} & $\geq$ 20  \\
       \hline
