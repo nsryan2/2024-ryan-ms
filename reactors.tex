@@ -3,7 +3,7 @@
 
 In this work, we will explore various transition scenarios for the deployment in the \gls{usa} of the: 1) \gls{xe}-like \glspl{htgr}; 2) \gls{usnc} \gls{mmr}-like \glspl{htgr}; and 3) and Westinghouse AP1000-like \glspl{pwr}. To accommodate our assumption that the \gls{haleu} fueled \gls{triso} reactors will first accept \gls{leup} fuel, we have adapted Bachmann's \gls{mmr}-like Serpent model \cite{bachmann_mmr_like_2023} and Richter's \gls{xe}-like Serpent model \cite{richter_xe100_like} to accept \gls{leup} fuel. These reactor models are not based on confidential or proprietary information, they are constructed from publicly available data to approximate the aggregate behavior.
 
-\begin{table}[!htbp]
+\begin{table}[H]
    \centering
    \caption{Advanced reactor design specifications.}
    \label{tab:ar_defs}
@@ -31,7 +31,7 @@ The future of the once-active partnership between \gls{uiuc} and \gls{usnc} to d
 
 Figure \ref{fig:mmr_design} shows an artist's rendering of the \gls{mmr} core and reactor vessel. As indicated by the figure, the design is intended to be underground and they claim that the total reactor footprint will be less than 5 acres. The primary coolant is helium gas, which heats up in the core and deposits its heat in a heat exchanger to generate electricity to the side of the reactor \cite{usnc_chalk_river}. Helium is transparent to many nuclear interactions and is inert, making it an attractive choice for a coolant.
 
-\begin{figure}[!htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.19]{images/reactor_design/wide-02.png}
     \caption{USNC MMR Design \cite{usnc_design_2021}}
@@ -44,7 +44,7 @@ While the \gls{mmr} unit operates at constant power, electricity and heat are de
 
 The fuel for this reactor is inspired by the \gls{triso} fuel developed in the 1960s and 1970s. The fuel is a small sphere of uranium fuel that is coated in layers of carbon and silicon carbide. As shown in Figure \ref{fig:usnc_fuel}, the fuel is composed of kernels arranged into a larger fuel pellet. They call their fuel form \gls{fcm} fuel. They additively manufacture each element, allowing for a high packing fraction of fuel and means their fuel could be adapted to many reactor designs.
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \subfloat[Fuel element layers\label{fig:elemenet_layers}]{%
       \includegraphics[width=0.49\textwidth]{images/reactor_design/usnc_triso.png}
    }
@@ -61,7 +61,7 @@ The fuel for this reactor is inspired by the \gls{triso} fuel developed in the 1
 We have modified the fuel composition of Bachmann's \gls{mmr}-like reactor model to accept \gls{leup} fuel. The \gls{leup} fuel is assumed to have the same burnup and power level as the \gls{haleu} fuel. This assumption is not necessarily valid, and we will explore the implications of this assumption in future work; however, we expect that, due to the limited deployment of \gls{leup} fuel, the discrepancies will be well-understood. Figure \ref{fig:mmr_core} shows the top-down view of the \gls{mmr} core model, we will not display both the \gls{leup} and \gls{haleu} versions of the core as they are established by Bachmann \cite{bachmann_thesis_2023}.
 
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \subfloat[Fuel element layers\label{fig:mmr_td}]{%
       \includegraphics[width=0.49\textwidth]{images/reactor_design/haleu_mmr_2blocks.inp_geom1.png}
    }
@@ -77,14 +77,14 @@ Figure \ref{fig:mmr_core} shows a top down and side view of the \gls{mmr} Serpen
 
 
 
-\subsection{\gls{xe}-like Reactor}
+\subsection{Xe-100-like Reactor}
 \label{sec:xe}
 
 As of this writing, X-Energy has received a grant from the \gls{doe} to deploy their \gls{xe} in the pre-licensing phase with the \gls{nrc} for projects in Texas and Washington and is expected to be operational in the 2030s. There are similar projects in early stages in Canada and the \gls{uk}. The X-Energy \gls{xe} is a \gls{htgr} that uses \gls{triso} fuel. The reactor has a thermal output of 100 MW and uses online refueling. The fuel is enriched to 9.95\% $^{235}$U and has a discharge burnup of 168 GWd/MTU. The reactor has a lifetime of 60 years. The reactor in this work is an approximation based on publicly available data and is not based on confidential or proprietary information. The model was originally developed by Richter et al. \cite{richter_xe100_like}, and is implemented in this work as-is for the \gls{haleu} version of the reactor while the \gls{leup} version is adapted from the \gls{haleu} version.
 
 Figure \ref{fig:xe_design} shows an artist's rendering of the \gls{xe} core and reactor vessel. The \gls{xe} reactor is designed to be a small modular reactor that can be deployed in a variety of locations, and is similar to the \gls{mmr} in that it is designed to be gas cooled. Where this design differs from the \gls{mmr} is that the reactor is designed to be refueled online, due to its pebble-bed nature.
 
-\begin{figure}[!htbp]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.09]{images/reactor_design/xe-100-reactor-slice.jpg}
     \caption{X-Energy Xe-100 Rendition \cite{xe_reactor}}
@@ -93,7 +93,7 @@ Figure \ref{fig:xe_design} shows an artist's rendering of the \gls{xe} core and 
 
 Unlike the \gls{mmr}'s annular fuel elements, the \gls{xe} pebbles are composed of a graphite matrix that contains the \gls{triso} fuel particles. These \gls{triso} particles are very similar to those in the \gls{mmr}, as shown in Figure \ref{fig:xe_fuel}.
 
-\begin{figure}[!htpb]
+\begin{figure}[H]
     \centering
     \includegraphics[scale=0.28]{images/reactor_design/graphic-triso-x-pebble.jpg}
     \caption{X-Energy Xe-100 Fuel Pebble \cite{xe_fuel}}
@@ -103,7 +103,7 @@ Unlike the \gls{mmr}'s annular fuel elements, the \gls{xe} pebbles are composed 
 
 We have modified the fuel composition of Richter's \gls{xe}-like reactor model to accept \gls{leup} fuel. The \gls{leup} fuel is assumed to have the same burnup and power level as the \gls{haleu} fuel. This assumption is not necessarily valid, and we will explore the implications of this assumption in future work. However, we expect that, due to the limited deployment of \gls{leup} fuel, the discrepancies will be well-understood. Figure \ref{fig:xe_core} shows the top-down view of the \gls{xe} core model, we will not display both the \gls{leup} and \gls{haleu} versions of the core as they are established by Richter \cite{richter_thesis_2022}.
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \subfloat[Initial core \label{fig:xe_init_core}]{%
       \includegraphics[width=0.49\textwidth]{images/reactor_design/htgr-mr-burn-200.inp_mesh1_bstep0.png}
    }
@@ -121,5 +121,3 @@ Comparing Figures \ref{fig:xe_init_core} and \ref{fig:xe_final_core}, we can see
 \label{sec:ap}
 
 As of this writing, the AP1000 is operational in the \gls{usa} and China, and there are plans to deploy the reactor in the \gls{uk} and India. The Westinghouse AP1000 is a \gls{pwr} that uses UO$_2$ fuel. The reactor has a thermal output of 1000 MW and a cycle length of 18 years. The fuel is enriched to 5\% $^{235}$U and has a discharge burnup of 65 GWd/MTU. The reactor has a lifetime of 60 years. The reactor in this work is an approximation based on publicly available data and is not based on confidential or proprietary information. As this work does not anticipate \gls{leup} being used in the AP1000, there is no such neutronics model of the reactor and we have adapted the generic \cycamore reactor archetype to represent the AP1000 in the same way we represent the existing \gls{lwr} fleet.
-
-

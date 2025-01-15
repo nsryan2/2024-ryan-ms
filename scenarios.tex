@@ -1,3 +1,6 @@
+\section{Scenarios}
+\label{sec:scenarios}
+
 In this work, we explore the deployment of advanced reactors in the future
 energy landscape of the \gls{usa}. As the landscape evolves, compounding
 factors will drive the actual deployment of these reactors in ways this work
@@ -13,7 +16,7 @@ growth scenarios we have considered---outlined in Table
 we will discuss two additional deployment schemes that we implemented, but
 not incorporated as they are more useful for problems not considered herein.
 
-\begin{table}[htbp]
+\begin{table}[H]
     \centering
     \caption{Deployment Schemes}
     \label{tab:deployment_schemes}
@@ -51,7 +54,7 @@ will remain constant. The \gls{doe} Liftoff Report
 assumption for nuclear power in their demand scenarios, which are specific to
 nuclear deployment increases and the number is agnostic to the total increase.
 
-\begin{table}[htbp]
+\begin{table}[H]
     \centering
     \caption{Demand Growth Scenarios}
     \label{tab:demand_scenarios}
@@ -77,5 +80,27 @@ AP1000 reactors will continue to use \gls{leu} fuel throughout the simulation.
 Under each regime, each growth scenario is met by deploying reactors using the
 schemes outlined in Table \ref{tab:deployment_schemes}. We will discuss the
 results of these deployment schemes in the following sections. We will also
-discuss the limitations of this work and propose future work.
+discuss the limitations of this work and propose future work. Regardless of the
+regime, each deployment scheme will attempt to deploy reactors to meet the
+capacity outlined in Figure \ref{fig:dep_goals}.
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.75]{images/results/deployment_calcs/total_new_capacity_scenarios.pdf}
+    \caption{Total and new nuclear capacity deployed in each scenario}
+    \label{fig:dep_goals}
+\end{figure}
+
+As shown, advanced reactors (for the purposes of this work the designs are the:
+\gls{mmr}, \gls{xe}, and AP1000) begin deployment in 2030. While this is an
+aggressive deployment schedule, \cite{bachmann_thesis_2023} established that
+the precise deployment start did not significantly impact the total results for
+this type of analysis and could reasonably serve as an upper bound of
+deployment. The business-as-usual or, as we will refer to it, no growth
+scenario does not require the deployment of a new nuclear reactor until just
+before 2050, whereas the other scenarios understandably commence deployment in
+2030. As we have presented the capacity on a logarithmic plot, the linear
+appearance of the data belies the compounding effect that the year-to-year
+percentage growth requires.
+
+We will focus on the results of the no growth and $3.5\%$ scenarios, and the results for the other scenarios are available in Appendix \ref{ch:additional_results}.
