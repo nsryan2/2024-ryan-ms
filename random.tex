@@ -1,0 +1,46 @@
+\section{Random Deployment}
+\label{sec:random_deployment}
+
+Advanced reactor concepts, like the ones outlined in this work, are often
+designed for use cases ranging from industrial steam production to microgrid
+integration. Our deployment of these reactors is
+a complex problem that requires a nuanced understanding of the energy market,
+the regulatory environment, the intended use of the technology, and the
+technical capabilities of the reactor.
+
+This random deployment is a proxy for the complexity of the real-world
+deployment problem but does not include the nuance of how individual
+deployments meet an end user's needs, which will drive the strategic decisions
+that utilities and ratepayers behind the meter make in their reactor choices
+The random deployment scheme has the potential to capture some of the
+complexities in overall market development, but the extent we capture these
+details is not explored in this work.
+
+The random deployment scheme is implemented by randomly selecting reactors from
+the list of deployable reactors until the demand is covered. We illustrate this
+scheme in Figure \ref{fig:random_diagram}, which shows the single loop in the
+logic from the top down. There is an irreducible demand that cannot be met
+because the power capacity is assumed to be constant. As such the random
+deployment scheme, at its best, will meet the demand, but has the potential to
+fall short of the demand by one of the smallest capacity reactors. To reduce
+the computational cost of this scheme, we have implemented a rough random case
+that deploys until the randomly selected reactor exceeds the demand. This rough
+approximation is what we couple with the greedy deployment scheme in the
+initially random, greedy deployment scheme in Section
+\ref{sec:initially_random_greedy}.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[scale=0.4]{images/schemes/random_diagram.png}
+    \caption{Random Deployment Diagram}
+    \label{fig:random_diagram}
+\end{figure}
+
+The seed for the random number generator is set by the date and time of the
+simulation, which allows for the reproducibility of the results. This scheme is
+a proxy for aggregate decisions by actors and would fail to reliably capture
+individual actor decisions. This scheme is most useful for scenarios or
+timescales where there is a high degree of uncertainty in the deployment of
+reactors.
+
+(((((((((The seed is set to 20240527121205)))))))))
