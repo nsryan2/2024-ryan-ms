@@ -6,9 +6,8 @@ In this work, we will develop a model of nuclear energy in the \gls{usa} using c
 
 \subsection{Separative Work Units}
 \label{sec:swu}
-
-\gls{swu}, or Separative Work Units, is a ubiquitous measure of effort
-that goes into producing nuclear fuel. It is simplified as:
+% justify what swu is and why it is a valuable metric
+The process of enriching uranium is a critical step in the nuclear fuel cycle, and, as we have highlighted, is expected to be a bottle neck in the deployment of advanced reactors. \gls{swu}, or a Separative Work Unit, is a ubiquitous measure of effort that goes into producing nuclear fuel. It is simplified as:
 \begin{align}
     SWU&= Q(C_p-C_f)
     \intertext{Where:}
@@ -23,31 +22,12 @@ In this work, we will compare the \gls{swu} required for each scenario to unders
 \subsection{Energy Output}
 \label{sec:energy_output}
 
-% just spit balling
 The deployment of reactors in this work is based on energy demand, which
 approximates the complicated relationship that generators and utilities
-have with power expansions.
+have with power expansions. The reactors simulated herein have a static peak energy output, so the nuance in the fleet's ability to meet the demand comes from the deployment scheme and limitations in the fuel supply chain. We will devote time to discussing the realistic features of each scheme. \cyclus tracks the energy output of each reactor, and we will compare that with the demand scenarios to understand the relative performance of each deployment scheme.
 
-The reactors simulated herein have a static peak energy output, so the
-nuance in the fleet's ability to meet the demand comes from the
-deployment scheme and limitations in the fuel supply chain.
-
-We have created a toy scenario to understand the ways in which the
-deployment schemes under and over perform, and we will devote time to
-discussing the realistic features of each scheme.
-
-% sensitivity analysis?
 
 \subsection{Mass of Fuel}
 \label{sec:mass_of_fuel}
 
-\cyclus has an understanding of the mass of material in each
-transaction, in this work we will couple this tracking with an idea of
-the volume of the fuel elements to get a relative sense of the volume
-each scenario would produce.
-
-We will further compare this with the storage capacity of proposed
-projects in the \gls{usa}--like Yucca Mountain.
-% improve with comprehensive list
-
-In addition to the volume, the mass % sensitivity analysis?
+\cyclus tracks the mass of material in each transaction, in this work we will characterize the deployment challenge ahead of us using the fresh and used fuel accumulation to show 
