@@ -149,6 +149,32 @@ tributed in this work are examples of such contributions.},
 }
 
 
+@phdthesis{bachmann_thesis_2023,
+	type = {Thesis},
+	title = {Investigation of the impacts of deploying reactors fueled by high-assay low enriched uranium},
+	copyright = {Copyright by Amanda M. Bachmann. All rights reserved.},
+	url = {https://hdl.handle.net/2142/121987},
+	abstract = {The United States is considering the deployment of advanced reactors that require uranium enriched between 5-20\% 235U, often referred to as High Assay Low Enriched Uranium (HALEU). At the present, there are no commercial facilities in the US to produce HALEU, prompting questions of how to create a dependable supply chain of HALEU to support these reactors. HALEU can be produced through two primary methods: downblending High Enriched Uranium (HEU) and enriching natural uranium. The amount of HEU available and impurities present in the HEU limit downblending capabilities. The Separative Work Unit (SWU) capacity and amount of natural uranium available limit enriching natural uranium capabilities. To understand the resources necessary to commercially produce HALEU with each of these methods, one can quantify the material requirements of transitioning to HALEU-fueled reactors.
+
+In this dissertation, we model the transition from Light Water Reactors to different advanced reactors, considering once-through and closed fuel cycles to determine material requirements for supporting these fuel cycles. Material requirements of interest across this work include the mass of enriched uranium, mass of HALEU, feed uranium, SWU capacity, and the mass of used fuel sent for disposal. We use CYCLUS and publicly-available information about Light Water Reactors, the X-energy Xe-100, the Ultra Safe Nuclear Corporation Micro Modular Reactor, and the NuScale VOYGR to model potential transition scenarios and demonstrate the methodologies developed in this work. To more accurately model the closed fuel cycles, we develop a new CYCLUS archetype, called OpenMCyclus, that couples with OpenMC to dynamically model fuel depletion in a reactor and provide more accurate used fuel compositions. The results of this transition analysis show how the characteristics of the advanced reactors deployed drive the materials required to support the fuel cycle. Closing the fuel cycle reduces the materials required, but the reduction in materials is driven by the amount of material available for reprocessing.
+
+To gain more insight into how transition parameters not considered in the transition analysis affect material requirements, we perform sensitivity analysis on one of the once-through transitions by coupling CYCLUS with Dakota. The results of the sensitivity analysis highlight some of the trade-offs between different reactor designs. One such tradeoff is the increased HALEU demand but decreased used fuel discharged when increasing the Xe-100 deployment and decreasing the VOYGR deployment. Additionally, these results identify the Xe-100 discharge burnup as consistently being one of the most impactful input parameters for this transition, because of how the deployment scheme in this work affects the number of Xe-100s built no matter which advanced reactor build share is specified.
+
+To identify potential transitions that minimize material requirements, we then use the CYCLUS-Dakota to optimize a once-through transition using the genetic algorithms in Dakota. In single-objective problems to minimize the SWU capacity required to produce HALEU and minimize the amount of used nuclear fuel, the algorithm finds solutions that are consistent with the results of the sensitivity analysis. The results cannot be taken at face value, because the algorithm did not fully converge and the genetic algorithms do not enforce the applied linear constraint for the advanced reactor build shares to sum to 100\%. However, the results provide guidance on how to adjust the input parameters to optimize the transition for a minimal HALEU SWU or the used fuel mass. Parameter adjustments include maximizing the number of Light Water Reactors that receive license extensions to operate for 80 years. Similar results occur when using this method for a multi-objective problem to minimize both the HALEU SWU capacity and the used fuel mass.
+
+Finally, we use neutronics models of the Xe-100 and Micro Modular Reactor reactor designs to evaluate the steady-state reactor physics performance of downblended HEU in these two designs. We compare the performance of the downblended HEU to nominally enriched fuel, based on the k-eff, βeff, energy- and spatially-dependent neutron fluxes, as well as the fuel, moderator, coolant, and total reactivity temperature feedback coefficients. The differences in the fuel compositions leads to differences in each of the metrics. However, these differences are within error of the results of the nominally enriched fuel, or would not prevent the reactor from meeting stated design specifications or operating in a safe state.
+
+The work completed in this dissertation develops and demonstrates a methodology for modeling fuel cycle transitions and understanding the effects of deploying HALEU-fueled reactors in the US. The effects investigated in these example scenarios include various materials and resources required to support these reactors, and how the parameters of the transition affect these requirements. The information generated from this new methodology can be used to develop the necessary infrastructure and supply chains for support a transition to HALEU-fueled reactors. Furthermore, this work explores how the HALEU production method (enriching compared with downblending) affects reactor performance.},
+	urldate = {2025-01-15},
+	school = {University of Illinois at Urbana-Champaign},
+	author = {Bachmann, Amanda M.},
+	month = nov,
+	year = {2023},
+	file = {Full Text PDF:/Users/nsryan/Zotero/storage/96ASLMX4/Bachmann - 2023 - Investigation of the impacts of deploying reactors.pdf:application/pdf},
+}
+
+
+
 @article{romano_openmc_2015,
 	series = {Joint {International} {Conference} on {Supercomputing} in {Nuclear} {Applications} and {Monte} {Carlo} 2013, {SNA} + {MC} 2013. {Pluri}- and {Trans}-disciplinarity, {Towards} {New} {Modeling} and {Numerical} {Simulation} {Paradigms}},
 	title = {{OpenMC}: {A} state-of-the-art {Monte} {Carlo} code for research and development},
@@ -321,6 +347,30 @@ Publisher: Nature Publishing Group},
 % nfc %
 %%%%%%%
 
+@misc{atoms_for_peace,
+	type = {Text},
+	title = {Atoms for {Peace} {Speech}},
+    author = {President Dwight D. Eisenhower},
+	url = {https://www.iaea.org/about/history/atoms-for-peace-speech},
+	abstract = {Address by Mr. Dwight D. Eisenhower, President of the United States of America, to the 470th Plenary Meeting of the United Nations General Assembly Tuesday, 8 December 1953, 2:45 p.m.General Assembly President.},
+	language = {en},
+	urldate = {2024-01-24},
+	month = jul,
+	year = {1953},
+	note = {Publisher: IAEA},
+}
+
+@misc{member_states,
+	type = {Text},
+	title = {List of {Member} {States}},
+	url = {https://www.iaea.org/about/governance/list-of-member-states},
+	abstract = {Member States of the IAEA and dates of membership in order of accession to the Agency, starting from 1957. Learn more about how a State can become a member.},
+	language = {en},
+	urldate = {2024-01-24},
+	month = jun,
+	year = {2016},
+	note = {Publisher: IAEA},
+}
 
 @techreport{nea_red_book_2022,
 	address = {Paris},
@@ -849,6 +899,32 @@ such a pile at 2000° C.},
 }
 
 
+@misc{xe_reactor,
+	type = {Media {Kit}},
+	title = {X-{Energy} {Media} {Kit} ({Xe}-100)},
+	url = {https://x-energy.com/media/xe-100},
+	language = {en-US},
+	urldate = {2025-01-15},
+	journal = {X-energy},
+	author = {{X-energy}},
+	year = {2024},
+	file = {Snapshot:/Users/nsryan/Zotero/storage/IB5E2YAM/xe-100.html:text/html},
+}
+
+
+@misc{xe_fuel,
+	type = {Media {Kit}},
+	title = {X-{Energy} {Media} {Kit} ({Triso}-{X})},
+	url = {https://x-energy.com/media/triso-x},
+	language = {en-US},
+	urldate = {2025-01-15},
+	journal = {X-energy},
+	author = {{X-Energy}},
+	year = {2024},
+	file = {Snapshot:/Users/nsryan/Zotero/storage/5UFZGY6Y/triso-x.html:text/html},
+}
+
+
 @article{usnc_design_2021,
 	title = {{USNC} {Micro} {Modular} {Reactor} ({MMR}™ {Block} 1) {Technical} {Information}},
 	author = {{Ultra Safe Nuclear Corporation}},
@@ -886,3 +962,151 @@ Design Certification Application},
 	year = {2023},
 	file = {AEO2023_Narrative.pdf:/home/nsryan/Zotero/storage/AN8DNMXC/AEO2023_Narrative.pdf:application/pdf},
 }
+
+@misc{richter_xe100_like,
+  author       = {Richter, Zoe},
+  title        = {Isotopic Fuel Compositions in the Sangamon200
+                   Model
+                  },
+  month        = apr,
+  year         = 2022,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.6426312},
+  url          = {https://doi.org/10.5281/zenodo.6426312},
+}
+
+
+@misc{usnc_media_kit,
+	type = {Company},
+	title = {{USNC}: {Press} \& {News}, {Media} {Kit}},
+	url = {https://www.usnc.com/tag/news/},
+	abstract = {Reliable Zero-Carbon Energy Anywhere. Advanced nuclear developer of the Micro Modular Reactor (MMR) and other energy systems using TRISO and FCM Fuel.},
+	language = {en},
+	urldate = {2024-11-14},
+	journal = {Ultra Safe Nuclear},
+	author = {{Ultra Safe Nuclear Corporation}},
+	month = oct,
+	year = {2024},
+	file = {Snapshot:/Users/nsryan/Zotero/storage/KVXQ6XZ5/news.html:text/html},
+}
+
+
+
+@techreport{usnc_chalk_river,
+	address = {Chalk River},
+	title = {Project {Description} for the {Micro} {Modular} {Reactor}™ {Project} at {Chalk} {River}},
+	url = {https://www.usnc.com/assets/media-kit/01%20CRP-LIC-01-001%20Rev%202%20Project%20Description.pdf?v=33d7ad7f2f},
+	language = {en},
+	number = {CRP-LIC-01-001},
+	institution = {Global First Power},
+	author = {{GFP Limited}},
+	month = jul,
+	year = {2019},
+	file = {Project Description for the Micro Modular Reactor™.pdf:/Users/nsryan/Zotero/storage/QUTECSZ9/Project Description for the Micro Modular Reactor™.pdf:application/pdf},
+}
+
+@article{richter_thesis_2022,
+	title = {{ISOTOPIC} {AND} {REACTOR} {PHYSICS} {CHARACTERIZATION} {OF} {A} {GAS}-{COOLED}, {PEBBLE}-{BED} {MICROREACTOR}},
+	url = {https://etd.ideals.illinois.edu/advisor/UJZchd2AwM/file/89111/RICHTER-THESIS-2022.pdf},
+	abstract = {Pebble-bed High Temperature Gas-Cooled Reactor (HTGR) designs present a unique modeling challenge. Pebble-
+bed reactors can have a variety of pebble compositions due to varying levels of burnup. In addition, the pebbles
+are mobile in the core — entering from the top and exiting through the bottom — and may fall in a haphazard
+arrangement. This work introduces a 20 MWth pebble-bed HTGR reactor design (which will be referred to as
+Sangamon20) that is representative of current pebble bed reactors, and investigates not only the neutronics of the
+base model, but the changes to core neutronics after making modifications to the simulation. These modifications
+include: heterogenous versus homogenous pebble centers, imposing a universal symmetry assumption, and
+changing the arrangement of pebble fuel compositions, using Serpent and Python. This is in support of the ultimate
+goal of this project: to establish a baseline source term and to determine what simplifications, if any, can be made in
+the model to strike a balance between computational cost and precision of the results. This is crucial for any future
+licensing effort, safety analysis, or accident analysis involving pebble-bed reactors. The model of Sangamon20
+uses a random dispersal of seven different pebble compositions, each corresponding to a different burnup level.
+The heterogeneous tests compare ke f f ; thermal and fast flux profiles; and the neutron lethargy-adjusted energy
+spectra in the core, reflector, coolant, a random fresh, and a random discharge-burnup pebble. Shuffling and
+symmetry tests monitor changes to ke f f and the outgoing neutron current at the outer reflector boundary; the
+former because it is an important reactor physics parameter, and the latter because it can be used to find the
+anticipated neutron flux the Reactor Pressure Vessel (RPV) would experience. This informs the level of radiation
+damage one could expect the RPV to experience each year - which is useful from a design and safety perspective.
+Neither the symmetry test nor the shuffling test showed a major difference in either the ke f f or the outward neutron
+current at the outer edge of the reflector. This would suggest that there is no need to simulate all possible pebble
+placements to characterize a reactor. However, for the heterogeneous tests, ke f f differed by 4.45\%, and the pebble
+spectra at certain higher energies disagreed by a factor of 2-4. A complete fuel isotopic composition at each burnup
+step is accessible at [37]. This thesis discusses select isotopic inventories of interest. These can be used to inform
+source term determination or spent fuel compositions.},
+	language = {en},
+	author = {Richter, Zoë},
+	year = {2022},
+	file = {Richter - ISOTOPIC AND REACTOR PHYSICS CHARACTERIZATION OF A.pdf:/Users/nsryan/Zotero/storage/6MCF57B7/Richter - ISOTOPIC AND REACTOR PHYSICS CHARACTERIZATION OF A.pdf:application/pdf},
+}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% LEUP %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@article{leup_apr1400,
+title = {Load-Follow Operation in LEU+ loaded very-low soluble boron APR1400},
+journal = {Progress in Nuclear Energy},
+volume = {177},
+pages = {105415},
+year = {2024},
+issn = {0149-1970},
+doi = {https://doi.org/10.1016/j.pnucene.2024.105415},
+url = {https://www.sciencedirect.com/science/article/pii/S0149197024003652},
+author = {Husam Khalefih and Yonghee Kim},
+keywords = {PWR, APR1400, Load-Follow Operation, HALEU, Mode-K+},
+abstract = {This study explores the effectiveness of the mode-K+ strategy in managing a Very-Low Soluble Boron (VLSB) APR1400 core, loaded with LEU + fuel, and utilizing the Centrally-Shielded Burnable Absorber (CSBA) and erbia for excess reactivity control. Initially, a 24-month two-batch fuel management scheme was developed, targeting an equilibrium cycle Burnup (BU) of 26 GWD/MTU. The scheme required a maximum of ∼550 ppm Critical Boron Concentration (CBC) in the early cycle BU. Analysis of radial and axial power profiles revealed that the power peaking factors remained within acceptable limits, with values not exceeding 1.4 and 1.6 throughout the cycle, respectively. Subsequently, various Daily Load-Follow Operation (DLFO) scenarios were examined at different BU levels. These investigations demonstrated a consistent alignment between the demanded power and the reactor's power output. Furthermore, critical safety parameters, including the Axial Shape Index (ASI) and inlet coolant temperature, consistently remained within prescribed design specifications. The study's findings underscore the feasibility and reliability of implementing a VLSB APR1400 core with LEU + fuel, using mode-K+ and advanced fuel management strategies for effective power generation and safety compliance. To perform the analysis, an in-house diffusion code KANT was utilized, KANT is based on NEM-CMFD accelerated simulation tool, while the cross-section was generated via Serpent 2.2.0 assessed with ENDF VII.B data library.}
+}
+
+@article{24_month_cycle_bwr,
+title = {Design of a 24-month equilibrium cycle of a BWR with extended low enrichment fuel using metaheuristic optimization techniques},
+journal = {Annals of Nuclear Energy},
+volume = {213},
+pages = {111129},
+year = {2025},
+issn = {0306-4549},
+doi = {https://doi.org/10.1016/j.anucene.2024.111129},
+url = {https://www.sciencedirect.com/science/article/pii/S0306454924007928},
+author = {Javier López-Luna and Juan-Luis Francois and Alejandro Castillo and Juan José Ortiz-Servin},
+abstract = {To improve fuel cycle performance and economics, commercial light water reactor operators and fuel suppliers are pursuing evolutionary changes to nuclear fuel that include the use of extended low enrichment fuel (LEU + ). In this paper, the integral design of a 24-month equilibrium cycle of a 2317 MWth / 803 MWe boiling water reactor (BWR) was obtained using LEU + . The starting point was to determine the fuel batch fraction, average enrichment, and discharge burnup, through linear reactivity model and CASMO4 simulations. Subsequently, the design and optimization of the fuel bundle was carried out with a Multi-state Recurrent Neural Network. Once the fuel bundle was designed, and starting from an operating cycle of 18 months, the reloading pattern was designed for several cycles until obtaining the equilibrium cycle of 24 months, using the Tabu Search metaheuristic optimization technique and Haling simulations. Furthermore, the control rod pattern for the obtained equilibrium cycle was designed with a system based on the Tabu Search metaheuristic technique to verify that the target cycle length of 17.011 MWd/kgU was reached and that the main thermal limits: MFLPD, MAPRAT and MFCHFR were not exceeded during reactor operation. Finally, the levelized nuclear fuel cycle cost (LNFCC) of the open fuel cycle was calculated and compared with that of the 18-month cycle. The results show that the 24-month operating cycle using LEU + is feasible for the studied BWR under the main steady-state safety operating limits and with a lower levelized cost for the open fuel cycle compared to that of the 18-month cycle estimated at 7 % for the entire fuel cycle and 25.6 % for the back-end phase. Moreover, two sensitivity studies were conducted, one related to the discount rate and the other to the unit price of the enrichment separative work unit. The result is that the LNFCC difference between the 18-month and the 24-month cycles decreases as the discount rate increases, and as expected, the effect of SWU price change is presented only in the front-end, and the LNFCC increases as the SWU unit price increases, with the increase being 18.9 % higher for the 24-month cycle and 17.1 % higher for the 18-month cycle.}
+}
+
+
+@misc{nrc_catiii,
+	type = {Part {Index}},
+	title = {10 {CFR} § 70.4 {Definitions}.},
+	shorttitle = {§ 70.4 {Definitions}.},
+	url = {https://www.nrc.gov/reading-rm/doc-collections/cfr/part070/part070-0004.html},
+	abstract = {§ 70.4 Definitions.},
+	language = {en-US},
+	urldate = {2024-09-08},
+	journal = {NRC Web},
+	author = {{Nuclear Regulatory Commission}},
+	month = aug,
+	year = {2017},
+	file = {Snapshot:/Users/nsryan/Zotero/storage/Z8JXIE7W/part070-0004.html:text/html},
+}
+
+
+@misc{framatome_press_2024,
+	title = {Press {Release}: {Framatome}’s enhanced accident tolerant fuel assemblies first to complete lifecycle operations in {U}.{S}.},
+	shorttitle = {Worldwide first},
+	url = {https://www.framatome.com/medias/worldwide-first-framatomes-enhanced-accident-tolerant-fuel-assemblies-first-to-complete-lifecycle-operations-in-us/},
+	abstract = {Framatome's GAIA fuel assemblies with PROtect Enhanced Accident Tolerant Fuel technology completed their third 18-month fuel cycle at Georgia Power’s Plant},
+	language = {en-EN},
+	urldate = {2025-01-10},
+	journal = {Framatome - Espace presse},
+	author = {{Framatome}},
+	year = {2024},
+	file = {Snapshot:/Users/nsryan/Zotero/storage/GDE9HRMI/worldwide-first-framatomes-enhanced-accident-tolerant-fuel-assemblies-first-to-complete-lifecyc.html:text/html},
+}
+
+@techreport{leup_atf_storage_impacts,
+  author       = {Shaw, Alex M. and Clarity, Justin B.},
+  title        = {Impacts of LEU+ and ATF on Fresh Fuel Storage Criticality Safety},
+  institution  = {Oak Ridge National Laboratory (ORNL), Oak Ridge, TN (United States)},
+  annote       = {The use of increased fuel enrichment, which is still in the realm of low-enriched uranium (LEU) fuel, has been of interest to commercial light water reactor operators as part of the next iteration in fuel cycle technological advances and research and development. Using increased enrichment fuel, or high-assay LEU (HALEU), in power plants has clear benefits for being able to load cores with additional power-producing fuel. Although HALEU enrichments can range up to 20%, the more guarded approach of investigating enrichments above current fuels within 10% enrichment is referred to as LEU plus (LEU+) to reflect the less drastic change in operating conditions and requirements and similarity to current fuel cycles. Of additional interest and increasing maturity is the incorporation of accident-tolerant fuel (ATF) concepts, which are also applicable to the current fleet. This class of technologies involves changes such as cladding (e.g., chromium coating or FeCrAl) and fuel composition (e.g., chromia dopant) alterations to demonstrate improved fuel performance under accident scenarios. The ability to properly store fuel before and after residence time in the reactor is crucial to plant operation. Typically, this is done in either a new fuel vault (NFV) or spent fuel pool (SFP). Storing, loading, and unloading dozens of fuel assemblies within the same general area provides opportunities for obvious criticality concerns. These concerns are addressed with regulations to the subcriticality margin that the NFV and SFP must maintain in certain conditions. Adopting LEU+ fuel results in inherent reactivity increases, which are extremely relevant for safe fuel storage. Therefore, a clear understanding of the effects of LEU+ fuel and ATF on criticality safety margins to regulatory limits is required, as well as an understanding of the degree of absorber crediting under normal and accident conditions.},
+  doi          = {10.2172/1843694},
+  url          = {https://www.osti.gov/biblio/1843694},
+  place        = {United States},
+  year         = {2022},
+  month        = {02}}

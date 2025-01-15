@@ -18,12 +18,12 @@ resources and respond to requests from other agents, this is a unique feature
 of \cyclus. The \gls{dre} is a key component of the \cyclus simulation
 framework that allows for the dynamic exchange of resources between agents. The
 \gls{dre} is responsible for matching resource requests with offers from
-suppliers and ensuring that the resources are exchanged fairly and efficiently.
+suppliers and ensuring that the resources are exchanged.
 
 Materials, or commodities in the parlance of the \cyclus ecosystem, are passed
 by agents through the \gls{dre} in recorded transactions. A commodity can be
 anything, from raw materials like uranium ore to contextual concepts (e.g.,
-money, permits, emissions, or social acceptance). The transactions are recorded
+money, permits, or emissions). The transactions are recorded
 in a database that can be queried to determine the flow of materials through
 the simulation. As Huff et al. outline in their 2016 paper
 \cite{huff_cyclus_intro_2016}, treating facilities and materials allows for
@@ -31,15 +31,14 @@ flexibility in the level of fidelity for each.
 
 % discuss recipes
 As \cyclus is a transactions code and not necessarily a physics code,
-the reactors incorporate reactor physics through pre-defined "recipes,"
-where the user specifies the isotopic concentration of the fresh and
-used fuel. Pre-defining recipes also reduces the precision with which
+the reactors incorporate physics through pre-defined "recipes,"
+where the user specifies the concentration of isotopes in a fuel form.
+Pre-defining recipes reduces the precision with which
 fuel compositions are calculated. For example, depending on how fuel is
 discharged from a core at the end of a reactor's lifetime, there are
 instances when the model will over or under-predict the concentration of
-important isotopes; thereby throwing off calculations. Users approximate
-the burnup of each fuel element with the same input recipe to be the
-same; however, in this work we incorporate a cascading enrichment from
+important isotopes; thereby injecting a level of error into calculations.
+Users approximate the burnup of each fuel element with the same input recipe to be the same; however, in this work we incorporate a cascading enrichment from
 \gls{leup} to \gls{haleu} as some advanced reactor companies have
 redesigned their cores to make use of both; \gls{leup} in the short term,
 while they work with the government to establish the supply chain for
@@ -66,13 +65,12 @@ Fuel depletion is a critical aspect of fuel cycle simulations, as it directly
 influences the characteristics and behavior of \gls{uf}. The composition of
 this fuel, shaped by factors like decay heat, the quantity of fissile material,
 and the volume of \gls{uf}, has profound implications for various stages of the
-nuclear fuel cycle. The effects of depletion on these properties are
-significant: they not only impact the thermal and physical characteristics of
-the fuel but also affect practical considerations such as the transportation of
-\gls{uf}, the limits of repository storage, and the potential for reprocessing
-and recycling of materials. Thus, any comprehensive fuel cycle simulation must
-account for fuel depletion, ensuring that the resulting data reflects realistic
-conditions and constraints.
+nuclear fuel cycle. The effects of depletion on these properties are one the
+thermal and physical characteristics of the fuel, as well as the practical
+considerations such as the transportation of \gls{uf}, the limits of repository
+storage, and the potential for reprocessing and recycling of materials. Thus,
+any comprehensive fuel cycle simulation must account for fuel depletion,
+ensuring that the resulting data reflect realistic conditions and constraints.
 
 In many fuel cycle simulators, fuel depletion is managed using pre-defined
 compositions, which allow for rapid calculations and straightforward modeling
@@ -102,7 +100,7 @@ integrates \cyclus with ORIGEN by generating a problem-specific cross section
 library (which it then feeds to ORIGEN to perform a single depletion
 calculation for the core), enabling a more nuanced approach to modeling fuel
 cycles. Although CyBORG requires access to the export-controlled ORIGEN, it
-significantly enhances the accuracy of \gls{uf} compositions. Additionally, the
+enhances the accuracy of \gls{uf} compositions. Additionally, the
 ann\_pwr \cite{bae_deep_2020} archetype employs neural networks trained on
 historical data to predict fuel compositions based on burnup and initial
 enrichment. While achieving results with less than 1\% error in 0.23\% of the

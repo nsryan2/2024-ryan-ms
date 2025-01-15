@@ -1,17 +1,30 @@
 \section{The Nuclear Fuel Cycle}
 \label{sec:nfc}
 
-The \acrlong{nfc} (NFC) is comprised of a series of industrial processes that
-produce and consume nuclear fuel, here we present a high-level overview to
-establish the context for our work with modeling the fuel cycle in later chapters. Commonly, these processes are grouped into two categories (the front
-end and back end). In the \gls{usa}, we keep each of these facilities separate
-in the front end of the fuel cycle in a "collect and wait" pathway
-\cite{cycle_risks}. Without a long-term or interim solution for the \gls{uf},
-the back end of the \gls{nfc} is collocated with the reactors that burn the
-fuel (with the minor exception of the consolidated storage facility in Morris
-Illinois). For this work, we will restrict our discussion of the fuel cycle to
-fuel alone, although some work has been done to consider byproducts and
-non-fuel wastes in related work in this field.
+Starting with the Atoms for Peace speech in 1953 \cite{atoms_for_peace}, the
+international community has been working toward the peaceful use of nuclear
+energy while reducing proliferation routes. Nuclear safeguards were formally
+introduced with the creation of the \gls{iaea} in 1957, which conducts
+inspections and verifies compliance with safeguards agreements and supports
+states that are building facilities to meet its standards \cite{member_states}.
+Compliance is verified through regular inspections, data analysis, and
+cooperation between the \gls{iaea} and member states. Countries are required to
+declare their nuclear activities, and inspectors perform unannounced visits to
+nuclear facilities to ensure compliance. As of November 2024, the \gls{iaea}
+has 180 member states with the addition of the Cook Islands and Somalia.
+
+The \acrlong{nfc} (NFC) for any country spans various \gls{iaea} members and is
+comprised of a series of industrial processes that produce and consume nuclear
+fuel, here we present a high-level overview to establish the context for our
+work with modeling the fuel cycle in later chapters. Commonly, these processes
+are grouped into two categories (the front end and back end). In the \gls{usa},
+we keep each of these facilities separate in the front end of the fuel cycle in
+a "collect and wait" pathway \cite{cycle_risks}. Without a long-term or interim
+solution for the \gls{uf}, the back end of the \gls{nfc} is collocated with the
+reactors that burn the fuel (with the minor exception of the consolidated
+storage facility in Morris Illinois). For this work, we will restrict our
+discussion of the fuel cycle to fuel alone, although some work has been done to
+consider byproducts and non-fuel wastes in related work in this field.
 
 Companies can reprocess and recycle nuclear fuel into a different fuel type
 that can produce usable power for several cycles, called a "closed" fuel cycle.
@@ -33,11 +46,6 @@ decision made by the country using nuclear technology.
       \label{fig:closed_fc}
 \end{figure}
 
-% How do international treaties and agreements affect nuclear fuel cycle activities?
-% In the emerging stage of the \gls{nfc}
-
-
-% What opportunities exist for innovation and improvement in the nuclear fuel cycle?
 
 \subsection{Front End of the Fuel Cycle}
 \label{sec:front_end}
@@ -48,7 +56,7 @@ January 2019 to January 2021 and updates the projections from 54 countries of
 their uranium supply and resources through 2040 \cite{nea_red_book_2022}.
 
 Globally, Australia continues to hold the largest resources (inferred and
-reasonably assured) of uranium at roughly 28 \% of the world's total; however,
+reasonably assured) of uranium at roughly 28\% of the world's total; however,
 total identified recoverable resources declined 2\% from 2019 to 2021--in
 contrast with slight increases reported in previous versions of the report--as
 countries increased mining efforts, reclassified economic viability of inferred
@@ -109,7 +117,7 @@ which separate the isotopes based on their mass; however, we historically used
 gaseous diffusion, and could potentially use laser enrichment if it becomes
 economically viable. In this work we do not distinguish between enrichment
 services, instead making use of \gls{swu}, which we will expand on in Section
-\ref{sec:swu}.
+\ref{sec:swu}, to quantify the enrichment delivered.
 
 The enriched uranium is then converted into uranium dioxide, which is
 fabricated into fuel. For our fleet of large \glspl{lwr}, the fuel is made into
@@ -150,20 +158,20 @@ these well-known effects into chemical consequences that dictate the design of
 a repository will require site-specific adaptations on several fronts. Special
 attention must be given to the impact in the first few thousand years, as this
 period will exhibit the highest activity. In the case of meltwater exposure,
-water saturated with dissolved $O_2$ could infiltrate some repositories,
+water saturated with dissolved $O_2$ could infiltrate a repository,
 potentially altering the oxidizing conditions \cite{gurban_hydrochemical_2001}.
 Consequently, regulators considering the 100,000-year perspective of a
 potential repository must account for proximity to such meltwater sources to
 meet the demands imposed by a changing climate.
 
 It is possible that sites experiencing reducing conditions will
-continue to do so; however, the changing climate will also influence the salinity of groundwater. Changes in salinity
-affect density, which could either exacerbate or mitigate the spread of
-contaminants in the event of exposure outside the repository
-\cite{gurban_hydrochemical_2001}. This change in salinity also has the
-potential to interact differently with canisters, necessitating that proactive
-regulators ensure containment is designed to withstand a changing environment
-over the repository's lifetime.
+continue to do so; however, the changing climate will also influence the
+salinity of groundwater. Changes in salinity affect density, which could either
+exacerbate or mitigate the spread of contaminants in the event of exposure
+outside the repository \cite{gurban_hydrochemical_2001}. This change in
+salinity also has the potential to interact differently with canisters,
+necessitating that proactive regulators ensure containment is designed to
+withstand a changing environment over the repository's lifetime.
 
 An additional layer of microscopic consideration for these regulatory concerns
 is the imminent deployment of new nuclear fuels with different compositions and
