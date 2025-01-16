@@ -28,54 +28,130 @@ of the deployment problem but rather to explore the implications of deploying a
 certain number of reactors. As such, we limit the discussion of realism to the
 extent that the scheme meets the demand and could mirror large actors in a
 market. The scheme will deploy reactors until the demand is met within the
-amount of the smallest capacity reactor.
+amount of the smallest capacity reactor. In these results, we will show the results for the no growth scenario and the double nuclear by 2050 scenario.
 
 \subsection{Number of Reactors}
+\label{sec:greedy_reactors}
 
-% describe the difference between BAU and D2 in terms of metric
-
+As we have noted, one of the most notable differences between the no growth scenario and the doubling scenario is that the transition for the no growth scenario will begin closer to 2050 instead of 2030. This trend is reflected in Figures \ref{fig:greedy_mf_reactors} and \ref{fig:greedy_of_reactors}, where the \glspl{mmr}, \glspl{xe}, and AP1000s start as the existing \gls{lwr} fleet are retired. Comparing across fuel regimes, we see that Figures \ref{fig:greedy_mf_ng_reactors} and \ref{fig:greedy_of_ng_reactors} are identical, which typifies the impact of the delayed transition in the no growth scenario.
 
 % Show total number of reactors multi fuel
 
 \begin{figure}[H]
     \subfloat[No Growth \label{fig:greedy_mf_ng_reactors}]{%
-      \includegraphics[width=0.495\textwidth]{images/results/multi_dgng_reactors.pdf}
+      \includegraphics[width=0.495\textwidth]{images/results/reactors/multi_dgng_reactors.pdf}
    }
     \hfill
     \subfloat[Double \label{fig:greedy_mf_d2_reactors}]{%
-      \includegraphics[width=0.495\textwidth]{images/results/multi_dg2_reactors.pdf}
+      \includegraphics[width=0.495\textwidth]{images/results/reactors/multi_dg2_reactors.pdf}
    }
-    \caption{Multi fuel reactor deployment.}
+    \caption{Greedy multi fuel reactor deployment.}
     \label{fig:greedy_mf_reactors}
 \end{figure}
 
 % talk about the rate of deployment
+A direct consequence of the greedy deployment scheme is that, in the doubling scenario, the AP1000 is deployed the most over time, where as the no growth scenario shows the opposite. Another consequence of the deployment scheme is that the rate of deployment for the single fuel regime compared with the multi fuel regime is identical, and future work could investigate further implications of transitioning from one fuel type to another in regard to operation. Simply meeting energy demand is not how utilities make decisions, and is not the intended use case of the broad generation of new nuclear reactors, so we are able to identify an upper bounding case for the energy demand met by designs like the \gls{mmr} or \gls{xe}.
 
-% talk about the context of expanding energy needs
-
-% talk about the workers
 
 \begin{figure}[H]
   \subfloat[No Growth \label{fig:greedy_of_ng_reactors}]{%
-    \includegraphics[width=0.495\textwidth]{images/results/one_dgng_reactors.pdf}
+    \includegraphics[width=0.495\textwidth]{images/results/reactors/one_dgng_reactors.pdf}
  }
   \hfill
   \subfloat[Double \label{fig:greedy_of_d2_reactors}]{%
-    \includegraphics[width=0.495\textwidth]{images/results/one_dg2_reactors.pdf}
+    \includegraphics[width=0.495\textwidth]{images/results/reactors/one_dg2_reactors.pdf}
  }
-  \caption{Single fuel reactor deployment.}
+  \caption{Greedy single fuel reactor deployment.}
   \label{fig:greedy_of_reactors}
 \end{figure}
 
+In Table \ref{tab:greedy_reac_avg} we can see how the average number of reactors by design is not influenced by the interstitial as we have modeled it in this work. Compared to the no growth scenario, the double by 2050 scenario shows a significant increase in the average number of each design operating across the 2030-2104 timeline. Consequently, the average number of the AP1000s increases by 757\% between the two growth scenarios, which is the largest increase of any design. The \gls{xe} reactors show the second largest increase at 163\%, followed by the \gls{mmr} at 109\%.
+
+\begin{table}[H]
+  \centering
+  \caption{Average greedy total operating reactors by design.}
+  \label{tab:greedy_reac_avg}
+  \begin{tabular}{c c c c c}
+     \hline
+     Scenario & No Growth, Single & No Growth, Multi & Double, Single & Double, Multi  \\
+     \hline
+     \gls{haleu} fueled MMRs      & 131.613 & 131.613 & 274.493 & 257.427 \\
+     \gls{leup} fueled MMRs       & --      & --      & --      & 17.067 \\
+     \gls{haleu} fueled \gls{xe}s & 94.04   & 94.04   & 246.88  & 184.48 \\
+     \gls{leup} fueled \gls{xe}s  & --      & --      & --      & 62.4 \\
+     \gls{leu} fueled AP1000      & 38.667  & 38.667  & 331.387 & 331.387 \\
+     \hline
+  \end{tabular}
+\end{table}
+
+
+
+
 \subsection{SWU Results}
+\label{sec:greedy_swu}
 
 % talk about the types of category facility
+In Figure \ref{fig:swu_yearly_greedy} we can see the yearly \gls{swu} demand periodically spike as the demand for enrichment services grows to meet the fuel demand for the fleet. When reactors begin operation in the depicted no growth scenario around 2050, the \gls{swu} demand for the AP1000 peaks above the other two reactors while the demand from \glspl{xe} exceeds the demand from \glspl{mmr}. This trend is exacerbated in in the double by 2050 scenarios show in Figures \ref{fig:greedy_mf_d2_swu} and \ref{fig:greedy_of_d2_swu} where the \gls{swu} for AP1000 \gls{leu} fuel rises quickly and eventually exceeds the total \gls{swu} for the existing fleet.
 
 % talk about the SWU capacity
 
 % show the total SWU capacity
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{images/results/swu/multi_dgng_swu_by_fuel.pdf}
+    \caption{Greedy yearly SWU capacity multi fuel, no growth scenario.}
+    \label{fig:swu_yearly_greedy}
+\end{figure}
+
+As the features of the yearly data are regular and dictated by the cycles of the reactors, we will visualize the total \gls{swu} demand in the cumulative plots in Figures \ref{fig:greedy_mf_swu} and \ref{fig:greedy_of_swu}.
+
+\begin{figure}[H]
+  \subfloat[No Growth \label{fig:greedy_mf_ng_swu}]{%
+    \includegraphics[width=0.495\textwidth]{images/results/swu/multi_dgng_swu_cumulative_by_fuel.pdf}
+ }
+  \hfill
+  \subfloat[Double \label{fig:greedy_mf_d2_swu}]{%
+    \includegraphics[width=0.495\textwidth]{images/results/swu/multi_dg2_swu_cumulative_by_fuel.pdf}
+ }
+  \caption{Greedy multi fuel SWU.}
+  \label{fig:greedy_mf_swu}
+\end{figure}
+
+
 % talk about international trade
+
+\begin{figure}[H]
+  \subfloat[No Growth \label{fig:greedy_of_ng_swu}]{%
+    \includegraphics[width=0.495\textwidth]{images/results/swu/one_dgng_swu_cumulative_by_fuel.pdf}
+ }
+  \hfill
+  \subfloat[Double \label{fig:greedy_of_d2_swu}]{%
+    \includegraphics[width=0.495\textwidth]{images/results/swu/one_dg2_swu_cumulative_by_fuel.pdf}
+ }
+  \caption{Greedy single fuel SWU.}
+  \label{fig:greedy_of_swu}
+\end{figure}
+
+In Table \ref{tab:greedy_swu_avg} we can see the average \gls{swu} demand by design in the no growth and double by 2050 scenarios. The \gls{swu} demand for the \gls{mmr} and \gls{xe} reactors is the same in the single and multi fuel regimes for the no growth scenarios, which is consistent with the reactor deployment trends we have seen in the Section \ref{sec:greedy_reactors}. The \gls{swu} demand for the AP1000s increases by 800\% from the no growth scenario to the double scenario, which is consistent with the reactor deployment trends we have seen in the previous section. The \gls{swu} demand for \gls{xe} \gls{haleu} increases 167\%, while the \gls{swu} demand for \gls{mmr} \gls{haleu} increases 105\% from the no growth scenario to the double scenario.
+
+\begin{table}[H]
+  \centering
+  \caption{Average greedy yearly SWU by design in k\gls{swu}.}
+  \label{tab:greedy_swu_avg}
+  \begin{tabular}{c c c c c}
+     \hline
+     Scenario & No Growth, Single & No Growth, Multi & Double, Single & Double, Multi  \\
+     \hline
+     \gls{mmr} \gls{haleu}   & 48.699  & 48.699  & 99.974   & 95.127   \\
+     \gls{mmr} \gls{leup}    & --      & --      & --       & 2.228    \\
+     \gls{xe} \gls{haleu}    & 139.926 & 139.926 & 374.323  & 362.312  \\
+     \gls{xe} \gls{leup}     & --      & --      & --       & 7.227    \\
+     AP1000 \gls{leu}        & 573.989 & 573.989 & 5167.815 & 5167.815 \\
+     \hline
+  \end{tabular}
+\end{table}
+
 
 
 \subsection{Fresh Fuel Results}
@@ -84,11 +160,102 @@ amount of the smallest capacity reactor.
 
 % show total fresh fuel
 
+\begin{figure}[H]
+  \subfloat[No Growth \label{fig:greedy_mf_ng_fresh}]{%
+    \includegraphics[width=0.495\textwidth]{images/results/fresh/multi_dgng_fresh_fuel_cumulative_by_fuel.pdf}
+ }
+  \hfill
+  \subfloat[Double \label{fig:greedy_mf_d2_fresh}]{%
+    \includegraphics[width=0.495\textwidth]{images/results/fresh/multi_dg2_fresh_fuel_cumulative_by_fuel.pdf}
+ }
+  \caption{Greedy multi fresh fuel amount.}
+  \label{fig:greedy_mf_fresh}
+\end{figure}
+
 % talk about transportation of fuel
+
+
+\begin{figure}[H]
+  \subfloat[No Growth \label{fig:greedy_of_ng_fresh}]{%
+    \includegraphics[width=0.495\textwidth]{images/results/fresh/one_dgng_fresh_fuel_cumulative_by_fuel.pdf}
+ }
+  \hfill
+  \subfloat[Double \label{fig:greedy_of_d2_fresh}]{%
+    \includegraphics[width=0.495\textwidth]{images/results/fresh/one_dg2_fresh_fuel_cumulative_by_fuel.pdf}
+ }
+  \caption{Greedy single fresh fuel amount.}
+  \label{fig:greedy_of_fresh}
+\end{figure}
+
+In Table \ref{tab:greedy_fresh_avg} we can see the average yearly fresh fuel demand by design in the no growth and double by 2050 scenarios. The AP1000 \gls{leu} shows the largest increase in fresh fuel demand from the no growth scenario to the double scenario at 800\%, followed by the \gls{xe} \gls{haleu} at 159\%. The \gls{mmr} \gls{haleu} reactors show the smallest increase in fresh fuel demand at 105\%.
+
+
+\begin{table}[H]
+  \centering
+  \caption{Average greedy yearly fresh fuel by design in tonnes.}
+  \label{tab:greedy_fresh_avg}
+  \begin{tabular}{c c c c c}
+     \hline
+     Scenario & No Growth, Single & No Growth, Multi & Double, Single & Double, Multi  \\
+     \hline
+     \gls{mmr} \gls{haleu}   & 1.079    & 1.079   & 2.216    & 2.108    \\
+     \gls{mmr} \gls{leup}    & --       & --      & --       & 0.107    \\
+     \gls{xe} \gls{haleu}    & 4.059    & 4.059   & 10.859   & 10.511   \\
+     \gls{xe} \gls{leup}     & --       & --      & --       & 0.348    \\
+     AP1000 \gls{leu}        & 74.636   & 74.636  & 671.976  & 671.976  \\
+     \hline
+  \end{tabular}
+\end{table}
+
 
 
 \subsection{Used Fuel Results}
 
 % show total used fuel
+\begin{figure}[H]
+  \subfloat[No Growth \label{fig:greedy_mf_ng_used}]{%
+    \includegraphics[width=0.495\textwidth]{images/results/used/multi_dgng_used_fuel_cumulative_by_fuel.pdf}
+ }
+  \hfill
+  \subfloat[Double \label{fig:greedy_mf_d2_used}]{%
+    \includegraphics[width=0.495\textwidth]{images/results/used/multi_dg2_used_fuel_cumulative_by_fuel.pdf}
+ }
+  \caption{Greedy multi used fuel amount.}
+  \label{fig:greedy_mf_used}
+\end{figure}
+
+
+\begin{figure}[H]
+  \subfloat[No Growth \label{fig:greedy_of_ng_used}]{%
+    \includegraphics[width=0.495\textwidth]{images/results/used/one_dgng_used_fuel_cumulative_by_fuel.pdf}
+ }
+  \hfill
+  \subfloat[Double \label{fig:greedy_of_d2_used}]{%
+    \includegraphics[width=0.495\textwidth]{images/results/used/one_dg2_used_fuel_cumulative_by_fuel.pdf}
+ }
+  \caption{Greedy single used fuel amount.}
+  \label{fig:greedy_of_used}
+\end{figure}
+
+In Table \ref{tab:greedy_used_avg} we can see the average yearly used fuel by design in the no growth and double by 2050 scenarios. The AP1000 \gls{leu} shows the largest increase in used fuel demand from the no growth scenario to the double scenario at 743\%, followed by the \gls{xe} \gls{haleu} at 164\%. The \gls{mmr} \gls{haleu} reactors show the smallest increase in used fuel demand at 154\%.
+
+
+\begin{table}[H]
+  \centering
+  \caption{Average greedy yearly used fuel by design in tonnes.}
+  \label{tab:greedy_used_avg}
+  \begin{tabular}{c c c c c}
+     \hline
+     Scenario & No Growth, Single & No Growth, Multi & Double, Single & Double, Multi  \\
+     \hline
+     \gls{mmr} \gls{haleu}   & 0.499    & 0.499   & 1.267    & 1.160    \\
+     \gls{mmr} \gls{leup}    & --       & --      & --       & 0.107    \\
+     \gls{xe} \gls{haleu}    & 3.714    & 3.715   & 9.826    & 9.477    \\
+     \gls{xe} \gls{leup}     & --       & --      & --       & 0.348    \\
+     AP1000 \gls{leu}        & 68.496   & 68.496  & 577.484  & 577.484  \\
+     \hline
+  \end{tabular}
+\end{table}
+
 
 % talk about repositories
