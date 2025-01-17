@@ -85,7 +85,9 @@ schemes outlined in Table \ref{tab:deployment_schemes}. We will discuss the
 results of these deployment schemes in the following sections. We will also
 discuss the limitations of this work and propose future work. Regardless of the
 regime, each deployment scheme will attempt to deploy reactors to meet the
-capacity outlined in Figure \ref{fig:dep_goals}.
+capacity outlined in Figure \ref{fig:dep_goals}. We will focus on the results
+of the no growth and $3.5\%$ (corresponding to doubling nuclear by 2050)
+scenarios.
 
 \begin{figure}[H]
     \centering
@@ -106,4 +108,38 @@ before 2050, whereas the other scenarios understandably commence deployment in
 appearance of the data belies the compounding effect that the year-to-year
 percentage growth requires.
 
-We will focus on the results of the no growth and $3.5\%$ (corresponding to a doubling of nuclear by 2050) scenarios, and the results for the other scenarios are available in Appendix \ref{ch:additional_results}.
+Comparing these projected deployments with the results from the no growth and double scenarios, we can consolidate the over and under deployments of capacity into Table \ref{tab:cap_diff} and see that the random deployment scheme showed the smallest total difference between the results and the projection. The initially random then greedy deployment scheme showed the largest total difference between the results and the projection, while the greedy deployment scheme was between the two.
+
+\begin{table}[H]
+    \centering
+    \caption{Capacity difference between results and projection.}
+    \label{tab:cap_diff}
+    \begin{tabular}{c c c}
+        \hline
+        Scenario & Deployment Scheme & Total Difference [GWe-y]\\
+        \hline
+        \multirow{3}{*}{No Growth} & Greedy & 19.46 \\
+        & Random & -15.21 \\
+        & Initially Random, Greedy & 47.26 \\
+        \hline
+        \multirow{3}{*}{Double} & Greedy & 103.54 \\
+        & Random & 6.65 \\
+        & Initially Random, Greedy & 151.86 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+In Figures \ref{fig:e_diff_ng} and \ref{fig:e_diff_d2}, we show the difference in energy output between the results and the projection for the no growth and double scenarios, respectively, over time. The difference curves in Figure \ref{fig:e_diff_d2} shows a tightly perturbed oscillation as more reactors are deployed to meet the increasing demand in the random and initially random then greedy schemes. Closer to the start of advanced reactor deployment, the greedy scheme shows a consistently smaller difference than the other schemes, but it the difference continues to grow as time progresses.
+
+\begin{figure}[H]
+    \subfloat[No Growth \label{fig:e_diff_ng}]{%
+      \includegraphics[width=0.495\textwidth]{images/results/energy/ng_diff.pdf}
+   }
+    \hfill
+    \subfloat[Double \label{fig:e_diff_d2}]{%
+      \includegraphics[width=0.495\textwidth]{images/results/energy/d2_diff.pdf}
+   }
+    \caption{.}
+    \label{fig:e_diff}
+\end{figure}
+
