@@ -15,7 +15,7 @@ then greedy) in the logic from the top down.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.7]{images/schemes/random_greedy_diagram.png}
+    \includegraphics[scale=0.3]{images/schemes/random_greedy_diagram.png}
     \caption{Initially Random, Greedy Deployment Diagram}
     \label{fig:init_random_greedy_diagram}
 \end{figure}
@@ -30,22 +30,23 @@ scheme captures the efficiency of the deployment problem but does not capture
 the complexity of the deployment problem. This scheme is a compromise between
 the two and does not capture the nuance of the deployment problem.
 
-The degree to which this scheme captures features of the random or greedy
-deployment schemes varies with the number of reactors deployed in the random
-phase. Instead of randomly deploying until the demand is met, this
-implementation randomly deploys until the selected reactor exceeds the demand.
-This means that when the reactors are different sizes, there is a chance that
-the random phase will deploy a reactor that is much larger than the demand, and
-the greedy phase will make up more of the deployment.
-
-
-(((((((((The seed is set to 20240527121205)))))))))
+The seed, which was set to 20240527121205 for every run for this scheme, for
+the random number generator is set by the date and time of the simulation,
+which allows for the reproducibility of the results. The degree to which this
+scheme captures features of the random or greedy deployment schemes varies with
+the number of reactors deployed in the random phase. Instead of randomly
+deploying until the demand is met, this implementation randomly deploys until
+the selected reactor exceeds the demand. This means that when the reactors are
+different sizes, there is a chance that the random phase will deploy a reactor
+that is much larger than the demand, and the greedy phase will make up more of
+the deployment.
 
 
 \subsection{Number of Reactors}
 \label{sec:rand_greed_reactors}
 
-% describe the difference between BAU and D2 in terms of metric
+As with the random deployment scheme we can see in Figures
+\ref{fig:rand_greed_mf_reactors} and \ref{fig:rand_greed_of_reactors} that the share of reactors by design is much closer than the greedy deployment scheme. The reactors in the no growth scenarios (shown in Figures \ref{fig:rand_greed_mf_ng} and \ref{fig:rand_greed_of_ng}) are deployed close to 2050, whereas the advanced reactors in the double scenarios (shown in Figures \ref{fig:rand_greed_mf_d2} and \ref{fig:rand_greed_of_d2}) are deployed close to 2030.
 
 % Show total number of reactors multi fuel
 \begin{figure}[H]
@@ -78,7 +79,14 @@ the greedy phase will make up more of the deployment.
     \label{fig:rand_greed_of_reactors}
 \end{figure}
 
-In Table \ref{tab:rand_greed_reac_avg} we show the average total operating reactors by design for the no growth and double growth scenarios for the multi and single fuel regimes. The \gls{haleu} fueled \gls{mmr} and \gls{xe} deployment is unchanged in the single and multi fuel regimes for the no growth scenarios. The number of AP1000 reactors increases 660\% from the no growth to the double growth scenario in the multi fuel regime. The number of \gls{haleu} fueled \gls{xe} reactors increases 626\%, while the number of \gls{haleu} fueled \gls{mmr} reactors increases 649\%.
+In Table \ref{tab:rand_greed_reac_avg} we show the average total operating
+reactors by design for the no growth and double growth scenarios for the multi
+and single fuel regimes. The \gls{haleu} fueled \gls{mmr} and \gls{xe}
+deployment is unchanged in the single and multi fuel regimes for the no growth
+scenarios. The number of AP1000 reactors increases 660\% from the no growth to
+the double growth scenario in the multi fuel regime. The number of \gls{haleu}
+fueled \gls{xe} reactors increases 626\%, while the number of \gls{haleu}
+fueled \gls{mmr} reactors increases 649\%.
 
 \begin{table}[H]
     \centering
@@ -100,8 +108,7 @@ In Table \ref{tab:rand_greed_reac_avg} we show the average total operating react
 \subsection{SWU Results}
 \label{sec:rand_greed_swu}
 
-% talk about the types of category facility
-
+In Figure \ref{fig:swu_yearly_rand_greed} we can see the yearly \gls{swu} demand periodically spike as reactors begin operation in the depicted no growth scenario around 2050. The \gls{swu} demand for the AP1000 \gls{leu} rises above the other two reactors while the demand from \glspl{xe} overlaps heavily with the demand from \glspl{mmr}. This trend is exacerbated in the double by 2050 scenarios shown in Figures \ref{fig:rand_greed_mf_d2_swu} and \ref{fig:rand_greed_of_d2_swu} where the \gls{swu} for AP1000 \gls{leu} fuel rises quickly and eventually exceeds the total \gls{swu} for the existing fleet.
 % talk about the SWU capacity
 
 % show the total SWU capacity
@@ -111,6 +118,11 @@ In Table \ref{tab:rand_greed_reac_avg} we show the average total operating react
     \caption{Initially random, then greedy yearly SWU capacity}
     \label{fig:swu_yearly_rand_greed}
 \end{figure}
+
+As the features of the yearly data are regular, dictated by the cycles of the
+reactors, and overlapping, we will visualize the total \gls{swu} demand in the
+cumulative plots in Figures \ref{fig:rand_greed_mf_swu} and \ref{fig:rand_greed_of_swu}.
+
 
 \begin{figure}[H]
   \subfloat[No Growth \label{fig:rand_greed_mf_ng_swu}]{%
@@ -165,6 +177,8 @@ In Table \ref{tab:rand_greed_swu_avg} we show the average yearly \gls{swu} for t
 \label{sec:rand_greed_fresh}
 
 % talk about the types of fuel
+In Figures \ref{fig:rand_greed_mf_fresh} and \ref{fig:rand_greed_of_fresh} we can see the fresh fuel demand for the reactors in the no growth and double by 2050 scenarios. The fresh fuel curves in each scenario follow the same pattern as the reactor deployment curves from Figures \ref{fig:rand_greed_mf_reactors} and \ref{fig:rand_greed_of_reactors}, as \cyclus supplies fuel to each of the reactors as it they deploy.
+
 
 % show total fresh fuel
 \begin{figure}[H]
@@ -175,7 +189,7 @@ In Table \ref{tab:rand_greed_swu_avg} we show the average yearly \gls{swu} for t
     \subfloat[Double \label{fig:rand_greed_mf_d2_fresh}]{%
       \includegraphics[width=0.495\textwidth]{images/results/fresh/multi_drg2_fresh_fuel_cumulative_by_fuel.pdf}
    }
-    \caption{Initially random, then greedy multi fresh fuel amount.}
+    \caption{Initially random, then greedy multi fresh fuel demanded.}
     \label{fig:rand_greed_mf_fresh}
   \end{figure}
 
@@ -190,7 +204,7 @@ In Table \ref{tab:rand_greed_swu_avg} we show the average yearly \gls{swu} for t
     \subfloat[Double \label{fig:rand_greed_of_d2_fresh}]{%
       \includegraphics[width=0.495\textwidth]{images/results/fresh/one_drg2_fresh_fuel_cumulative_by_fuel.pdf}
    }
-    \caption{Initially random, then greedy single fresh fuel amount.}
+    \caption{Initially random, then greedy single fresh fuel demanded.}
     \label{fig:rand_greed_of_fresh}
   \end{figure}
 
@@ -217,6 +231,9 @@ In Table \ref{tab:rand_greed_fresh_avg} we show the average yearly fresh fuel by
 \subsection{Used Fuel Results}
 \label{sec:rand_greed_used}
 
+In Figures \ref{fig:rand_greed_mf_used} and \ref{fig:rand_greed_of_used} we can see the used fuel accumulation for the reactors in the no growth and double by 2050 scenarios. The used fuel curves in each scenario follow the reactor deployment curves with a lag corresponding to the cycle length of the reactor from Figures \ref{fig:rand_greed_mf_reactors} and \ref{fig:rand_greed_of_reactors}, as \cyclus removes fuel from each reactor.
+
+
 % show total used fuel
 \begin{figure}[H]
     \subfloat[No Growth \label{fig:rand_greed_mf_ng_used}]{%
@@ -226,7 +243,7 @@ In Table \ref{tab:rand_greed_fresh_avg} we show the average yearly fresh fuel by
     \subfloat[Double \label{fig:rand_greed_mf_d2_used}]{%
       \includegraphics[width=0.495\textwidth]{images/results/used/multi_drg2_used_fuel_cumulative_by_fuel.pdf}
    }
-    \caption{Initially random, then greedy multi used fuel amount.}
+    \caption{Initially random, then greedy multi used fuel accumulation.}
     \label{fig:rand_greed_mf_used}
   \end{figure}
 
@@ -239,7 +256,7 @@ In Table \ref{tab:rand_greed_fresh_avg} we show the average yearly fresh fuel by
     \subfloat[Double \label{fig:rand_greed_of_d2_used}]{%
       \includegraphics[width=0.495\textwidth]{images/results/used/one_drg2_used_fuel_cumulative_by_fuel.pdf}
    }
-    \caption{Initially random, then greedy single used fuel amount.}
+    \caption{Initially random, then greedy single used fuel accumulation.}
     \label{fig:rand_greed_of_used}
   \end{figure}
 
