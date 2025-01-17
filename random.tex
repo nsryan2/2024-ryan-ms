@@ -47,7 +47,7 @@ there is a high degree of uncertainty in the deployment of reactors.
 \subsection{Number of Reactors}
 \label{sec:random_reactors}
 
-% describe the difference between BAU and D2 in terms of metric
+As we discussed in Section \ref{sec:greedy_reactors}, the difference between the no growth and double scenarios in Figures \ref{fig:random_mf_reactors} and \ref{fig:random_of_reactors} is that the double scenario requires new reactors to be deployed immediately at the transition. A consequence of the random reactor deployment scheme is that the number of reactors in Figure \ref{fig:random_mf_ng_reactors} and \ref{fig:random_mf_d2_reactors} grow similarly over time as they are sampled for deployment. This scheme has the potential to stochastically capture the complexity of deploying reactors in the real world, but likely represents an extreme where utilities are not narrowing in on a single reactor design to reduce costs of deployment.
 
 % Show total number of reactors multi fuel
 \begin{figure}[H]
@@ -108,7 +108,8 @@ In the multi fuel regime, the AP1000 reactors show a 660\% increase in the numbe
 \subsection{SWU Results}
 \label{sec:random_swu}
 
-% talk about the types of category facility
+In Figure \ref{fig:swu_yearly_random} we can see the yearly \gls{swu} demand periodically spike as reactors begin operation in the depicted no growth scenario around 2050. The \gls{swu} demand for the AP1000 \gls{leu} rises above the other two reactors while the demand from \glspl{xe} overlaps heavily with the demand from \glspl{mmr}. This trend is exacerbated in the double by 2050 scenarios shown in Figures \ref{fig:greedy_mf_d2_swu} and \ref{fig:greedy_of_d2_swu} where the \gls{swu} for AP1000 \gls{leu} fuel rises quickly and eventually exceeds the total \gls{swu} for the existing fleet.
+
 
 % talk about the SWU capacity
 
@@ -119,6 +120,11 @@ In the multi fuel regime, the AP1000 reactors show a 660\% increase in the numbe
     \caption{Random reactor yearly SWU capacity.}
     \label{fig:swu_yearly_random}
 \end{figure}
+
+As the features of the yearly data are regular, dictated by the cycles of the
+reactors, and overlapping, we will visualize the total \gls{swu} demand in the
+cumulative plots in Figures \ref{fig:random_mf_swu} and \ref{fig:random_of_swu}.
+
 
 \begin{figure}[H]
   \subfloat[No Growth \label{fig:random_mf_ng_swu}]{%
@@ -151,7 +157,7 @@ In Table \ref{tab:random_swu_avg}, we show the average total yearly \gls{swu} ca
 
 \begin{table}[H]
     \centering
-    \caption{Average random yearly SWU by design in k\gls{swu}.}
+    \caption{Average random yearly SWU by design in tonnes of \gls{swu}.}
     \label{tab:random_swu_avg}
     \begin{tabular}{c c c c c}
        \hline
@@ -174,6 +180,7 @@ In Table \ref{tab:random_swu_avg}, we show the average total yearly \gls{swu} ca
 \label{sec:random_fresh}
 
 % talk about the types of fuel
+In Figures \ref{fig:random_mf_fresh} and \ref{fig:random_of_fresh} we can see the fresh fuel demand for the reactors in the no growth and double by 2050 scenarios. The fresh fuel curves in each scenario follow the same pattern as the reactor deployment curves from Figures \ref{fig:random_mf_reactors} and \ref{fig:random_of_reactors}, as \cyclus supplies fuel to each of the reactors as it they deploy.
 
 % show total fresh fuel
 
@@ -204,9 +211,6 @@ In Table \ref{tab:random_swu_avg}, we show the average total yearly \gls{swu} ca
     \label{fig:random_of_fresh}
 \end{figure}
 
-
-
-
 In Table \ref{tab:random_fresh_avg} we show the average total yearly fresh fuel for the no growth and double scenarios in the single and multi fuel regimes under the random deployment scheme. The \gls{xe} reactors show a 796\% increase in the average total yearly fresh fuel going from the no growth scenario to the double scenario in the single fuel regime. The \gls{mmr} reactors show a 1505\% increase in the average total yearly fresh fuel going from the no growth scenario to the double scenario in the single fuel regime. The AP1000 reactors show a 696\% increase in the average total yearly fresh fuel going from the no growth scenario to the double scenario in the single fuel regime.
 
 \begin{table}[H]
@@ -233,6 +237,9 @@ In Table \ref{tab:random_fresh_avg} we show the average total yearly fresh fuel 
 \subsection{Used Fuel Results}
 \label{sec:random_used}
 
+In Figures \ref{fig:random_mf_used} and \ref{fig:random_of_used} we can see the used fuel accumulation for the reactors in the no growth and double by 2050 scenarios. The used fuel curves in each scenario follow the reactor deployment curves with a lag corresponding to the cycle length of the reactor from Figures \ref{fig:random_mf_reactors} and \ref{fig:random_of_reactors}, as \cyclus removes fuel from each reactor.
+
+
 % show total used fuel
 \begin{figure}[H]
     \subfloat[No Growth \label{fig:random_mf_ng_used}]{%
@@ -242,7 +249,7 @@ In Table \ref{tab:random_fresh_avg} we show the average total yearly fresh fuel 
     \subfloat[Double \label{fig:random_mf_d2_used}]{%
       \includegraphics[width=0.495\textwidth]{images/results/used/multi_dr2_used_fuel_cumulative_by_fuel.pdf}
    }
-    \caption{Random multi used fuel amount.}
+    \caption{Random multi used fuel accumulation.}
     \label{fig:random_mf_used}
   \end{figure}
 
@@ -255,7 +262,7 @@ In Table \ref{tab:random_fresh_avg} we show the average total yearly fresh fuel 
     \subfloat[Double \label{fig:random_of_d2_used}]{%
       \includegraphics[width=0.495\textwidth]{images/results/used/one_dr2_used_fuel_cumulative_by_fuel.pdf}
    }
-    \caption{Random single used fuel amount.}
+    \caption{Random single used fuel accumulation.}
     \label{fig:random_of_used}
 \end{figure}
 
