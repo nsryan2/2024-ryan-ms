@@ -9,7 +9,7 @@ In this work, we will develop a model of nuclear energy in the \gls{usa} using c
 % justify what swu is and why it is a valuable metric
 The process of enriching uranium is a critical step in the nuclear fuel cycle, and, as we have highlighted, is expected to be a bottle neck in the deployment of advanced reactors. \gls{swu}, or a Separative Work Unit, is a ubiquitous measure of effort that goes into producing nuclear fuel. It is simplified as:
 \begin{align}
-    SWU&= (P \times V(x_p) + T \times V(x_t) - F \times V(x_f))\times t\nonumber
+    SWU&= (P \times V(x_p) + T \times V(x_t) - F \times V(x_f))\times t\nonumber \\
     V(x_i)&= (2 * x_i - 1) \times \ln\left(\frac{x_i}{1 - x_i}\right)\nonumber
     \intertext{Where:}
     SWU&= \mbox{Separative Work Units [kgSWU]}\nonumber\\
@@ -24,13 +24,11 @@ The process of enriching uranium is a critical step in the nuclear fuel cycle, a
     t&= \mbox{Time [d]}\nonumber
 \end{align}
 
-In this work, we will compare the \gls{swu} required for each scenario to understand the relative effort required to deploy the reactors and provide a stable precursor to economic calculations. As we mention in Section \ref{sec:leup}, the definition used in the literature for \gls{leup} can be tied to the upper limit on enrichment for a Category III facility. The \gls{leup} fuel, as shown in Table \ref{tab:ar_defs}, is enriched to 9.95\% $^{235}$U, which would fall under the Category III limit. The \gls{haleu} fuel would require Category II facilities to achieve the 19.75\% $^{235}$U and 15.5\% $^{235}$U enrichment for the \gls{mmr} and \gls{xe} \gls{haleu}respectively. The \gls{swu} required for each scenario will be compared to understand the relative effort required to deploy the reactors and provide a stable precursor to economic calculations.
+In this work, we will compare the \gls{swu} required for each scenario to understand the relative effort required to deploy the reactors and provide a stable precursor to economic calculations. As we mention in Section \ref{sec:leup}, the definition used in the literature for \gls{leup} can be tied to the upper limit on enrichment for a Category III facility. The \gls{leup} fuel, as shown in Table \ref{tab:ar_defs}, is enriched to 9.95 w\% $^{235}$U, which would fall under the Category III limit. The \gls{haleu} fuel would require Category II facilities to achieve the 19.75 w\% $^{235}$U and 15.5 w\% $^{235}$U enrichment for the \gls{mmr} and \gls{xe} \gls{haleu}respectively. In Table \ref{tab:swu_vals}, we show the \gls{swu} calculation values for each fuel type.
 
-In Table
-
-\begin{table}
+\begin{table}[H]
     \centering
-    \caption{SWU calculation values for each fuel type}
+    \caption{SWU calculation values for each fuel type.}
     \label{tab:swu_vals}
     \begin{tabular}{c c}
         \hline
@@ -58,4 +56,4 @@ have with power expansions. The reactors simulated herein have a static peak ene
 \subsection{Mass of Fuel}
 \label{sec:mass_of_fuel}
 
-\cyclus tracks the mass of material in each transaction, in this work we will characterize the deployment challenge ahead of us using the fresh and used fuel accumulation to show the relative mass of fuel required to deploy the reactors in each scenario. From the mass of fuel, and knowledge of the fuel design, these results can be converted into cost metrics, transportation modeling, and hypothetical repository space considerations.
+\cyclus tracks the mass of material in each transaction, in this work we will characterize the deployment challenge ahead of us using the fresh and used fuel accumulation to show the relative mass of fuel required to deploy the reactors in each scenario. From the mass of fuel, and knowledge of the fuel design, these results can be converted into cost metrics, transportation indicators, and hypothetical repository space considerations.

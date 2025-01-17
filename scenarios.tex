@@ -1,8 +1,10 @@
-\section{Scenarios}
-\label{sec:scenarios}
+In this chapter, we will discuss the transition scenarios for the deployment of new nuclear reactors in the \gls{usa} and the reactor models used in this work. We will also discuss the theoretical framework and key concepts that underpin the research, and the results for each deployment scheme.
 
-In this work, we explore the deployment of advanced reactors in the future
-energy landscape of the \gls{usa}. As the landscape evolves, compounding
+\section{Transition Scenarios}
+\label{sec:transition_scenarios}
+% Discuss the theoretical framework and key concepts that underpin the research.
+
+As the energy landscape evolves, compounding
 factors will drive the actual deployment of these reactors in ways this work
 does not capture. The value of energy system modeling and this type of
 transition scenario is to understand the implications of deployment compared
@@ -14,7 +16,7 @@ implemented---outlined in Table \ref{tab:deployment_schemes}---, and the demand
 growth scenarios we have considered---outlined in Table
 \ref{tab:demand_scenarios}. In Appendix \ref{sec:considered_deployment_schemes}
 we will discuss two additional deployment schemes that we implemented, but
-not incorporated as they are more useful for problems not considered herein.
+have not incorporated as they are more useful for problems not considered herein.
 
 \begin{table}[H]
     \centering
@@ -30,9 +32,9 @@ not incorporated as they are more useful for problems not considered herein.
         & Random Deployment & Uses a date and hour as seed to sample the
         reactors list randomly. \\
         & Initially Random, Greedy Deployment & Randomly deploys reactors until
-        a reactor bigger than the remaining capacity is proposed for each year,
-        then fills the remaining capacity with a greedy algorithm. \\
-        & Single Reactor & A single reactor model is deployed as the existing fleet is decommissioned.\\
+        a reactor bigger than the remaining capacity is proposed for each time step,
+        then fills the remaining capacity with the greedy algorithm. \\
+        % & Single Reactor & A single reactor model is deployed as the existing fleet is decommissioned.\\
         \hline
         \multirow{2}{*}{Not Incorporated} & Capped Deployment & There is a
         single-number capacity for one or more of the reactor models. \\
@@ -44,15 +46,16 @@ not incorporated as they are more useful for problems not considered herein.
 
 We apply these deployment schemes to demand growth scenarios based on two
 predictions of future energy demand. The \gls{eia} publishes demand expansion
-projections for the totality of \gls{usa} \cite{eia_aeo_2023}. As we have
-discussed, the administration has refrained from publishing AEO 2024 in light
-of recent accelerations in demand growth. Our assumptions for the low-growth
-scenarios are that the relative percentage of nuclear power remains constant
-and that the relative performance of the various fuel cycle metrics we simulate
-will remain constant. The \gls{doe} Liftoff Report
-\cite{julie_liftoff_pathways_2024} does not reflect this constant percentage
-assumption for nuclear power in their demand scenarios, which are specific to
-nuclear deployment increases and the number is agnostic to the total increase.
+projections for the totality of \gls{usa} \cite{eia_aeo_2023}. The
+administration has refrained from publishing AEO 2024 in light of recent
+accelerations in demand growth. Our assumptions for the low-growth scenarios
+are that the relative percentage of nuclear power remains constant and that the
+relative performance of the various fuel cycle metrics we simulate will remain
+constant. Our high-growth scenarios come from the \gls{doe} Liftoff Report
+\cite{julie_liftoff_pathways_2024}, which does not reflect this constant
+percentage assumption for nuclear power in their demand scenarios. Their growth
+projections are specific to nuclear deployment increases and the number is
+agnostic to the total increase.
 
 \begin{table}[H]
     \centering
@@ -103,4 +106,4 @@ before 2050, whereas the other scenarios understandably commence deployment in
 appearance of the data belies the compounding effect that the year-to-year
 percentage growth requires.
 
-We will focus on the results of the no growth and $3.5\%$ scenarios, and the results for the other scenarios are available in Appendix \ref{ch:additional_results}.
+We will focus on the results of the no growth and $3.5\%$ (corresponding to a doubling of nuclear by 2050) scenarios, and the results for the other scenarios are available in Appendix \ref{ch:additional_results}.

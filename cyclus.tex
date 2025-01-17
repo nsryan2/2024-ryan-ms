@@ -8,40 +8,38 @@ for everything from proliferation assessment to fuel burnup. Many standard fuel
 cycle facilities have been implemented in the \cycamore repository
 \cite{Carlsen_cycamore_2014}, which holds technology-agnostic archetypes for
 material sources, material sinks, enrichment services, separations
-capabilities, and a generic reactor.
+capabilities, storage services, and a generic reactor.
 
 \cyclus treats each facility as an agent that can interact with other agents in
-the simulation. The agents are defined by their capabilities and the resources
+the simulation. These agents are defined by their capabilities and the resources
 they can provide or consume. The agents are connected through a market
 mechanism called the \gls{dre} that allows agents to make requests for
 resources and respond to requests from other agents, this is a unique feature
-of \cyclus. The \gls{dre} is a key component of the \cyclus simulation
-framework that allows for the dynamic exchange of resources between agents. The
-\gls{dre} is responsible for matching resource requests with offers from
-suppliers and ensuring that the resources are exchanged.
+of \cyclus. The \gls{dre} is responsible for matching resource requests with offers from suppliers and ensuring that the resources are exchanged.
 
 Materials, or commodities in the parlance of the \cyclus ecosystem, are passed
 by agents through the \gls{dre} in recorded transactions. A commodity can be
-anything, from raw materials like uranium ore to contextual concepts (e.g.,
-money, permits, or emissions). The transactions are recorded
+anything, from raw materials (like uranium ore) to contextual concepts (e.g.,
+money or permits). The transactions are recorded
 in a database that can be queried to determine the flow of materials through
 the simulation. As Huff et al. outline in their 2016 paper
-\cite{huff_cyclus_intro_2016}, treating facilities and materials allows for
-flexibility in the level of fidelity for each.
+\cite{huff_cyclus_intro_2016}, treating facilities and materials independently
+allows for flexibility in the level of fidelity for both.
 
 % discuss recipes
 As \cyclus is a transactions code and not necessarily a physics code,
 the reactors incorporate physics through pre-defined "recipes,"
 where the user specifies the concentration of isotopes in a fuel form.
-Pre-defining recipes reduces the precision with which
-fuel compositions are calculated. For example, depending on how fuel is
-discharged from a core at the end of a reactor's lifetime, there are
-instances when the model will over or under-predict the concentration of
+Pre-defining recipes can reduce the precision with which
+fuel compositions are calculated, but it dramatically increases computational
+efficiency for large simulations of complex fuel cycles. For example, depending
+on how fuel is discharged from a core at the end of a reactor's lifetime, there
+are instances when the model will over or under-predict the concentration of
 important isotopes; thereby injecting a level of error into calculations.
-Users approximate the burnup of each fuel element with the same input recipe to be the same; however, in this work we incorporate a cascading enrichment from
-\gls{leup} to \gls{haleu} as some advanced reactor companies have
-redesigned their cores to make use of both; \gls{leup} in the short term,
-while they work with the government to establish the supply chain for
+Users approximate the burnup of each fuel element with the same input recipe to
+be the same; however, in this work we incorporate a cascading enrichment from
+\gls{leup} to \gls{haleu}; \gls{leup} in the short term, while reactor vendors
+and fuel suppliers work with the government to establish the supply chain for
 \gls{haleu}.
 
 % discuss EVER and CLOVER?
@@ -49,14 +47,14 @@ while they work with the government to establish the supply chain for
 
 % discuss region, institution, and facility relationships
 In \cyclus, the user defines the simulation by specifying the regions,
-institutions, and facilities that will be present in the simulation. Regions
-are collections of institutions, and institutions are collections of facilities
-(facilities are the agents interacting in the simulation). The user can define
-the relationships between regions, institutions, and facilities to model the
-flow of materials and resources through the simulation. Through initial
-conditions, the user can tailor their simulation for any historical or imagined
-starting point based on the expected facilities and resources available from
-the outset.
+institutions, and facilities that will be present. Regions
+are collections of institutions, and institutions are collections of
+facilities, while facilities are the primary agents interacting in the
+simulation. The user can define the relationships between regions,
+institutions, and facilities to model the flow of materials and resources
+through the simulation. Through initial conditions, the user can tailor their
+simulation for any historical or imagined starting point based on the expected
+facilities and resources available from the outset.
 
 \subsection{Fuel Depletion}
 \label{sec:depletion}
@@ -95,7 +93,7 @@ initial recipe is depleted based on a given fluence. In blending mode, the
 reactor is connected to a fabrication facility that mixes material streams to
 meet a burnup criticality or conversion ratio. The burnups and material
 definitions need to be given, which is the first step in implementing this
-archetype. CyBORG \cite{skutnik_cyborg_2016}, another notable archetype,
+archetype. CyBORG \cite{skutnik_cyborg_2016}, another \cyclus archetype,
 integrates \cyclus with ORIGEN by generating a problem-specific cross section
 library (which it then feeds to ORIGEN to perform a single depletion
 calculation for the core), enabling a more nuanced approach to modeling fuel
@@ -113,9 +111,9 @@ simulations, allowing for real-time updates to fuel compositions as they change
 throughout the cycle. This approach is crucial for accurately reflecting the
 influences of fuel depletion on material properties. Various simulators outside
 the \cyclus ecosystem, including ORION \cite{feng_standardized_2016}, DYMOND
-\cite{richards_application_2021}, and NFCSim \cite{schneider_nfcsim_2005},
+\cite{richards_application_2021}, and NFCSim \cite{schneider_nfcsim_2005}
 offer capabilities for dynamic modeling. For instance, ORION allows users to
-define material compositions using recipes or can autonomously model decay and
+define material compositions using recipes and can autonomously model decay and
 depletion. DYMOND enhances accuracy by coupling with ORIGEN2, enabling
 criticality searches that refine fresh fuel compositions based on updated
 \gls{uf} data. NFCSim's coupling with the \gls{lace} further exemplifies this
@@ -150,7 +148,7 @@ These zero bids, across hundreds of facilities, add complexity and
 inefficiencies to solving the transaction problem at each time step.
 
 Examining the \cyclus ecosystem, we identified an archetype called PatternSink
-wherein the user can alter the frequency that the material sink, often called
+wherein the user can alter the frequency that the sink, often called
 the repository, can accept the material. We have created an example of this
 archetype with a simple A-B-C scenario, shown in Figure \ref{fig:a-b-c}. In
 this scenario, material is received from a source (A) to a reactor (B) with a
@@ -171,7 +169,7 @@ archetype not having an idea of individual shipments. The way this archetype
 accomplishes the artificial restriction on accepting material is by simply not
 updating the time step that the archetype is at until the next universal time
 step is met. Regardless of function, this is the only example of the
-flexibility of timestep we found in the ecosystem.
+timekeeping flexibility we found in the ecosystem.
 
 \begin{figure}[H]
     \centering
