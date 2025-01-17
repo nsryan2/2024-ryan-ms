@@ -24,7 +24,7 @@ have not incorporated as they are more useful for problems not considered herein
     \label{tab:deployment_schemes}
     \begin{tabular}{p{0.15\linewidth} p{0.27\linewidth} p{0.50\linewidth}}
         \hline
-        \textbf{Status} & \textbf{Scheme} & \textbf{Description} \\
+        Status & Scheme & Description \\
         \hline
         \multirow{4}{*}{Incorporated} & Greedy Deployment & Deploy the largest
         reactor first at each time step, fill in the remaining capacity with
@@ -129,7 +129,7 @@ Comparing these projected deployments with the results from the no growth and do
     \end{tabular}
 \end{table}
 
-In Figures \ref{fig:e_diff_ng} and \ref{fig:e_diff_d2}, we show the difference in energy output between the results and the projection for the no growth and double scenarios, respectively, over time. The difference curves in Figure \ref{fig:e_diff_d2} shows a tightly perturbed oscillation as more reactors are deployed to meet the increasing demand in the random and initially random then greedy schemes. Closer to the start of advanced reactor deployment, the greedy scheme shows a consistently smaller difference than the other schemes, but it the difference continues to grow as time progresses.
+In Figures \ref{fig:e_diff}, we show the difference in energy output between the results and the projection for the no growth and double scenarios, respectively, over time. The difference curves in Figure \ref{fig:e_diff_d2} shows a tightly perturbed oscillation as more reactors are deployed to meet the increasing demand in the random and initially random then greedy schemes. Closer to the start of advanced reactor deployment, the greedy scheme shows a consistently smaller difference than the other schemes, but it the difference continues to grow as time progresses.
 
 \begin{figure}[H]
     \subfloat[No Growth \label{fig:e_diff_ng}]{%
@@ -139,7 +139,7 @@ In Figures \ref{fig:e_diff_ng} and \ref{fig:e_diff_d2}, we show the difference i
     \subfloat[Double \label{fig:e_diff_d2}]{%
       \includegraphics[width=0.495\textwidth]{images/results/energy/d2_diff.pdf}
    }
-    \caption{.}
+    \caption{Energy output difference between results and projection.}
     \label{fig:e_diff}
 \end{figure}
 
