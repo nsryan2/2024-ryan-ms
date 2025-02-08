@@ -22,23 +22,23 @@ have not incorporated as they are more useful for problems not considered herein
     \centering
     \caption{Deployment Schemes}
     \label{tab:deployment_schemes}
-    \begin{tabular}{p{0.15\linewidth} p{0.27\linewidth} p{0.50\linewidth}}
+    \begin{tabular}{p{0.15\linewidth} >{\raggedright}p{0.20\linewidth}>{\raggedright\arraybackslash}p{0.50\linewidth}}
         \hline
         Status & Scheme & Description \\
         \hline
-        \multirow{4}{*}{Incorporated} & Greedy Deployment & Deploy the largest
+         & Greedy Deployment & Deploy the largest
         reactor first at each time step, fill in the remaining capacity with
         the next smallest, and so on. \\
-        & Random Deployment & Uses a date and hour as seed to sample the
+        Incorporated & Random Deployment & Uses a date and hour as seed to sample the
         reactors list randomly. \\
         & Initially Random, Greedy Deployment & Randomly deploys reactors until
         a reactor bigger than the remaining capacity is proposed for each time step,
         then fills the remaining capacity with the greedy algorithm. \\
         % & Single Reactor & A single reactor model is deployed as the existing fleet is decommissioned.\\
         \hline
-        \multirow{2}{*}{Not Incorporated} & Capped Deployment & There is a
+         & Capped Deployment & There is a
         single-number capacity for one or more of the reactor models. \\
-        & Pre-Determined Distribution Deployment & One or more reactors have a
+        Not Incorporated & Pre-Determined Distribution Deployment & One or more reactors have a
         preset distribution, and a smaller capacity model fills in the gaps. \\
         \hline
     \end{tabular}
@@ -61,16 +61,19 @@ agnostic to the total increase.
     \centering
     \caption{Demand Growth Scenarios}
     \label{tab:demand_scenarios}
-    \begin{tabular}{c c c}
+    \begin{tabular}{l c c}
         \hline
         \textbf{Demand Growth} & \textbf{Year-to-Year Increase} & \textbf{Source}\\
         \hline
-        No growth & 0\% & na\\
-        Low growth & 0.17\%, 0.5\%, 1\%, & \cite{eia_aeo_2023}\\
-        High growth & 3.5\%, 5.6\% & \cite{julie_liftoff_pathways_2024}\\
+        No Growth & 0\% & N/A\\
+        Low Growth & 0.17\% & \cite{eia_aeo_2023}\\
+         & 0.5\% & \cite{eia_aeo_2023}\\
+         & 1\% & \cite{eia_aeo_2023}\\
+        High Growth & 3.5\% & \cite{julie_liftoff_pathways_2024} \\
+         & 5.6\% & \cite{julie_liftoff_pathways_2024}\\
         \hline
     \end{tabular}
-\end{table}
+  \end{table}
 
 Each growth scenario is deployed under two regimes: 1) the reactors are never
 fueled with \gls{leup}; 2) the \gls{mmr} and \gls{xe} reactors are fueled with
@@ -116,7 +119,7 @@ Comparing these projected deployments with the results from the no growth and do
     \label{tab:cap_diff}
     \begin{tabular}{c c c}
         \hline
-        Scenario & Deployment Scheme & Total Difference [GWe-y]\\
+        Scenario & Deployment Scheme & Total Difference [GWe]\\
         \hline
         \multirow{3}{*}{No Growth} & Greedy & 19.46 \\
         & Random & -15.21 \\

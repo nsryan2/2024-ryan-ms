@@ -179,29 +179,34 @@ timekeeping flexibility we found in the ecosystem.
 \end{figure}
 
 While archetypes like PatternSink introduce new, internal capabilities, they
-all inherit a set of base capabilities from the \cyclus toolkit. In this work,
-we implement a fundamental toolkit capability that any archetype in the \cyclus
-ecosystem can use with one implementation. The \cyclus toolkit provides a
-modular and extensible framework for modeling \glspl{nfc}, allowing users to
-create custom archetypes that simulate various facilities and processes. These
-base capabilities standardize how archetypes create material buffers, interact
-with the \gls{dre}, and connect to the internal clock of the simulation, which
-are essential for coordinating the agents and commodities across their complex
-interactions within a \gls{nfc}. Additionally, the toolkit includes features
-such as dynamic resource allocation, customizable agent behaviors, and detailed
-tracking of material flows, which are crucial for simulating the lifecycle of
-nuclear materials.
+all inherit a set of base capabilities from the \cyclus toolkit. The \cyclus
+toolkit provides a modular and extensible framework for modeling \glspl{nfc},
+allowing users to create custom archetypes that simulate various facilities and
+processes. These base capabilities standardize how archetypes create material
+buffers, interact with the \gls{dre}, and connect to the internal clock of the
+simulation, which are essential for coordinating the agents and commodities
+across their complex interactions within a \gls{nfc}. In this work, we examine
+the fundamental toolkit capabilities of the \cyclus ecosystem and identify
+time-intensive components of the current \cycamore Reactor.
 
 The toolkit's modular architecture allows for the seamless integration of new
 archetypes and models, promoting innovation and collaboration within the
-\cyclus community. We aim to provide the most versatile and powerful foundation
-for \cyclus users by focusing on these core toolkit capabilities. This will
-enable researchers and developers to create more accurate and detailed
-simulations of \glspl{nfc}, ultimately allowing for better decision-making and
-policy development in the nuclear industry. We have identified the appropriate
-policy to update in material transactions and leverage the existing dormant
-purchasing policy to create a robust implementation in the \cycamore
-archetypes, ensuring that the most users possible will benefit. By implementing
-these improvements, we aim to ensure that the \cyclus toolkit remains at the
-forefront of \gls{nfc} simulation, providing a robust and flexible platform for
-users to explore and analyze various scenarios and strategies.
+\cyclus community. We will additionally contribute to the ecosystem with a
+reactor archetype that can adjust the power of the reactor based on user inputs
+to better capture real fluctuations in reactor operation. Through this
+archetype, we will explore one axis of incorporating historical realism and
+allow for small timescale simulations to better capture they dynamics of the
+reactor fleet.
+
+
+% We aim to provide the most versatile and powerful foundation
+% for \cyclus users by focusing on these core toolkit capabilities. This will
+% enable researchers and developers to create more accurate and detailed
+% simulations of \glspl{nfc}, ultimately allowing for better decision-making and
+% policy development in the nuclear industry. We have identified the appropriate
+% policy to update in material transactions and leverage the existing dormant
+% purchasing policy to create a robust implementation in the \cycamore
+% archetypes, ensuring that the most users possible will benefit. By implementing
+% these improvements, we aim to ensure that the \cyclus toolkit remains at the
+% forefront of \gls{nfc} simulation, providing a robust and flexible platform for
+% users to explore and analyze various scenarios and strategies.

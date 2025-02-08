@@ -1,7 +1,30 @@
-\section{Archetype Time Management}
-\label{sec:time_method}
+In this chapter, we will explore how implementing a new functionality in the \cycamore reactor can make the power outputs more realistic, and how altering the frequency with which the \cycamore reactor interacts with the \gls{dre} in \cyclus impacts the computational efficiency of a simulation.
+
+\section{Silent Trading Reactor}
+\label{sec:silent_reactor}
 % new name for section, call it something clearer. the section is not about all manangement in cyclus, just the resolution affecting results
 % Review the literature related to the third subtopic. Summarize key findings and highlight important studies.
 
 % Start with Cyclus time, go into pattern sink, and then archetype time toolkit update.
 
+As we discussed in Section \ref{sec:archetypes_and_time_management},
+
+
+% make a table for the time_context max, min, average, and standard deviation
+\begin{table}[H]
+    \centering
+    \caption{Capacity difference between results and projection.}
+    \label{tab:silent_profile}
+    \begin{tabular}{l c c c c c}
+        \hline
+        Reactor & Metric & Mean & Max & Min & StDev\\
+        \hline
+        Cycamore & Time Clock [sec] & 3.286 & 3.333 & 3.242 & 0.026\\
+         & Instructions & $1.209 \times10^{10}$ & $1.211 \times10^{10}$ & $1.207 \times10^{10}$ & $1.328 \times10^{7}$\\
+         & Instructions per Cycle & 0.800 & 0.808 & 0.791 & 0.005\\
+        Silent & Time Clock [sec] &  &  &  &  \\
+        & Instructions & $1.174 \times10^{10}$ & $1.176 \times10^{10}$ & $1.167 \times10^{10}$ & $2.692 \times10^{7}$\\
+         & Instructions per Cycle & 0.807 & 0.811 & 0.801 & 0.003\\
+        \hline
+    \end{tabular}
+\end{table}
