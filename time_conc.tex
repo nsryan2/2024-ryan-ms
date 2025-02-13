@@ -1,6 +1,15 @@
-\section{Archetype Time Conclusions}
-% Is there a significant benefit in memory and time efficiency from altering the frequency that agents interact with the DRE on?
+\section{Reactor Power and Market Interaction Conclusions}
+
+As we identified in Section \ref{sec:trading_reactor}, the \cycamore reactor enters the tick and tock phases of each time step whether or not it is time to refuel. We performed the same analysis on the \gls{tod} reactor and uncovered that both the tick and tock phases were the source of less instructions than the \cycamore reactor. Overall, our analysis shows that the \gls{tod} reactor archetype represents an alteration in the logic of the widely used \cycamore reactor that increases the utilization, decreases the number of instructions, and maintains consistent performance with the \cycamore reactor.
+
+With the 2024 test case examining the power output of the \gls{clinton}, we identified in Section \ref{sec:dpr_method} that the \cycamore reactor's constant power capacity results in a 3.52\% difference between the cumulative power capacity of \gls{clinton} and the \cycamore reactor modeling \gls{clinton}. By introducing the \gls{dpr}, we are able to replicate historic and realistic power outputs from a reactor with the only differences between \gls{dpr} and \gls{clinton} 
 
 \subsection{Future Work}
 \label{sec:time_future_work}
 
+1. Finding other ways to reduce the number of instructions.
+1. Investigating the exchange method, and how the complexity can be streamlined.
+1. Applying similar logic to other standard fuel cycle archetypes.
+
+1. Incorporating other variations in the fuel usage (allow reactors to model hot or cold shut down).
+1.
