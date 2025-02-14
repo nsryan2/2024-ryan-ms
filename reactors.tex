@@ -80,9 +80,9 @@ Figure \ref{fig:mmr_core} shows a top-down and side view of the \gls{mmr} Serpen
 \subsection{Xe-100-like Reactor}
 \label{sec:xe}
 
-As of this writing, X-Energy has received a grant from the \gls{doe} to deploy their \gls{xe}, and is in the pre-licensing phase with the \gls{nrc} for projects in Texas and Washington and is expected to be operational in the 2030s. There are similar projects in early stages in Canada and the \gls{uk}. The X-Energy \gls{xe} is a \gls{htgr} that uses \gls{triso} fuel and is expected to operate for 60 years. The reactor has a thermal output of 100 MW and uses online refueling. The fuel is enriched to 9.95\% $^{235}$U for \gls{leup} and 15.5\% $^{235}$U for \gls{haleu} and has a discharge burnup of 168 GWd/MTU. The reactor in this work is an approximation based on publicly available data and is not based on confidential or proprietary information. The model was originally developed by Richter et al. \cite{richter_xe100_like}, and is implemented in this work as-is for the \gls{haleu} version of the reactor while the \gls{leup} version has a modified fuel composition.
+As of this writing, X-Energy has received a grant from the \gls{doe} to deploy their \gls{xe}, is in the pre-licensing phase with the \gls{nrc} for projects in Texas and Washington, and is expected to be operational in the 2030s. There are similar projects in the early stages in Canada and the \gls{uk}. The X-Energy \gls{xe} is an \gls{htgr} that uses \gls{triso} fuel and is expected to operate for 60 years. The reactor has a thermal output of 100 MW and uses online refueling. The fuel is enriched to 9.95\% $^{235}$U for \gls{leup} and 15.5\% $^{235}$U for \gls{haleu} and a discharge burnup of 168 GWd/MTU. The reactor in this work is an approximation based on publicly available data and is not based on confidential or proprietary information. The model was developed by Richter et al. \cite{richter_xe100_like} and is implemented in this work as-is for the \gls{haleu}-fueled reactor, while the \gls{leup} version has a modified fuel composition.
 
-Figure \ref{fig:xe_design} shows an artist's rendering of the \gls{xe} core and reactor vessel. The \gls{xe} reactor is designed to be a small modular reactor that can be deployed in a variety of locations, and is similar to the \gls{mmr} in that it is designed to be gas cooled. Where this design differs from the \gls{mmr} is that the reactor features online refueling, due to its pebble-bed nature.
+Figure \ref{fig:xe_design} shows a rendering of the \gls{xe} core and reactor vessel. The \gls{xe} reactor is designed to be a small modular reactor that can be deployed in various locations and will be gas-cooled. This design differs from the \gls{mmr} as the reactor features online refueling due to its pebble-bed nature.
 
 \begin{figure}[H]
     \centering
@@ -91,7 +91,7 @@ Figure \ref{fig:xe_design} shows an artist's rendering of the \gls{xe} core and 
     \label{fig:xe_design}
 \end{figure}
 
-Unlike the \gls{mmr}'s annular fuel elements, the \gls{xe} pebbles are composed of a graphite matrix that contains the \gls{triso} fuel particles. These \gls{triso} particles are very similar to those in the \gls{mmr}, as shown in Figure \ref{fig:xe_fuel}.
+Unlike the \gls{mmr}'s annular fuel elements, the \gls{xe} pebbles are composed of a graphite matrix that contains the \gls{triso} fuel particles. These \gls{triso} particles are similar to those in the \gls{mmr}, as shown in Figure \ref{fig:xe_fuel}.
 
 \begin{figure}[H]
     \centering
@@ -101,7 +101,7 @@ Unlike the \gls{mmr}'s annular fuel elements, the \gls{xe} pebbles are composed 
 \end{figure}
 
 
-We have modified the fuel composition of Richter's \gls{xe}-like reactor model to accept \gls{leup} fuel. The \gls{leup} fuel is assumed to have the same burnup and power level as the \gls{haleu} fuel. This assumption is not necessarily valid, and we will explore the implications of this assumption in future work. However, we expect that, due to the limited deployment of \gls{leup} fuel, the discrepancies will be well-understood. Figure \ref{fig:xe_core} shows the top-down view of the \gls{xe} core in the Serpent model, we will not display both the \gls{leup} and \gls{haleu} versions of the core as the \gls{haleu} version has been established by Richter \cite{richter_thesis_2022} and they are visually similar.
+We have modified the fuel composition of Richter's \gls{xe}-like reactor model to accept \gls{leup} fuel. The \gls{leup} fuel is assumed to have the same burnup and power level as the \gls{haleu} fuel. This assumption is not necessarily valid, and we will explore the implications of this assumption in future work. Due to the limited deployment of \gls{leup} fuel, the discrepancies are minimal. Figure \ref{fig:xe_core} shows the top-down view of the \gls{leup} \gls{xe} core as the \gls{haleu} version has been established by Richter \cite{richter_thesis_2022}, and they are visually similar.
 
 \begin{figure}[H]
     \subfloat[Initial core. \label{fig:xe_init_core}]{%
@@ -115,9 +115,9 @@ We have modified the fuel composition of Richter's \gls{xe}-like reactor model t
     \label{fig:xe_core}
   \end{figure}
 
-Comparing Figures \ref{fig:xe_init_core} and \ref{fig:xe_final_core}, we can see visual differences in the shading of the pebbles. The pebbles are shaded based on the burnup of the fuel, with darker pebbles indicating higher burnup. The pebbles are inserted into the core at the top and gravity pulls them down through the core. After a brief holding time outside the core, the pebbles are reinserted at the top of the core. This process is repeated until the pebbles reach their targeted number of passes, at which point they are removed from the core and stored.
+Comparing Figures \ref{fig:xe_init_core} and \ref{fig:xe_final_core}, we can see visual differences in the shading of the pebbles. The pebbles are shaded based on the burnup of the fuel, with darker pebbles indicating higher burnup. The pebbles are inserted into the core at the top, and gravity pulls them down through the core. After a brief holding time outside the core, the pebbles are reinserted at the top of the core. This process is repeated until the pebbles reach their targeted number of passes, at which point they are removed from the core and stored.
 
 \subsection{AP1000 Reactor}
 \label{sec:ap}
 
-As of this writing, there are AP1000s operational in the \gls{usa} and China, and there are plans to deploy the reactor in the \gls{uk} and India. The Westinghouse AP1000 is a \gls{pwr} that uses UO$_2$ fuel. The reactor has a thermal output of 1000 MW, a cycle length of 18 months, and an expected lifetime of 60 years. The fuel is enriched to 5\% $^{235}$U and has a discharge burnup of 65 GWd/MTU. The reactor in this work is an approximation based on publicly available data and is not based on confidential or proprietary information. As this work does not anticipate \gls{leup} being used in the AP1000, there is no such neutronics model of the reactor and we have adapted the generic \cycamore reactor archetype to represent the AP1000 in the same way we represent the existing \gls{lwr} fleet.
+As of this writing, AP1000s are operational in the \gls{usa} and China, and the \gls{uk} and India plan to deploy more. The Westinghouse AP1000 is a \gls{pwr} that uses UO$_2$ fuel. The reactor has a thermal output of 1000 MW, a cycle length of 18 months, and an expected lifetime of 60 years. The fuel is enriched to 5\% $^{235}$U and has a discharge burnup of 65 GWd/MTU. The reactor in this work is an approximation based on publicly available data and is not based on confidential or proprietary information. As this work does not anticipate \gls{leup} being used in the AP1000, there is no such neutronics model of the reactor, and we have adapted the generic \cycamore reactor archetype to represent the AP1000 in the same way we represent the existing \gls{lwr} fleet.
