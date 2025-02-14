@@ -62,7 +62,7 @@ Fuel depletion is a critical aspect of fuel cycle simulations, as it directly
 influences the characteristics and behavior of \gls{uf}. The composition of
 this fuel, shaped by factors like decay heat, the quantity of fissile material,
 and the volume of \gls{uf}, has profound implications for various stages of the
-nuclear fuel cycle. The effects of depletion on these properties are one the
+nuclear fuel cycle. The effects of depletion on these properties are the
 thermal and physical characteristics of the fuel, as well as the practical
 considerations such as the transportation of \gls{uf}, the limits of repository
 storage, and the potential for reprocessing and recycling of materials. Thus,
@@ -73,8 +73,8 @@ In many fuel cycle simulators, fuel depletion is managed using pre-defined
 compositions, which allow for rapid calculations and straightforward modeling
 of fuel cycles. Tools such as VISION \cite{yacout_visionverifiable_2006}, the
 CYCAMORE Reactor archetype in \cyclus--which uses the aforementioned
-\textit{recipes}--, and ORION utilize this methodology. In these frameworks, the
-compositions of \gls{uf} are established in advance, often derived from
+\textit{recipes}--and ORION utilize this methodology. In these frameworks, the
+compositions of \gls{uf} are established in advance and derived from
 separate depletion modeling efforts. This approach is particularly effective
 for once-through fuel cycles, where fresh fuel compositions remain constant
 across refueling periods, leading to minimal variation in the characteristics
@@ -82,13 +82,10 @@ of discharged fuel. While this method offers simplicity and speed, it may not
 capture the nuanced behaviors seen in more complex fuel cycles, where dynamic
 changes in fuel composition are more pronounced.
 
-To further enrich the capabilities of \cyclus in modeling fuel depletion,
-several archetypes have been developed. Bright-lite
-\cite{schneider_integrated_2016}, for instance, introduces a comprehensive
+Users have developed several archetypes to further expand the capabilities of \cyclus in modeling fuel depletion. Bright-lite \cite{schneider_integrated_2016}, for instance, introduces a comprehensive
 framework for evaluating fuel compositions based on burnup and criticality.
 This archetype offers two operational modes—forward and blending mode—allowing
-users to tailor depletion modeling to specific scenarios. In forward mode, the
-initial recipe is depleted based on a given fluence. In blending mode, the
+users to tailor depletion modeling to specific scenarios. The initial recipe is depleted based on a given fluence in forward mode. In blending mode, the
 reactor is connected to a fabrication facility that mixes material streams to
 meet a burnup criticality or conversion ratio. The burnups and material
 definitions need to be given, which is the first step in implementing this
@@ -97,22 +94,17 @@ integrates \cyclus with ORIGEN by generating a problem-specific cross section
 library (which it then feeds to ORIGEN to perform a single depletion
 calculation for the core), enabling a more nuanced approach to modeling fuel
 cycles. Although CyBORG requires access to the export-controlled ORIGEN, it
-enhances the accuracy of \gls{uf} compositions. Additionally, the
-ann\_pwr \cite{bae_deep_2020} archetype employs neural networks trained on
+enhances the accuracy of \gls{uf} compositions. The ann\_pwr \cite{bae_deep_2020} archetype employs neural networks trained on
 historical data to predict fuel compositions based on burnup and initial
-enrichment. While achieving results with less than 1\% error in 0.23\% of the
-time as ORIGEN, ann\_pwr's applicability is limited to \gls{pwr} designs
-currently, highlighting a need for broader models that can encompass diverse
+enrichment. While achieving results with less than 1\% error 0.23\% of the
+time as ORIGEN, ann\_pwr's applicability is limited to \gls{pwr} designs, highlighting a need for broader models that can encompass diverse
 reactor types.
 
-Dynamic modeling of fuel depletion represents an evolution in fuel cycle
-simulations, allowing for real-time updates to fuel compositions as they change
-throughout the cycle. This approach is crucial for accurately reflecting the
+Dynamic modeling of fuel depletion represents an evolution in fuel cycle simulations, allowing for real-time updates to fuel compositions as material properties evolve. This approach is crucial for accurately reflecting the
 influences of fuel depletion on material properties. Various simulators outside
 the \cyclus ecosystem, including ORION \cite{feng_standardized_2016}, DYMOND
-\cite{richards_application_2021}, and NFCSim \cite{schneider_nfcsim_2005}
-offer capabilities for dynamic modeling. For instance, ORION allows users to
-define material compositions using recipes and can autonomously model decay and
+\cite{richards_application_2021}, and NFCSim \cite{schneider_nfcsim_2005}, are capable of dynamic modeling. For instance, ORION allows users to
+define material compositions using recipes and autonomously model decay and
 depletion. DYMOND enhances accuracy by coupling with ORIGEN2, enabling
 criticality searches that refine fresh fuel compositions based on updated
 \gls{uf} data. NFCSim's coupling with the \gls{lace} further exemplifies this
