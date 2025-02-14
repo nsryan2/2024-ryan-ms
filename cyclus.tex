@@ -1,6 +1,6 @@
 \section{\cyclus}
 \label{sec:cyclus}
-\cyclus is an agent-based \gls{nfc} simulator that is versatile, open source,
+\cyclus is an agent-based \gls{nfc} simulator that is versatile, open-source,
 and modular. The software achieves this versatility through a series of generic
 archetypes that are primarily transaction-based. Over the years, the user
 community and developers have created a litany of nuclear-specific archetypes
@@ -12,10 +12,9 @@ capabilities, storage services, and a generic reactor.
 
 \cyclus treats each facility as an agent that can interact with other agents in
 the simulation. These agents are defined by their capabilities and the resources
-they can provide or consume. The agents are connected through a market
-mechanism called the \gls{dre} that allows agents to make requests for
-resources and respond to requests from other agents, this is a unique feature
-of \cyclus. The \gls{dre} is responsible for matching resource requests with offers from suppliers and ensuring that the resources are exchanged.
+they can provide or consume. The agents are connected through a unique market
+mechanism called the \gls{dre} that allows agents to request
+resources and respond to requests from other agents. The \gls{dre} is responsible for matching resource requests with offers from suppliers and ensuring that the resources are exchanged.
 
 Materials, or commodities in the parlance of the \cyclus ecosystem, are passed
 by agents through the \gls{dre} in recorded transactions. A commodity can be
@@ -28,16 +27,16 @@ allows for flexibility in the level of fidelity for both.
 
 % discuss recipes
 As \cyclus is a transactions code and not necessarily a physics code,
-the reactors incorporate physics through pre-defined "recipes,"
+the reactors incorporate physics through pre-defined \textit{recipes},
 where the user specifies the concentration of isotopes in a fuel form.
 Pre-defining recipes can reduce the precision with which
 fuel compositions are calculated, but it dramatically increases computational
-efficiency for large simulations of complex fuel cycles. For example, depending
+efficiency for simulations of complex fuel cycles. For example, depending
 on how fuel is discharged from a core at the end of a reactor's lifetime, there
 are instances when the model will over or under-predict the concentration of
-important isotopes; thereby injecting a level of error into calculations.
+isotopes, thereby injecting a level of error into calculations.
 Users approximate the burnup of each fuel element with the same input recipe to
-be the same; however, in this work we incorporate a cascading enrichment from
+be the same; however, in this work, we incorporate a cascading enrichment from
 \gls{leup} to \gls{haleu}; \gls{leup} in the short term, while reactor vendors
 and fuel suppliers work with the government to establish the supply chain for
 \gls{haleu}.
@@ -48,7 +47,7 @@ and fuel suppliers work with the government to establish the supply chain for
 % discuss region, institution, and facility relationships
 In \cyclus, the user defines the simulation by specifying the regions,
 institutions, and facilities that will be present. Regions
-are collections of institutions, and institutions are collections of
+are collections of institutions, where institutions are collections of
 facilities, while facilities are the primary agents interacting in the
 simulation. The user can define the relationships between regions,
 institutions, and facilities to model the flow of materials and resources
@@ -74,7 +73,7 @@ In many fuel cycle simulators, fuel depletion is managed using pre-defined
 compositions, which allow for rapid calculations and straightforward modeling
 of fuel cycles. Tools such as VISION \cite{yacout_visionverifiable_2006}, the
 CYCAMORE Reactor archetype in \cyclus--which uses the aforementioned
-"recipes"--, and ORION utilize this methodology. In these frameworks, the
+\textit{recipes}--, and ORION utilize this methodology. In these frameworks, the
 compositions of \gls{uf} are established in advance, often derived from
 separate depletion modeling efforts. This approach is particularly effective
 for once-through fuel cycles, where fresh fuel compositions remain constant
