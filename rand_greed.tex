@@ -1,11 +1,7 @@
 \section{Initially Random, Greedy Deployment}
 \label{sec:initially_random_greedy}
 
-Combining the random and greedy deployment schemes allows us to inject some of
-the uncertainty around which reactor will be deployed at any given time while
-ensuring that the demand is met in a reasonably computationally efficient
-manner. This scheme does not give us more insight than the random or greedy
-deployment schemes it merely allows us to leverage the strengths of both.
+Combining the random and greedy deployment schemes allows us to inject uncertainty as to which reactor will be deployed at any given time while ensuring that the demand is met efficiently. This scheme does not give us more insight than the random or greedy deployment; it merely allows us to leverage the strengths of both.
 
 In this deployment scheme, we randomly deploy reactors until a reactor bigger
 than the remaining capacity is proposed for each year, then fill the remaining
@@ -38,17 +34,17 @@ the number of reactors deployed in the random phase. Instead of randomly
 deploying until the demand is met, this implementation randomly deploys until
 the selected reactor exceeds the demand. This means that when the reactors are
 different sizes, there is a chance that the random phase will deploy a reactor
-that is much larger than the demand, and the greedy phase will make up more of
+larger than the demand, and the greedy phase will make up more of
 the deployment.
 
 
 \subsection{Number of Reactors}
 \label{sec:rand_greed_reactors}
 
-As with the random deployment scheme we can see in Figures
-\ref{fig:rand_greed_mf_reactors} and \ref{fig:rand_greed_of_reactors} that the share of reactors by design is much closer than the greedy deployment scheme. The reactors in the no growth scenarios (shown in Figures \ref{fig:rand_greed_mf_ng} and \ref{fig:rand_greed_of_ng}) are deployed close to 2050, whereas the advanced reactors in the double scenarios (shown in Figures \ref{fig:rand_greed_mf_d2} and \ref{fig:rand_greed_of_d2}) are deployed close to 2030.
+As with the random deployment scheme, Figures
+\ref{fig:rand_greed_mf_reactors} and \ref{fig:rand_greed_of_reactors} show that the share of reactors by design is much closer than the greedy deployment scheme. The reactors in the no growth scenarios (shown in Figures \ref{fig:rand_greed_mf_ng} and \ref{fig:rand_greed_of_ng}) are deployed close to 2050, whereas the advanced reactors in the double scenarios (shown in Figures \ref{fig:rand_greed_mf_d2} and \ref{fig:rand_greed_of_d2}) are deployed close to 2030.
 
-% Show total number of reactors multi fuel
+% Show total number of reactors multi-fuel
 \begin{figure}[H]
     \subfloat[No Growth. \label{fig:rand_greed_mf_ng_reactors}]{%
       \includegraphics[width=0.495\textwidth]{images/results/reactors/multi_drgng_reactors.pdf}
@@ -75,16 +71,16 @@ As with the random deployment scheme we can see in Figures
     \subfloat[Double. \label{fig:rand_greed_of_d2_reactors}]{%
       \includegraphics[width=0.495\textwidth]{images/results/reactors/one_drg2_reactors.pdf}
    }
-    \caption{Single fuel initially random, then greedy reactor deployment.}
+    \caption{Single-fuel initially random, then greedy reactor deployment.}
     \label{fig:rand_greed_of_reactors}
 \end{figure}
 
-In Table \ref{tab:rand_greed_reac_avg} we show the average total operating
+In Table \ref{tab:rand_greed_reac_avg}, we show the average total operating
 reactors by design for the no growth and double growth scenarios for the multi
-and single fuel regimes. The \gls{haleu} fueled \gls{mmr} and \gls{xe}
-deployment is unchanged in the single and multi fuel regimes for the no growth
+and single-fuel regimes. The \gls{haleu} fueled \gls{mmr} and \gls{xe}
+deployment is unchanged in the single and multi-fuel regimes for the no growth
 scenarios. The number of AP1000 reactors increases 660\% from the no growth to
-the double growth scenario in the multi fuel regime. The number of \gls{haleu}
+the double growth scenario in the multi-fuel regime. The number of \gls{haleu}
 fueled \gls{xe} reactors increases 626\%, while the number of \gls{haleu}
 fueled \gls{mmr} reactors increases 649\%.
 
@@ -108,7 +104,7 @@ fueled \gls{mmr} reactors increases 649\%.
 \subsection{SWU Results}
 \label{sec:rand_greed_swu}
 
-In Figure \ref{fig:swu_yearly_rand_greed} we can see the yearly \gls{swu} demand periodically spike as reactors begin operation in the depicted no growth scenario around 2050. The \gls{swu} demand for the AP1000 \gls{leu} rises above the other two reactors while the demand from \glspl{xe} overlaps heavily with the demand from \glspl{mmr}. This trend is exacerbated in the double by 2050 scenarios shown in Figures \ref{fig:rand_greed_mf_d2_swu} and \ref{fig:rand_greed_of_d2_swu} where the \gls{swu} for AP1000 \gls{leu} fuel rises quickly and eventually exceeds the total \gls{swu} for the existing fleet.
+In Figure \ref{fig:swu_yearly_rand_greed}, we show the yearly \gls{swu} demand periodically spike as reactors begin operation in the depicted no growth scenario around 2050. The \gls{swu} demand for the AP1000 \gls{leu} rises above the other two reactors while the demand from \glspl{xe} overlaps heavily with the demand from \glspl{mmr}. This trend is exacerbated in the double by 2050 scenarios shown in Figures \ref{fig:rand_greed_mf_d2_swu} and \ref{fig:rand_greed_of_d2_swu} where the \gls{swu} for AP1000 \gls{leu} fuel rises quickly and eventually exceeds the total \gls{swu} for the existing fleet.
 % talk about the SWU capacity
 
 % show the total SWU capacity
@@ -132,7 +128,7 @@ cumulative plots in Figures \ref{fig:rand_greed_mf_swu} and \ref{fig:rand_greed_
   \subfloat[Double. \label{fig:rand_greed_mf_d2_swu}]{%
     \includegraphics[width=0.495\textwidth]{images/results/swu/multi_drg2_swu_cumulative_by_fuel.pdf}
  }
-  \caption{Initially random, then greedy multi fuel SWU.}
+  \caption{Initially random, then greedy multi-fuel SWU.}
   \label{fig:rand_greed_mf_swu}
 \end{figure}
 
@@ -146,13 +142,13 @@ cumulative plots in Figures \ref{fig:rand_greed_mf_swu} and \ref{fig:rand_greed_
     \subfloat[Double. \label{fig:rand_greed_of_d2_swu}]{%
       \includegraphics[width=0.495\textwidth]{images/results/swu/one_drg2_swu_cumulative_by_fuel.pdf}
    }
-    \caption{Initially random, then greedy single fuel SWU.}
+    \caption{Initially random, then greedy single-fuel SWU.}
     \label{fig:rand_greed_of_swu}
 \end{figure}
 
 % talk about international trade
 
-In Table \ref{tab:rand_greed_swu_avg} we show the average yearly \gls{swu} for the no growth and double growth scenarios for the multi and single fuel regimes. The \gls{swu} demand for the \gls{mmr} and \gls{xe} reactors is the same in the single and multi fuel regimes for the no growth scenarios, which is consistent with the reactor deployment trends in the Section \ref{sec:rand_greed_reactors}. Across scenarios, the demand for \gls{swu} for AP1000 \gls{leu} fuel increases 696\% from the no growth to the double growth scenario in the single fuel regime. The demand for \gls{swu} for \gls{haleu} fuel in the \gls{mmr} and \gls{xe} reactors increases 775\% and 672\% respectively from the no growth to the double growth scenario in the multi fuel regime.
+In Table \ref{tab:rand_greed_swu_avg}, we show the average yearly \gls{swu} for the no growth and double growth scenarios for the multi and single-fuel regimes. The \gls{swu} demand for the \gls{mmr} and \gls{xe} reactors is the same in the single and multi-fuel regimes for the no growth scenarios, which is consistent with the reactor deployment trends in the Section \ref{sec:rand_greed_reactors}. Across scenarios, the demand for \gls{swu} for AP1000 \gls{leu} fuel increases 696\% from the no growth to the double growth scenario in the single-fuel regime. The demand for \gls{swu} for \gls{haleu} fuel in the \gls{mmr} and \gls{xe} reactors increases 775\% and 672\% respectively from the no growth to the double growth scenario in the multi-fuel regime.
 
 \begin{table}[H]
     \centering
@@ -177,7 +173,7 @@ In Table \ref{tab:rand_greed_swu_avg} we show the average yearly \gls{swu} for t
 \label{sec:rand_greed_fresh}
 
 % talk about the types of fuel
-In Figures \ref{fig:rand_greed_mf_fresh} and \ref{fig:rand_greed_of_fresh} we can see the fresh fuel demand for the reactors in the no growth and double by 2050 scenarios. The fresh fuel curves in each scenario follow the same pattern as the reactor deployment curves from Figures \ref{fig:rand_greed_mf_reactors} and \ref{fig:rand_greed_of_reactors}, as \cyclus supplies fuel to each of the reactors as it they deploy.
+In Figures \ref{fig:rand_greed_mf_fresh} and \ref{fig:rand_greed_of_fresh}, we show the fresh fuel demand for the reactors in the no growth and double by 2050 scenarios. The fresh fuel curves in each scenario follow the same pattern as the reactor deployment curves from Figures \ref{fig:rand_greed_mf_reactors} and \ref{fig:rand_greed_of_reactors}, as \cyclus supplies fuel to each of the reactors as it they deploy.
 
 
 % show total fresh fuel
@@ -208,7 +204,7 @@ In Figures \ref{fig:rand_greed_mf_fresh} and \ref{fig:rand_greed_of_fresh} we ca
     \label{fig:rand_greed_of_fresh}
   \end{figure}
 
-In Table \ref{tab:rand_greed_fresh_avg} we show the average yearly fresh fuel by design in tonnes for the no growth and double growth scenarios for the multi and single fuel regimes. The fresh fuel demand for the reactors is the same in the single and multi fuel regimes for the no growth scenarios, which is consistent with the reactor deployment trends in the Section \ref{sec:rand_greed_reactors}. Across scenarios, the demand for fresh fuel for AP1000 \gls{leu} fuel increases 696\% from the no growth to the double growth scenario in the single fuel regime. The demand for fresh fuel for \gls{haleu} fuel in the \gls{mmr} and \gls{xe} reactors increases 775\% and 671\% respectively from the no growth to the double growth scenario in the multi fuel regime.
+In Table \ref{tab:rand_greed_fresh_avg}, we show the average yearly fresh fuel by design in tonnes for the no growth and double growth scenarios for the multi and single-fuel regimes. The fresh fuel demand for the reactors is the same in the single and multi-fuel regimes for the no growth scenarios, which is consistent with the reactor deployment trends in the Section \ref{sec:rand_greed_reactors}. Across scenarios, the demand for fresh fuel for AP1000 \gls{leu} fuel increases 696\% from the no growth to the double growth scenario in the single-fuel regime. The demand for fresh fuel for \gls{haleu} fuel in the \gls{mmr} and \gls{xe} reactors increases 775\% and 671\% respectively from the no growth to the double growth scenario in the multi-fuel regime.
 
 \begin{table}[H]
     \centering
@@ -231,7 +227,7 @@ In Table \ref{tab:rand_greed_fresh_avg} we show the average yearly fresh fuel by
 \subsection{Used Fuel Results}
 \label{sec:rand_greed_used}
 
-In Figures \ref{fig:rand_greed_mf_used} and \ref{fig:rand_greed_of_used} we can see the used fuel accumulation for the reactors in the no growth and double by 2050 scenarios. The used fuel curves in each scenario follow the reactor deployment curves with a lag corresponding to the cycle length of the reactor from Figures \ref{fig:rand_greed_mf_reactors} and \ref{fig:rand_greed_of_reactors}, as \cyclus removes fuel from each reactor.
+In Figures \ref{fig:rand_greed_mf_used} and \ref{fig:rand_greed_of_used}, we depict the used fuel accumulation for the reactors in the no growth and double by 2050 scenarios. The used fuel curves in each scenario follow the reactor deployment curves with a lag corresponding to the cycle length of the reactor from Figures \ref{fig:rand_greed_mf_reactors} and \ref{fig:rand_greed_of_reactors}, as \cyclus removes fuel from each reactor.
 
 
 % show total used fuel
@@ -261,7 +257,7 @@ In Figures \ref{fig:rand_greed_mf_used} and \ref{fig:rand_greed_of_used} we can 
   \end{figure}
 
 
-In Table \ref{tab:rand_greed_used_avg} we show the average yearly used fuel by design in tonnes for the no growth and double growth scenarios for the multi and single fuel regimes. The used fuel demand for the reactors is the same in the single and multi fuel regimes for the no growth scenarios, which is consistent with the reactor deployment trends in the Section \ref{sec:rand_greed_reactors}. Across scenarios, the demand for used fuel for AP1000 \gls{leu} fuel increases 649\% from the no growth to the double growth scenario in the single fuel regime. The demand for used fuel for \gls{haleu} fuel in the \gls{mmr} and \gls{xe} reactors increases 503\% and 620\% respectively from the no growth to the double growth scenario in the multi fuel regime.
+In Table \ref{tab:rand_greed_used_avg}, we show the average yearly used fuel by design in tonnes for the no growth and double growth scenarios for the multi and single-fuel regimes. The used fuel demand for the reactors is the same in the single and multi-fuel regimes for the no growth scenarios, which is consistent with the reactor deployment trends in the Section \ref{sec:rand_greed_reactors}. Across scenarios, the demand for used fuel for AP1000 \gls{leu} fuel increases 649\% from the no growth to the double growth scenario in the single-fuel regime. The demand for used fuel for \gls{haleu} fuel in the \gls{mmr} and \gls{xe} reactors increases 503\% and 620\% respectively from the no growth to the double growth scenario in the multi-fuel regime.
 
   \begin{table}[H]
     \centering
