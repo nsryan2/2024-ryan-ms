@@ -3,27 +3,19 @@
 
 Advanced reactor concepts, like the ones outlined in this work, are often
 designed for use cases ranging from industrial steam production to microgrid
-integration. Our deployment of these reactors is
-a complex problem that requires a nuanced understanding of the energy market,
-the regulatory environment, the intended use of the technology, and the
-technical capabilities of the reactor.
+integration. Reactor deployment is a complex problem that requires a nuanced understanding of the energy market, regulatory environment, intended use of the technology, and the technical capabilities of the reactor.
 
-This random deployment is a proxy for the complexity of the real-world
-deployment problem; however, it does not include the nuance of how individual
+This random deployment is a proxy for the complexity of the real-world problem; however, it does not include the nuance of how individual
 deployments meet an end user's needs, which will drive the strategic decisions
 that utilities and ratepayers behind the meter make in their reactor choices.
 The random deployment scheme has the potential to capture some of the
-complexities in overall market development, but the extent we capture these
-details is not explored in this work.
+complexities in overall market development, but the extent to which we capture these details is not explored in this work.
 
 The random deployment scheme is implemented by randomly selecting reactors from
 the list of deployable reactors until the demand is covered. We illustrate this
 scheme in Figure \ref{fig:random_diagram}, which shows the single loop in the
 logic from the top down. There is an irreducible demand that cannot be met
-because the power capacity is assumed to be constant. As such the random
-deployment scheme, at its best, will meet the demand, but has the potential to
-fall short of the demand by one of the smallest capacity reactors. To reduce
-the computational cost of this scheme, we have implemented a rough random case
+because the power capacity is assumed to be constant. At its best, the random deployment scheme will meet the demand but has the potential to fall short of the demand by one of the smallest capacity reactors. To reduce the computational cost of this scheme, we have implemented a rough random case
 that deploys until the randomly selected reactor exceeds the demand. This rough
 approximation is what we couple with the greedy deployment scheme in the
 initially random, greedy deployment scheme in Section
@@ -47,9 +39,9 @@ there is a high degree of uncertainty in the deployment of reactors.
 \subsection{Number of Reactors}
 \label{sec:random_reactors}
 
-As we discussed in Section \ref{sec:greedy_reactors}, the difference between the no growth and double scenarios in Figures \ref{fig:random_mf_reactors} and \ref{fig:random_of_reactors} is that the double scenario requires new reactors to be deployed immediately at the transition. A consequence of the random reactor deployment scheme is that the number of reactors in Figure \ref{fig:random_mf_ng_reactors} and \ref{fig:random_mf_d2_reactors} grow similarly over time as they are sampled for deployment. This scheme has the potential to stochastically capture the complexity of deploying reactors in the real world, but likely represents an extreme where utilities are not narrowing in on a single reactor design to reduce costs of deployment.
+As discussed in Section \ref{sec:greedy_reactors}, the difference between the no growth and double scenarios in Figures \ref{fig:random_mf_reactors} and \ref{fig:random_of_reactors} is that the double scenario requires new reactors to be deployed immediately during the transition. A consequence of the random reactor deployment scheme is that the reactors in Figures \ref{fig:random_mf_ng_reactors} and \ref{fig:random_mf_d2_reactors} grows similarly over time as they are sampled for deployment. This scheme has the potential to stochastically capture the complexity of deploying reactors in the real world but likely represents an extreme where utilities are not narrowing in on a single reactor design to reduce deployment costs.
 
-% Show total number of reactors multi fuel
+% Show total number of reactors multi-fuel
 \begin{figure}[H]
     \subfloat[No Growth. \label{fig:random_mf_ng_reactors}]{%
       \includegraphics[width=0.495\textwidth]{images/results/reactors/multi_drng_reactors.pdf}
@@ -76,14 +68,14 @@ As we discussed in Section \ref{sec:greedy_reactors}, the difference between the
     \subfloat[Double. \label{fig:random_of_d2_reactors}]{%
       \includegraphics[width=0.495\textwidth]{images/results/reactors/one_dr2_reactors.pdf}
    }
-    \caption{Single fuel random reactor deployment.}
+    \caption{Single-fuel random reactor deployment.}
     \label{fig:random_of_reactors}
   \end{figure}
 
 
-In Table \ref{tab:random_reac_avg}, we show the average total number of reactors for the no growth and double scenarios in the single and multi fuel regimes. There is a 740\% increase in the number of AP1000s deployed going from the no growth scenario to the double scenario. The \gls{xe} reactors show a 249\% increase, while the \gls{mmr} reactors show a 62\% increase in the number of reactors deployed going from the no growth scenario to the double scenario in the single fuel regime. Unlike the reactor deployment under the greedy scheme in Section \ref{sec:greedy_reactors} and the initially random then greedy scheme in Section \ref{sec:rand_greed_reactors}, the random deployment scheme results for the single fuel and multi fuel regimes are not the same.
+In Table \ref{tab:random_reac_avg}, we show the average total number of reactors for the no growth and double scenarios in the single and multi-fuel regimes. There is a 740\% increase in the AP1000s deployed from the no growth scenario to the double scenario. The \gls{xe} reactors show a 249\% increase, while the \gls{mmr} reactors show a 62\% increase in the reactors deployed from the no growth scenario to the double scenario in the single-fuel regime. Unlike the reactor deployment under the greedy scheme in Section \ref{sec:greedy_reactors} and the initially random then greedy scheme in Section \ref{sec:rand_greed_reactors}, the random deployment scheme results for the single-fuel and multi-fuel regimes are not the same.
 
-In the multi fuel regime, the AP1000 reactors show a 660\% increase in the number of reactors deployed going from the no growth scenario to the double scenario. The \gls{xe} reactors show a 746\% increase, while the \gls{mmr} reactors show a 1138\% increase in the number of reactors deployed going from the no growth scenario to the double scenario.
+In the multi-fuel regime, the AP1000 reactors show a 660\% increase in the reactors deployed from the no growth scenario to the double scenario. The \gls{xe} reactors show a 746\% increase, while the \gls{mmr} reactors show an 1138\% increase in the reactors deployed from the no growth scenario to the double scenario.
 
 \begin{table}[H]
     \centering
@@ -108,7 +100,7 @@ In the multi fuel regime, the AP1000 reactors show a 660\% increase in the numbe
 \subsection{SWU Results}
 \label{sec:random_swu}
 
-In Figure \ref{fig:swu_yearly_random} we can see the yearly \gls{swu} demand periodically spike as reactors begin operation in the depicted no growth scenario around 2050. The \gls{swu} demand for the AP1000 \gls{leu} rises above the other two reactors while the demand from \glspl{xe} overlaps heavily with the demand from \glspl{mmr}. This trend is exacerbated in the double by 2050 scenarios shown in Figures \ref{fig:greedy_mf_d2_swu} and \ref{fig:greedy_of_d2_swu} where the \gls{swu} for AP1000 \gls{leu} fuel rises quickly and eventually exceeds the total \gls{swu} for the existing fleet.
+In Figure \ref{fig:swu_yearly_random}, we visualize the yearly \gls{swu} demand periodically spike as reactors begin operation in the depicted no growth scenario around 2050. The \gls{swu} demand for the AP1000 \gls{leu} rises above the other two reactors where the demand from \glspl{xe} overlaps heavily with the demand from \glspl{mmr}. This trend is exacerbated in the double by 2050 scenarios shown in Figures \ref{fig:greedy_mf_d2_swu} and \ref{fig:greedy_of_d2_swu}, where the \gls{swu} for AP1000 \gls{leu} fuel rises quickly and eventually exceeds the total \gls{swu} for the existing fleet.
 
 
 % talk about the SWU capacity
@@ -134,7 +126,7 @@ cumulative plots in Figures \ref{fig:random_mf_swu} and \ref{fig:random_of_swu}.
   \subfloat[Double. \label{fig:random_mf_d2_swu}]{%
     \includegraphics[width=0.495\textwidth]{images/results/swu/multi_dr2_swu_cumulative_by_fuel.pdf}
  }
-  \caption{Random reactor multi fuel SWU.}
+  \caption{Random reactor multi-fuel SWU.}
   \label{fig:random_mf_swu}
 \end{figure}
 
@@ -148,12 +140,12 @@ cumulative plots in Figures \ref{fig:random_mf_swu} and \ref{fig:random_of_swu}.
     \subfloat[Double. \label{fig:random_of_d2_swu}]{%
       \includegraphics[width=0.495\textwidth]{images/results/swu/one_dr2_swu_cumulative_by_fuel.pdf}
    }
-    \caption{Random reactor single fuel SWU.}
+    \caption{Random reactor single-fuel SWU.}
     \label{fig:random_of_swu}
 \end{figure}
 
 
-In Table \ref{tab:random_swu_avg}, we show the average total yearly \gls{swu} capacity for the no growth and double scenarios in the single and multi fuel regimes under the random deployment scheme. The \gls{xe} reactors show a 796\% increase in the average total yearly \gls{swu} capacity going from the no growth scenario to the double scenario in the single fuel regime. The \gls{mmr} reactors show a 1511\% increase in the average total yearly \gls{swu} capacity going from the no growth scenario to the double scenario in the single fuel regime. The AP1000 reactors show a 697\% increase in the average total yearly \gls{swu} capacity going from the no growth scenario to the double scenario in the single fuel regime.
+In Table \ref{tab:random_swu_avg}, we show the average total yearly \gls{swu} capacity for the no growth and double scenarios in the single and multi-fuel regimes under the random deployment scheme. The \gls{xe} reactors show a 796\% increase in the average total yearly \gls{swu} capacity from the no growth scenario to the double scenario in the single-fuel regime. The \gls{mmr} reactors show a 1511\% increase in the average total yearly \gls{swu} capacity from the no growth scenario to the double scenario in the single-fuel regime. The AP1000 reactors show a 697\% increase in the average total yearly \gls{swu} capacity from the no growth scenario to the double scenario in the single-fuel regime.
 
 \begin{table}[H]
     \centering
@@ -180,7 +172,7 @@ In Table \ref{tab:random_swu_avg}, we show the average total yearly \gls{swu} ca
 \label{sec:random_fresh}
 
 % talk about the types of fuel
-In Figures \ref{fig:random_mf_fresh} and \ref{fig:random_of_fresh} we can see the fresh fuel demand for the reactors in the no growth and double by 2050 scenarios. The fresh fuel curves in each scenario follow the same pattern as the reactor deployment curves from Figures \ref{fig:random_mf_reactors} and \ref{fig:random_of_reactors}, as \cyclus supplies fuel to each of the reactors as it they deploy.
+In Figures \ref{fig:random_mf_fresh} and \ref{fig:random_of_fresh}, we show the fresh fuel demand for the reactors in the no growth and double by 2050 scenarios. The fresh fuel curves in each scenario follow the same pattern as the reactor deployment curves from Figures \ref{fig:random_mf_reactors} and \ref{fig:random_of_reactors}, as \cyclus supplies fuel to each of the reactors as they deploy.
 
 % show total fresh fuel
 
@@ -211,7 +203,7 @@ In Figures \ref{fig:random_mf_fresh} and \ref{fig:random_of_fresh} we can see th
     \label{fig:random_of_fresh}
 \end{figure}
 
-In Table \ref{tab:random_fresh_avg} we show the average total yearly fresh fuel for the no growth and double scenarios in the single and multi fuel regimes under the random deployment scheme. The \gls{xe} reactors show a 796\% increase in the average total yearly fresh fuel going from the no growth scenario to the double scenario in the single fuel regime. The \gls{mmr} reactors show a 1505\% increase in the average total yearly fresh fuel going from the no growth scenario to the double scenario in the single fuel regime. The AP1000 reactors show a 696\% increase in the average total yearly fresh fuel going from the no growth scenario to the double scenario in the single fuel regime.
+In Table \ref{tab:random_fresh_avg}, we show the average total yearly fresh fuel for the no growth and double scenarios in the single and multi-fuel regimes under the random deployment scheme. The \gls{xe} reactors show a 796\% increase in the average total yearly fresh fuel from the no growth scenario to the double scenario in the single-fuel regime. The \gls{mmr} reactors show a 1505\% increase in the average total yearly fresh fuel from the no growth scenario to the double scenario in the single-fuel regime. The AP1000 reactors show a 696\% increase in the average total yearly fresh fuel from the no growth scenario to the double scenario in the single-fuel regime.
 
 \begin{table}[H]
     \centering
@@ -237,7 +229,7 @@ In Table \ref{tab:random_fresh_avg} we show the average total yearly fresh fuel 
 \subsection{Used Fuel Results}
 \label{sec:random_used}
 
-In Figures \ref{fig:random_mf_used} and \ref{fig:random_of_used} we can see the used fuel accumulation for the reactors in the no growth and double by 2050 scenarios. The used fuel curves in each scenario follow the reactor deployment curves with a lag corresponding to the cycle length of the reactor from Figures \ref{fig:random_mf_reactors} and \ref{fig:random_of_reactors}, as \cyclus removes fuel from each reactor.
+In Figures \ref{fig:random_mf_used} and \ref{fig:random_of_used}, we depict the used fuel accumulation for the reactors in the no growth and double by 2050 scenarios. The used fuel curves in each scenario follow the reactor deployment curves with a lag corresponding to the cycle length of the reactor from Figures \ref{fig:random_mf_reactors} and \ref{fig:random_of_reactors}, as \cyclus removes fuel from each reactor.
 
 
 % show total used fuel
@@ -267,7 +259,7 @@ In Figures \ref{fig:random_mf_used} and \ref{fig:random_of_used} we can see the 
 \end{figure}
 
 
-In Table \ref{tab:random_used_avg} we show the average total yearly used fuel for the no growth and double scenarios in the single and multi fuel regimes under the random deployment scheme. The \gls{xe} reactors show a 742\% increase in the average total yearly used fuel going from the no growth scenario to the double scenario in the single fuel regime. The \gls{mmr} reactors show a 838\% increase in the average total yearly used fuel going from the no growth scenario to the double scenario in the single fuel regime. The AP1000 reactors show a 649\% increase in the average total yearly used fuel going from the no growth scenario to the double scenario in the single fuel regime.
+In Table \ref{tab:random_used_avg}, we show the average total yearly used fuel for the no growth and double scenarios in the single and multi-fuel regimes under the random deployment scheme. The \gls{xe} reactors show a 742\% increase in the average total yearly used fuel from the no growth scenario to the double scenario in the single-fuel regime. The \gls{mmr} reactors show a 838\% increase in the average total yearly used fuel from the no growth scenario to the double scenario in the single-fuel regime. The AP1000 reactors show a 649\% increase in the average total yearly used fuel from the no growth scenario to the double scenario in the single-fuel regime.
 
 \begin{table}[H]
     \centering
