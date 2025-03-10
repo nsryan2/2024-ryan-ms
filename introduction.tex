@@ -1,4 +1,4 @@
-While the world grapples with the effects of climate change, the demand for clean and firm energy continues to increase. Utilities and decision-makers face rising energy demands of machine learning and data center companies, which require a constant and reliable energy source. The escalation of data center demand has led the \gls{eia} to forego publishing its annual energy outlook report in 2023 as it evaluates its models under emergent market pressures \cite{eia_annual_outlook_canceled_2023}. New nuclear reactors---designed to be more efficient, flexible, and resilient than the reactors that have come before them---can provide clean, firm energy to meet these demands.
+While the world grapples with the effects of climate change, the demand for clean and firm energy continues to increase. Utilities and decision-makers face rising energy demands of machine learning and data center companies, which require a constant and reliable energy source. The escalation of data center demand and electrification in the economy has led the \gls{eia} to forego publishing its annual energy outlook report in 2023 as it evaluates its models under emergent market pressures \cite{eia_annual_outlook_canceled_2023}. New nuclear reactors---designed to be more efficient, flexible, and resilient than the reactors that have come before them---can provide clean, firm energy to meet these demands.
 
 Since 1959, the \gls{usa} has commercially operated large \gls{lwr} designs at
 nuclear power plants. These reactors use light water as a coolant and moderator
@@ -12,19 +12,28 @@ Watts Bar-2 in 2016.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{images/intro/online_lwr_cap_2024.pdf}
-    \caption{US LWR capacity through 2024 \cite{IAEA_PRIS}.}
+    \caption{US LWR capacity through 2024. Reproduced from \cite{IAEA_PRIS}.}
     \label{fig:online_lwr_cap_2024}
 \end{figure}
 
 According to the \gls{eia}, nuclear power plants produced 18\% of utility-scale
-electricity generation in 2023 \cite{eia_elec_gen_2024}, meaning nuclear energy was 46.5\% of total clean energy generation and the largest clean energy source in the country. The last license in the fleet will now expire in 2063 following
-the completion of Vogtle Unit 4; however, to meet our growing energy demands, the \gls{usa} will need to replace and expand the current fleet as it retires over that time; deploying new reactors at a rate that has not been seen since the 1970s. The \gls{doe} has published a liftoff report on the potential for
-nuclear energy to meet future demands and has outlined myriad scenarios that could lead to a 100\% clean energy future by 2050
-\cite{julie_liftoff_pathways_2024}. One of the striking takeaways from the
-liftoff report is the potential  for tripling nuclear energy demand by 2050
-due to new capacity demand, the retirement of fossil fuels, electrification of our economy, and other behind-the-meter applications of nuclear technologies. The potential \gls{doe} outlines is not without its challenges; the \gls{eia} 2023 Domestic Uranium Production Report highlights the decrease in uranium
-concentrate production in the \gls{usa} and the number of fuel cycle facilities
-that are dormant or have been decommissioned \cite{eia_uranium_statistics_2023}.
+electricity generation in 2023 \cite{eia_elec_gen_2024}, meaning nuclear energy
+was 46.5\% of total clean energy generation and the largest clean energy source
+in the country. The last license in the fleet will now expire in 2063 following
+the completion of Vogtle Unit 4; however, to meet growing energy demands,
+the \gls{usa} will need to replace and expand the current fleet as it retires
+over that time; deploying new reactors at a rate that has not been seen since
+the 1970s. The \gls{doe} has published a liftoff report on how nuclear energy
+can expand to meet future demands and has outlined myriad scenarios that could
+lead to a 100\% net zero carbon by 2050 \cite{julie_liftoff_pathways_2024}. One
+of the striking takeaways from the liftoff report is the necessity of tripling
+nuclear energy demand by 2050 due to new capacity demand, the retirement of
+fossil fuels, electrification of the economy, and other behind-the-meter
+applications of nuclear technologies. The future \gls{doe} outlines is not
+without its challenges; the \gls{eia} 2023 Domestic Uranium Production Report
+highlights the decrease in uranium concentrate production in the \gls{usa} and
+the number of fuel cycle facilities that are dormant or have been
+decommissioned \cite{eia_uranium_statistics_2023}.
 
 Despite these deployment challenges, the \gls{doe} liftoff report asserts that
 high-value propositions in low land use, firm energy generation, direct heat
@@ -39,11 +48,11 @@ The current fleet of \glspl{lwr} has been the backbone of the commercial nuclear
 industry, but the industry is on the precipice of a different generation of
 reactor technologies. The fleet of \glspl{lwr} uses a ceramic uranium-oxide fuel
 that is enriched to 3-5\% $^{235}$U, but there is a panoply of advanced reactor
-designs at various stages of deployment using our decades of
+designs at various stages of deployment using decades of
 experience with creating nuclear energy. These reactors vary in size from large
-gigawatt-scale reactors to smaller reactors that can fit on the back of a
+gigawatt-scale reactors to smaller reactors designed to fit on the back of a
 truck. The design space is vast, but one innovation that has been a focus of
-the nuclear industry is the \gls{triso} fuel particle. This fuel particle is a small sphere of uranium fuel coated in carbon and silicon carbide layers. \gls{triso} is designed to be more robust than traditional fuel and used in various reactor designs that require higher enrichments of $^{235}$U into \gls{haleu} territory (5-20\%).
+the nuclear industry is the \gls{triso} fuel particle. This fuel particle is a small sphere of uranium fuel coated in carbon and silicon carbide layers. \gls{triso} is designed to be more robust than traditional fuel and to be used in various reactor designs that require \gls{haleu} (5-20\%).
 
 The \gls{nfc} describes the steps nuclear fuel goes through
 in its life cycle. In Figure \ref{fig:once-through}, we have outlined a
@@ -77,32 +86,32 @@ use the \cyclus \cite{huff_cyclus_intro_2016} tool. \cyclus is a
 nuclear fuel cycle simulator that allows users to model the material movement between facilities in discrete-event simulations. These facilities
 are run by agents that make decisions and interact with other agents. Because
 \cyclus is designed to be technology agnostic, we can use it to model a variety
-of fuel cycles and reactor types--although it is not primarily a physics code,
-and coupling it with physics codes can be necessary for some problems.
+of fuel cycles and reactor types--although it is not primarily a physics engine,
+so coupling it with physics software can be necessary for some problems.
 
 Partners in industry, academia, and government are building the body of
-literature surrounding \gls{triso} fuel cycles. This work is a timely
+literature surrounding \gls{triso} fuel cycles. This thesis is a timely
 evaluation of various energy-demand scenarios and an optimization of the
 deployment of advanced reactors building off of the method established by
 Bachmann et al. \cite{bachmann_enrichment_2021} for \gls{haleu} fuel,
-incorporating the staggered enrichment demand that advanced reactor
-companies could explore as the \gls{haleu} supply chain
-develops. We seek to understand the deployment of advanced reactors in the
-\gls{usa} and the implications of the fuel cycle on the deployment of these
-reactors, as some designs adopt a staggered enrichment demand for various
-\gls{triso} fuels. We have chosen to focus on \gls{swu},
-energy output, mass of fuel, and reactor deployment to understand
-the performance of each deployment scenario. In
-service of this goal, we will also examine the computational efficiency of the
-\gls{dre} in \cyclus to contribute to a robust tool for future analysis.
+incorporating a phased enrichment demand that advanced reactor companies could
+explore as the \gls{haleu} supply chain develops. This thesis seeks to
+understand the potential for advanced reactor deployment in the \gls{usa} and
+the implications of the fuel cycle on the deployment of these reactors, as some
+designs adopt a staggered enrichment demand for various \gls{triso} fuels. We
+have chosen to focus on \gls{swu}, energy output, mass of fuel, and reactor
+deployment to understand the performance of each deployment scenario. In
+service of this goal, this thesis will also examine the computational
+efficiency of the \gls{dre} in \cyclus to contribute to a robust tool for
+future analysis.
 
 
 The structure of this thesis is as follows:
 
 \begin{itemize}
-    \item Chapter 2 outlines energy system modeling, the reactors used in this work, the types of fuel, and the \cyclus tool as it pertains to this work.
-    \item Chapter 3 discusses the deployment schemes used in this work, the metrics used to evaluate the scenarios, and presents the results of each.
-    \item Chapter 4 outlines two reactor archetypes introduced in this work, and compares them to the \cycamore reactor.
+    \item Chapter 2 outlines energy system modeling, the reactors investigated in this work, the types of fuel, and the \cyclus tool as it pertains to this work.
+    \item Chapter 3 discusses the deployment schemes analyzed in this work, the metrics used to evaluate the scenarios, and presents the results of each.
+    \item Chapter 4 outlines two reactor archetypes developed in this work, and compares them to the \cycamore reactor.
     \item Chapter 5 concludes the work in Chapters 3 and 4, discusses the assumptions and limitations, and presents directions for future work.
     \item Appendix A shows the details for each reactor in what we call the "existing fleet" in this work.
     \item Appendix B discusses the implemented reactor deployment schemes that were not used in this work.
