@@ -2,21 +2,22 @@
 \label{sec:metrics}
 
 % discuss the metrics you are using
-In this work, we will develop a nuclear energy model of the \gls{usa} using concepts from \glspl{esm} on scenarios that compare the transition from our current fleet to incorporate advanced reactor technologies not currently deployed. To compare these scenarios, we have focused on a few key metrics: \gls{swu}, energy output, mass of fuel, and reactor deployment.
+This thesis develops a nuclear energy model of the \gls{usa} using concepts from \glspl{esm} on scenarios that compare the transition from the current fleet to incorporate advanced reactor technologies not currently deployed. To compare these scenarios, I have focused on a few key metrics: \gls{swu}, energy output, mass of fuel, and reactor deployment.
 
 \subsection{Separative Work Units}
 \label{sec:swu}
 % justify what swu is and why it is a valuable metric
-The process of enriching uranium is a critical step in the nuclear fuel cycle, and, as we have highlighted, is expected to be a bottleneck in the deployment of advanced reactors. \gls{swu}, or a Separative Work Unit, is a ubiquitous measure of effort that goes into producing nuclear fuel. It is simplified as:
+The process of enriching uranium is a critical step in the nuclear fuel cycle, and is expected to be a bottleneck in the deployment of advanced reactors. The Separative Work Unit (SWU), is a ubiquitous measure of effort that goes into separating isotopes. It is simplified as:
 \begin{align}
-    SWU&= (P \times V(x_p) + T \times V(x_t) - F \times V(x_f))\times t\nonumber \\
-    V(x_i)&= (2 * x_i - 1) \times \ln\left(\frac{x_i}{1 - x_i}\right)\nonumber
-    \intertext{Where:}
+    SWU&= (P V(x_p) + T  V(x_t) - F  V(x_f)) t\nonumber \\
+    \intertext{where:}
+    V(x_i)&= (2x_i - 1)  \ln\left(\frac{x_i}{1 - x_i}\right)\nonumber
+    \intertext{where:}
     SWU&= \mbox{Separative Work Units [kgSWU]}\nonumber\\
     P&= \mbox{Product mass flow rate [kg/d]}\nonumber\\
     F&= \mbox{Feed mass flow rate [kg/d]}\nonumber\\
     T&= \mbox{Tails mass flow rate [kg/d]}\nonumber\\
-    V&= \mbox{Separation Potential [-]}\nonumber\\
+    V(x_i)&= \mbox{Separation Potential [-]}\nonumber\\
     x_i&= \mbox{Weight fraction of $^{235}U$ in the i stream [-]}\nonumber\\
     x_p&= \mbox{Weight fraction of $^{235}U$ in the product stream [-]}\nonumber\\
     x_f&= \mbox{Weight fraction of $^{235}U$ in the feed stream [-]}\nonumber\\
@@ -24,13 +25,13 @@ The process of enriching uranium is a critical step in the nuclear fuel cycle, a
     t&= \mbox{Time [d]}\nonumber
 \end{align}
 
-In this work, we will compare the \gls{swu} required for each scenario to understand the relative effort required to deploy the reactors and provide a stable precursor to economic calculations. As we mentioned in Section \ref{sec:leup}, the definition used in the literature for \gls{leup} can be tied to the upper limit on enrichment for a Category III facility. The \gls{leup} fuel, as shown in Table \ref{tab:ar_defs}, is enriched to 9.95 w\% $^{235}$U, which would fall under the Category III limit. The \gls{haleu} fuel would require Category II facilities to achieve the 19.75 w\% $^{235}$U and 15.5 w\% $^{235}$U enrichment for the \gls{mmr} and \gls{xe} \gls{haleu}. Table \ref{tab:swu_vals} shows the \gls{swu} calculation values for each fuel type.
+This thesis compares the \gls{swu} required for each scenario to understand the relative effort required to deploy the reactors and provide a stable precursor to economic calculations. As mentioned in Section \ref{sec:leup}, the definition used in the literature for \gls{leup} can be tied to the upper limit on enrichment for a Category III facility. The \gls{leup} fuel, as shown in Table \ref{tab:ar_defs}, is enriched to 9.95 w\% $^{235}$U, which would fall under the Category III limit. The \gls{haleu} fuel would require Category II facilities to achieve the 19.75 w\% $^{235}$U and 15.5 w\% $^{235}$U enrichment for the \gls{mmr} and \gls{xe} \gls{haleu}. Table \ref{tab:swu_vals} shows the \gls{swu} calculation values for each fuel type.
 
 \begin{table}[H]
     \centering
     \caption{SWU calculation values for each fuel type.}
     \label{tab:swu_vals}
-    \begin{tabular}{c c}
+    \begin{tabular}{l l}
         \hline
         \textbf{Variable} & \textbf{Value}\\
         \hline
@@ -48,12 +49,12 @@ In this work, we will compare the \gls{swu} required for each scenario to unders
 \subsection{Energy Output}
 \label{sec:energy_output}
 
-The deployment of reactors in this work is based on energy demand, which
+The deployment of reactors in this thesis is based on energy demand, which
 approximates the complicated relationship that generators and utilities
-have with power expansions. The reactors simulated herein have a static peak energy output, so the nuance in the fleet's ability to meet the demand comes from the deployment scheme and limitations in the fuel supply chain. We will devote time to discussing the realistic features of each scheme. \cyclus tracks the energy output of each reactor, and we will compare that with the demand scenarios to understand the relative performance of each deployment scheme.
+have with power expansions. The reactors simulated herein have a static peak energy output, so the nuance in the fleet's ability to meet the demand comes from the deployment scheme and limitations in the fuel supply chain. This thesis discusses the realistic features of each scheme and compares the energy output with the demand scenarios to understand the relative performance of each deployment scheme.
 
 
 \subsection{Mass of Fuel}
 \label{sec:mass_of_fuel}
 
-\cyclus tracks the mass of material in each transaction, in this work we characterized the deployment challenge ahead of us using the fresh and used fuel accumulation to show the relative mass of fuel required to deploy the reactors in each scenario. From the mass of fuel and our knowledge of fuel design, these results can be converted into cost metrics, transportation indicators, and hypothetical repository space considerations.
+\cyclus tracks the mass of material in each transaction, this thesis characterized the fresh and used fuel accumulation to show the relative mass of fuel required to deploy the reactors in each scenario. From the mass of fuel and fuel design, these results can be converted into cost metrics, transportation indicators, and hypothetical repository space considerations.

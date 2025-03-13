@@ -10,7 +10,7 @@
 \newcommand{\cycamore}{\textsc{Cycamore}\xspace}
 \newcommand{\cyclus}{\textsc{Cyclus}\xspace}
 
-
+\usepackage{longtable}
 \usepackage[section]{placeins}
 \usepackage{booktabs} % nice rules (thick lines) for tables
 \usepackage{microtype} % improves typography for PDF
@@ -21,7 +21,7 @@
 \usepackage{subfig}
 \usepackage{hhline}
 \usepackage{amsmath}
-% \usepackage{array}
+\usepackage{array}
 \usepackage{color}
 \usepackage{multirow}
 \usepackage{siunitx}
@@ -32,6 +32,9 @@
 \usepackage{fourier}
 \usepackage{booktabs}
 \newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\newcommand{\RomanNumeralCaps}[1]
+    {\MakeUppercase{\romannumeral #1}}
 
 \usepackage{threeparttable, tablefootnote}
 

@@ -1,12 +1,7 @@
 \chapter{Considered Deployment Schemes}
 \label{sec:considered_deployment_schemes}
 In addition to the deployment schemes outlined in \ref{sec:greedy_deployment},
-\ref{sec:random_deployment}, and \ref{sec:initially_random_greedy}, we also
-considered a few others that we did not include in the final analysis. We
-examined these schemes for their potential to capture the complexity of the
-deployment problem but were ultimately not included due to the egregious nature
-of approximation required to implement or the lack of a clear benefit over the
-other schemes for the questions explored in this work.
+\ref{sec:random_deployment}, and \ref{sec:initially_random_greedy}, this chapter outlines others not included in the final analysis. I examined these schemes for their potential to capture the complexity of the deployment problem but were ultimately not included due to the egregious nature of approximation required to implement or the lack of a clear benefit over the other schemes for the questions explored in this work.
 
 \section{Capped Deployment}
 \label{sec:capped_deployment}
@@ -14,17 +9,9 @@ This scheme places a constant limit on the number of specific reactors deployed
 at any given time step. This is a simple way to model aggregate supply chain
 constraints that could limit vendors from deploying reactors freely. With the
 right constraints, this scheme would better succeed at roughly incorporating
-the limits of a workforce over a short to medium time scale. As workforce
-constraints are outside the scope of this work, we implement this scheme but do
-not incorporate it into this work.
+the limits of a workforce over a short to medium time scale. This thesis does not implement the capped deployment scheme as workforce constraints are outside the scope.
 
-To use this deployment scheme, a user needs to understand the supply chain
-constraints that will limit the deployment of the reactors they are deploying.
-We illustrate the defining steps of the capped deployment scheme in Figure
-\ref{fig:cap_diagram}. The main loop in the logic is consistent with the greedy
-deployment scheme but adds a check to see if the current deployment exceeds the
-limit on that reactor. If it does, the reactor is removed from the list of
-reactors to be deployed in that time step.
+To use this deployment scheme, a user needs to understand the supply chain constraints that will limit the deployment of the reactors they are deploying. Figure \ref{fig:cap_diagram} illustrates the defining steps of the capped deployment scheme. The main loop in the logic is consistent with the greedy deployment scheme but adds a check to see if the current deployment exceeds the limit on that reactor. If it does, the reactor is removed from the list of reactors to be deployed in that time step.
 
 \begin{figure}[H]
     \centering
@@ -54,21 +41,11 @@ over-deploy by one reactor's capacity in that case.
 This deployment scheme allows users to incorporate the projections and
 commitments of ratepayers and utilities by setting a distribution over the
 simulation time. In this scheme, the distribution serves as a cap to the
-number of reactors deployed in a time step, and we preferentially
-deploy reactors first to meet those caps. After completion, we deploy the
-remaining reactors without caps to meet the demand. In this way, we incorporate
-knowledge of supply chain constraints for specific technologies without having
-to model the supply chain in detail.
+number of reactors deployed in a time step, and preferentially
+deploys reactors first to meet those caps. After completion, it deploys the
+remaining reactors without caps to meet the demand. In this way, it allows a user to incorporate knowledge of supply chain constraints for specific technologies without modeling the supply chain in detail.
 
-To use this deployment scheme, a user needs some idea of the distribution of
-reactors deployed over the simulation time. We illustrate the defining steps of
-the pre-determined distribution deployment scheme in Figure
-\ref{fig:pre_det_diagram}. The main loop in the logic is consistent with the
-greedy deployment scheme but adds a check to see if the current deployment
-exceeds the limit on that reactor. If it does, the scheme removes the reactor
-from the list of deployable reactors in that time step. This scheme varies from
-the capped deployment scheme in that the distribution is not flat, but a more
-granular distribution that varies by year.
+To use this deployment scheme, a user needs some idea of the distribution of reactors deployed over the simulation time. Figure \ref{fig:pre_det_diagram} illustrates the defining steps of the pre-determined distribution deployment scheme. The main loop in the logic is consistent with the greedy deployment scheme but adds a check to see if the current deployment exceeds the limit on that reactor. If it does, the scheme removes the reactor from the list of deployable reactors in that time step. This scheme varies from the capped deployment scheme in that the distribution is not flat, but a more granular distribution that varies by year.
 
 \begin{figure}[H]
     \centering

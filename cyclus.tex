@@ -1,14 +1,6 @@
 \section{\cyclus}
 \label{sec:cyclus}
-\cyclus is an agent-based \gls{nfc} simulator that is versatile, open-source,
-and modular. The software achieves this versatility through a series of generic
-archetypes that are primarily transaction-based. Over the years, the user
-community and developers have created a litany of nuclear-specific archetypes
-for everything from proliferation assessment to fuel burnup. Many standard fuel
-cycle facilities have been implemented in the \cycamore repository
-\cite{Carlsen_cycamore_2014}, which holds technology-agnostic archetypes for
-material sources, material sinks, enrichment services, separations
-capabilities, storage services, and a generic reactor.
+\cyclus \cite{huff_cyclus_intro_2016} is an agent-based \gls{nfc} simulator that is versatile, open-source, and modular. The software achieves this versatility through a series of generic archetypes that are primarily transaction-based. Over the years, the user community and developers have created a litany of nuclear-facility archetypes for everything from proliferation assessment to fuel burnup. Many standard fuel cycle facility archetypes have been implemented in the \cycamore repository \cite{Carlsen_cycamore_2014}, which holds technology-agnostic archetypes for material sources, material sinks, enrichment services, separations capabilities, storage services, and a generic reactor.
 
 \cyclus treats each facility as an agent that can interact with other agents in
 the simulation. These agents are defined by their capabilities and the resources
@@ -16,14 +8,7 @@ they can provide or consume. The agents are connected through a unique market
 mechanism called the \gls{dre} that allows agents to request
 resources and respond to requests from other agents. The \gls{dre} is responsible for matching resource requests with offers from suppliers and ensuring that the resources are exchanged.
 
-Materials, or commodities in the parlance of the \cyclus ecosystem, are passed
-by agents through the \gls{dre} in recorded transactions. A commodity can be
-anything, from raw materials (like uranium ore) to contextual concepts (e.g.,
-money or permits). The transactions are recorded
-in a database that can be queried to determine the flow of materials through
-the simulation. As Huff et al. outline in their 2016 paper
-\cite{huff_cyclus_intro_2016}, treating facilities and materials independently
-allows for flexibility in the level of fidelity for both.
+Commodities, in the parlance of the \cyclus ecosystem, are passed by agents through the \gls{dre} in recorded transactions. A commodity can be anything, from raw materials (like uranium ore) to contextual concepts (e.g., money or permits). The transactions are recorded in a database that can be queried to determine the flow of materials through the simulation. As Huff et al. outline in their 2016 paper \cite{huff_cyclus_intro_2016}, treating facilities and materials independently allows for flexibility in the level of fidelity for both.
 
 % discuss recipes
 As \cyclus is a transactions code and not necessarily a physics code,
@@ -36,7 +21,7 @@ on how fuel is discharged from a core at the end of a reactor's lifetime, there
 are instances when the model will over or under-predict the concentration of
 isotopes, thereby injecting a level of error into calculations.
 Users approximate the burnup of each fuel element with the same input recipe to
-be the same; however, in this work, we incorporate a cascading enrichment from
+be the same; however, this thesis incorporates a cascading enrichment from
 \gls{leup} to \gls{haleu}; \gls{leup} in the short term, while reactor vendors
 and fuel suppliers work with the government to establish the supply chain for
 \gls{haleu}.
@@ -116,14 +101,15 @@ sustainable fuel management strategies.
 
 The OpenMCyclus archetype \cite{openmcyclus_paper} enhances the \cyclus
 ecosystem by introducing an open-source real-time fuel depletion tool for
-\cyclus simulations. Unlike traditional approaches that rely on pre-defined
-recipes for fuel compositions, OpenMCyclus integrates with OpenMC
-\cite{romano_openmc_2015} to dynamically update spent fuel compositions
-throughout the simulation, allowing for greater accuracy and flexibility in
-modeling various reactor designs. This real-time depletion capability is
-valuable for assessing the impacts of different fuel cycle strategies, as it
-accommodates changes in fuel composition and operational conditions without the
-need for restrictive licensing agreements associated with other depletion tools.
+\cyclus simulations, building off of the concept of CyBORG. Unlike traditional
+approaches that rely on pre-defined recipes for fuel compositions, OpenMCyclus
+integrates with OpenMC \cite{romano_openmc_2015} to dynamically update spent
+fuel compositions throughout the simulation, allowing for greater accuracy and
+flexibility in modeling various reactor designs. This real-time depletion
+capability is valuable for assessing the impacts of different fuel cycle
+strategies, as it accommodates changes in fuel composition and operational
+conditions without the need for restrictive licensing agreements associated
+with other depletion tools.
 
 
 % We aim to provide the most versatile and powerful foundation
