@@ -15,11 +15,11 @@ The supply chain is not a limiting factor for new reactors, which allows these s
 
 The \gls{mmr} and \gls{xe} Serpent simulations are based on limited, publicly available information and do not rely on confidential or proprietary data, another limitation is they assume that when the reactors accept \gls{leup} fuel and operate with the same power levels and burnup rates. As Section \ref{sec:reactor_models} discusses, the intended use of many advanced reactors extends beyond simply meeting energy demand, so modeling them entirely in on-the-grid applications is not necessarily the only way they will deploy. These reactors could provide a range of services that can contribute to decarbonizing the economy.
 
-Table \ref{tab:swu_incs} shows the average yearly percentage \gls{swu} increases from the no-growth scenario to the double scenario, and the impacts of the deployment scheme are reflected in these values. Where the greedy scheme regularly prefers the highest capacity reactors, leading to the most significant increase in the \gls{swu} for AP1000 \gls{leu}, the randomness in the other two schemes levels the reactor preferences and leads to more consistent increases across fuel types.
+Table \ref{tab:swu_incs} shows the average yearly percentage \gls{swu} increases from the \textit{no growth} scenario to the \textit{double by 2050} scenario, and the impacts of the deployment scheme are reflected in these values. Where the greedy scheme regularly prefers the highest capacity reactors, leading to the most significant increase in the \gls{swu} for AP1000 \gls{leu}, the randomness in the other two schemes levels the reactor preferences and leads to more consistent increases across fuel types.
 
 \begin{table}[H]
     \centering
-    \caption{Average yearly percentage \gls{swu} increases from the no-growth scenario to the double scenario.}
+    \caption{Average yearly percentage \gls{swu} increases from the no growth scenario to the double by 2050 scenario.}
     \label{tab:swu_incs}
     \begin{tabular}{l l l l}
         \hline
@@ -32,11 +32,11 @@ Table \ref{tab:swu_incs} shows the average yearly percentage \gls{swu} increases
     \end{tabular}
 \end{table}
 
-% The mass of fresh fuel required to deploy the reactors as proposed in this thesis is staggering. As shown in Table \ref{tab:fresh_incs}, the percentage increase of average fresh fuel mass from the no-growth scenario to the double scenario mirrors the values from Table \ref{tab:swu_incs}.
+% The mass of fresh fuel required to deploy the reactors as proposed in this thesis is staggering. As shown in Table \ref{tab:fresh_incs}, the percentage increase of average fresh fuel mass from the \textit{no growth} scenario to the double scenario mirrors the values from Table \ref{tab:swu_incs}.
 
 % \begin{table}[H]
 %     \centering
-%     \caption{Average yearly percentage fresh fuel increases from the no-growth scenario to the double scenario.}
+%     \caption{Average yearly percentage fresh fuel increases from the \textit{no growth} scenario to the double scenario.}
 %     \label{tab:fresh_incs}
 %     \begin{tabular}{c c c c}
 %         \hline
@@ -54,7 +54,7 @@ Table \ref{tab:swu_incs} shows the average yearly percentage \gls{swu} increases
 \subsection{Future Work}
 \label{sec:future_work}
 
-This thesis could be expanded in various ways to contextualize the deployment of advanced reactors in the \gls{usa}. Outside of simply removing the assumptions outlined above, two immediate additions to this thesis would be to incorporate isotope calculations for used fuel to understand the accumulation of isotopes of interest. This would allow for a more detailed understanding of the waste stream and the potential for recycling. The second addition would be to compare the no growth and double nuclear scenarios to the triple nuclear scenario from the \gls{doe} liftoff report \cite{julie_liftoff_pathways_2024}. These two additions were not included due to computational limitations and the sheer size of the data needed.
+This thesis could be expanded in various ways to contextualize the deployment of advanced reactors in the \gls{usa}. Outside of simply removing the assumptions outlined above, two immediate additions to this thesis would be to incorporate isotope calculations for used fuel to understand the accumulation of isotopes of interest. This would allow for a more detailed understanding of the waste stream and the potential for recycling. The second addition would be to compare the \textit{no growth} and \textit{double by 2050} nuclear scenarios to the triple nuclear scenario from the \gls{doe} liftoff report \cite{julie_liftoff_pathways_2024}. These two additions were not included due to computational limitations and the sheer size of the data needed.
 
 The next steps in expanding this thesis would be to translate the base metrics presented here (\gls{swu}, mass, energy, and deployment) into costs for fuel and energy. The mass of used fuel would be a good starting point for repository space considerations and transportation costs. This thesis could leverage \cyclus's ability to track latitude and longitude to understand the transportation time between facilities.
 
