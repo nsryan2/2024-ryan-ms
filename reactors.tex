@@ -24,12 +24,12 @@ Table \ref{tab:ar_defs} shows the design specifications for the advanced reactor
    \end{tabular}
 \end{table}
 
-The following subsections discuss the reactors in greater detail. One limitation of these models is the approximation that the \gls{leup}-fueled reactors achieve the same burnup and power level as the \gls{haleu}-fueled version. This assumption is not necessarily valid, and I will explore the implications of this assumption in future work. However, the limited deployment of \gls{leup} fuel allows discrepancies to be well understood.
+The following subsections discuss the reactors in greater detail. One limitation of these models is the approximation that the \gls{leup}-fueled reactors achieve the same burnup and power level as the \gls{haleu}-fueled version. This assumption is sufficient for the metrics outlined in Section \ref{sec:metrics} as this thesis does not perform \gls{uf} isotopic analysis.
 
 \subsection{MMR-like Reactor}
 \label{sec:mmr}
 
-The future of the once-active partnership between the \gls{uiuc} and \gls{usnc} to deploy their \gls{mmr} is uncertain to those not on the project; however, they reached the pre-licensing phase with the \gls{nrc} and were planning on commencing operation of an on-campus reactor in the 2030s. The \gls{usnc} \gls{mmr} is an \gls{htgr} that uses \gls{triso} fuel, has an electrical output of 15 MW$_e$, and a cycle length of 20 years. The fuel is enriched to 9.95\% $^{235}$U for \gls{leup} and 19.75\% for \gls{haleu}. As modeled, both have a discharge burnup of 82 GWd/MTU, which coincides with the 20-year lifetime of the reactor. In this thesis, the \gls{mmr} is based on the model developed by Bachmann et al. \cite{bachmann_mmr_like_2023} and is implemented here as-is for the \gls{haleu} version of the reactor, while the \gls{leup} version is adapted from the \gls{haleu} version.
+In 2021, \gls{uiuc} submitted a notice of intent to the \gls{nrc} detailing their plans to apply for a construction permit of the \gls{mmr} reactor from \gls{usnc} \cite{uiuc_notice_nrc_2021}. Activities have continued as \gls{uiuc} continues the project, they reached the pre-licensing phase with the \gls{nrc} and were planning on commencing operation of an on-campus reactor in the 2030s. This \gls{mmr} is an \gls{htgr} that uses \gls{triso} fuel, has an electrical output of 15 MW$_e$, and a cycle length of 20 years. The fuel is enriched to 9.95\% $^{235}$U for \gls{leup} and 19.75\% for \gls{haleu}. As modeled, both have a discharge burnup of 82 GWd/MTU, which coincides with the 20-year lifetime of the reactor. In this thesis, the \gls{mmr} is based on the model developed by Bachmann et al. \cite{bachmann_mmr_like_2023} and is implemented here as-is for the \gls{haleu} version of the reactor, while the \gls{leup} version updates the fuel composition from the \gls{haleu} version.
 
 Figure \ref{fig:mmr_design} shows a rendering of the \gls{mmr} core and reactor vessel. As indicated by the figure, the design is intended to be underground, with an estimated total reactor footprint less than 5 acres. The primary coolant is helium gas, which heats up in the core and deposits its heat in a heat exchanger to generate electricity to the side of the reactor \cite{usnc_chalk_river}. Helium is transparent to many nuclear interactions and is inert, making it an attractive choice for a coolant.
 
@@ -101,7 +101,7 @@ Unlike the \gls{mmr}'s annular fuel elements, the \gls{xe} pebbles are composed 
 \end{figure}
 
 
-This thesis modifies the fuel composition of Richter's \gls{xe}-like reactor model to accept \gls{leup} fuel. The \gls{leup} fuel is assumed to have the same burnup and power level as the \gls{haleu} fuel. This assumption is not necessarily valid, and I will explore the implications of this assumption in future work. Due to the limited deployment of \gls{leup} fuel, the discrepancies are minimal. Figure \ref{fig:xe_core} shows the top-down view of the \gls{leup} \gls{xe} core as the \gls{haleu} version has been established by Richter \cite{richter_thesis_2022}, and they are visually similar.
+This thesis modifies the fuel composition of Richter's \gls{xe}-like reactor model to accept \gls{leup} fuel. The \gls{leup} fuel is assumed to have the same burnup and power level as the \gls{haleu} fuel. This assumption, as with the \gls{mmr}-like reactor, does not hold for \gls{uf} isotopic calculations which are not part of this work, and I will explore the implications in future work. Due to the limited deployment of \gls{leup} fuel, the discrepancies are minimal. Figure \ref{fig:xe_core} shows the top-down view of the \gls{leup} \gls{xe} core as the \gls{haleu} version has been established by Richter \cite{richter_thesis_2022}, and they are visually similar.
 
 \begin{figure}[H]
     \subfloat[Initial core. \label{fig:xe_init_core}]{%
@@ -111,7 +111,7 @@ This thesis modifies the fuel composition of Richter's \gls{xe}-like reactor mod
     \subfloat[Final core. \label{fig:xe_final_core}]{%
       \includegraphics[width=0.49\textwidth]{images/reactor_design/htgr-mr-burn-200.inp_mesh1_bstep6.png}
    }
-    \caption{Top-down view of the X-Energy Xe-100 core model.}
+    \caption{Top-down view of the \gls{leup} X-Energy Xe-100 core model.}
     \label{fig:xe_core}
   \end{figure}
 
@@ -120,4 +120,4 @@ Figures \ref{fig:xe_init_core} and \ref{fig:xe_final_core} have visible differen
 \subsection{AP1000 Reactor}
 \label{sec:ap}
 
-AP1000s are operational in the \gls{usa} and China, and the \gls{uk} and India plan to deploy more. The Westinghouse AP1000 is a \gls{pwr} that uses UO$_2$ fuel. The reactor has an electrical output of 1000 MW, a cycle length of 18 months, and an expected lifetime of 60 years. The fuel is enriched to 5\% $^{235}$U and has a discharge burnup of 65 GWd/MTU. The reactor in this thesis is an approximation based on publicly available data and is not based on confidential or proprietary information. As this thesis does not anticipate \gls{leup} being used in the AP1000, there is no such neutronics model of the reactor, and we have adapted the generic \cycamore reactor archetype to represent the AP1000 in the same way we represent the existing \gls{lwr} fleet.
+AP1000s are operational in the \gls{usa} and China, and the \gls{uk} and India plan to deploy more. The Westinghouse AP1000 is a \gls{pwr} that uses UO$_2$ fuel. The reactor has an electrical output of 1000 MW, a cycle length of 18 months, and an expected lifetime of 60 years. The fuel is enriched to approximately 5\% $^{235}$U and has a discharge burnup of 65 GWd/MTU. The reactor in this thesis is an approximation based on publicly available data and is not based on confidential or proprietary information. As this thesis does not anticipate \gls{leup} being used in the AP1000, there is no such neutronics model of the reactor herein, and this work adapts the generic \cycamore reactor archetype to represent the AP1000 in number of fuel assemblies, power output, core mass, and cycle length.
