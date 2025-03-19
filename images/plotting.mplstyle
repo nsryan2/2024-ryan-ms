@@ -27,7 +27,7 @@ grid.linewidth : 0.6
 
 # LINES
 axes.prop_cycle : cycler('color', ["332288", "117733", "44AA99", "88CCEE", "DDCC77", "CC6677", "AA4499", "882255"]) #hex colours
-lines.linewidth : 3
+lines.linewidth : 2
 lines.markeredgewidth : 0.0
 
 # SCATTER PLOT
@@ -47,4 +47,3 @@ figure.dpi : 150
 savefig.dpi : 275
 savefig.format : pdf
 savefig.bbox : tight
-
