@@ -15,10 +15,35 @@ To use this deployment scheme, a user needs to understand the supply chain const
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{images/schemes/cap_diagram.png}
+    \begin{tikzpicture}[node distance = 2.5cm, auto]
+        % Place nodes
+        \node [block] (init) {\textbf{Initialize demand.}};
+        \node [block, below of=init] (check) {\textbf{Is there demand?}};
+        \node [block, below of=check, node distance=3cm] (evaluate) {\textbf{Deploy the largest capacity capped reactor below demand.}};
+        \node [block, below of=evaluate, node distance=3cm] (cap) {\textbf{Does this deployment meet a cap?}};
+        \node [block, right of=cap, node distance=4cm] (remove) {\textbf{Remove reactor from list.}};
+        \node [block, right of=remove, node distance=4cm] (update) {\textbf{Update demand.}};
+        \node [block, left of=check, node distance=4cm] (stop) {\textbf{Next time step.}};
+        % Draw edges
+        \path [line, line width=0.6mm] (init) -- (check);
+        \path [line, line width=0.6mm] (check) -- node {\textbf{Yes}} (evaluate);
+        \path [line, line width=0.6mm] (evaluate) -- (cap);
+        \path [line, line width=0.6mm] (check) -- node {\textbf{No}}(stop);
+        \draw[->, line width=0.6mm] (update) edge[bend right=45] node[right]{} (check);
+        \draw [line, line width=0.6mm] (cap) edge[bend right=45] node {\textbf{No}} (update);
+        \path[line, line width=0.6mm] (cap) -- node {\textbf{Yes}} (remove);
+        \path[line, line width=0.6mm] (remove) -- (update);
+    \end{tikzpicture}
     \caption{Capped deployment diagram.}
     \label{fig:cap_diagram}
 \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.4]{images/schemes/cap_diagram.png}
+%     \caption{Capped deployment diagram.}
+%     \label{fig:cap_diagram}
+% \end{figure}
 
 The realism of this deployment scheme mirrors some elements of the
 pre-determined distribution (this is a flat distribution after all), but the
@@ -49,10 +74,35 @@ To use this deployment scheme, a user needs some idea of the distribution of rea
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{images/schemes/pre_det_diagram.png}
+    \begin{tikzpicture}[node distance = 2.5cm, auto]
+        % Place nodes
+        \node [block] (init) {\textbf{Initialize demand.}};
+        \node [block, below of=init] (check) {\textbf{Is there demand?}};
+        \node [block, below of=check, node distance=3cm] (evaluate) {\textbf{Deploy the largest capacity reactor below demand.}};
+        \node [block, below of=evaluate, node distance=2.5cm] (cap) {\textbf{Does it meet a limit?}};
+        \node [block, right of=cap, node distance=4cm] (remove) {\textbf{Remove reactor from list.}};
+        \node [block, right of=remove, node distance=4cm] (update) {\textbf{Update demand.}};
+        \node [block, left of=check, node distance=4cm] (stop) {\textbf{Next time step.}};
+        % Draw edges
+        \path [line, line width=0.6mm] (init) -- (check);
+        \path [line, line width=0.6mm] (check) -- node {\textbf{Yes}} (evaluate);
+        \path [line, line width=0.6mm] (evaluate) -- (cap);
+        \path [line, line width=0.6mm] (check) -- node {\textbf{No}}(stop);
+        \draw[->, line width=0.6mm] (update) edge[bend right=45] node[right]{} (check);
+        \draw [line, line width=0.6mm] (cap) edge[bend right=45] node {\textbf{No}} (update);
+        \path[line, line width=0.6mm] (cap) -- node {\textbf{Yes}} (remove);
+        \path[line, line width=0.6mm] (remove) -- (update);
+    \end{tikzpicture}
     \caption{Pre-determined distribution deployment diagram.}
     \label{fig:pre_det_diagram}
 \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.4]{images/schemes/pre_det_diagram.png}
+%     \caption{Pre-determined distribution deployment diagram.}
+%     \label{fig:pre_det_diagram}
+% \end{figure}
 
 The realism of this deployment scheme mirrors some elements of the capped
 deployment, but the distribution is a more granular way to account for supply
