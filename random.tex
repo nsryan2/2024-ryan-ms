@@ -14,11 +14,31 @@ complexities in overall market development, but the extent to which it captures 
 The random deployment scheme is implemented by randomly selecting reactors from the list of deployable reactors until the demand is covered. Figure \ref{fig:random_diagram} illustrates this scheme, which shows the single loop in the logic from the top down. There is an irreducible demand that cannot be met because the power capacity is assumed to be constant. At its best, the random deployment scheme will meet the demand but has the potential to fall short of the demand by one of the smallest capacity reactors. This thesis implements a rough random case that deploys until the randomly selected reactor exceeds the demand to reduce the computational cost. This rough approximation is coupled with the greedy deployment scheme in the initially random, greedy deployment scheme in Section \ref{sec:initially_random_greedy}.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{images/schemes/random_diagram.png}
-    \caption{Random deployment diagram.}
-    \label{fig:random_diagram}
+  \centering
+  \begin{tikzpicture}[node distance = 2.5cm, auto]
+    % Place nodes
+    \node [block] (init) {\textbf{Initialize demand.}};
+    \node [block, below of=init] (check) {\textbf{Is there demand?}};
+    \node [block, below of=check, node distance=2.5cm] (evaluate) {\textbf{Randomly deploy one reactor.}};
+    \node [block, below of=evaluate] (update) {\textbf{Update demand.}};
+    \node [block, left of=check, node distance=3.5cm] (stop) {\textbf{Next time step.}};
+    % Draw edges
+    \path [line, line width=0.6mm] (init) -- (check);
+    \path [line, line width=0.6mm] (check) -- node {\textbf{Yes}} (evaluate);
+    \path [line, line width=0.6mm] (evaluate) -- (update);
+    \path [line, line width=0.6mm] (check) -- node {\textbf{No}}(stop);
+    \draw[->, line width=0.6mm] (update) edge[bend right=65] node[right]{} (check);
+  \end{tikzpicture}
+  \caption{Random deployment diagram.}
+  \label{fig:random_diagram}
 \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{images/schemes/random_diagram.png}
+%     \caption{Random deployment diagram.}
+%     \label{fig:random_diagram}
+% \end{figure}
 
 The seed, which was set to 20240527121205 for every run for this scheme, for
 the random number generator is set by the date and time of the simulation,

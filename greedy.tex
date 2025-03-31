@@ -7,11 +7,31 @@ reactor exceeds the demand---as outlined in \ref{fig:greedy_diagram}. Then, it m
 Previous work from Bachmann et al. \cite{bachmann_enrichment_2021} employed a similar scheme to explore the deployment of advanced reactors in the \gls{usa}. Both implementations are computationally efficient and allow for the exploration of the deployment of advanced reactors in a way that is not overly complex. This scheme is most useful for scenarios where the user is interested in comparing metrics relative to the number of specific reactors deployed outside of the context of the problem.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.3]{images/schemes/greedy_diagram.png}
-    \caption{The greedy deployment diagram demonstrates the preference for the larger power capacity reactors, and shows how the scheme could under-deploy if the remaining capacity is less than the size of the smallest reactor.}
-    \label{fig:greedy_diagram}
+  \centering
+  \begin{tikzpicture}[node distance = 2cm, auto]
+    % Place nodes
+    \node [block] (init) {\textbf{Initialize demand.}};
+    \node [block, below of=init] (check) {\textbf{Is there demand?}};
+    \node [block, below of=check, node distance=2.5cm] (evaluate) {\textbf{Deploy the largest capacity reactor below demand.}};
+    \node [block, below of=evaluate, node distance=2.5cm] (update) {\textbf{Update demand.}};
+    \node [block, left of=check, node distance=3.5cm] (stop) {\textbf{Next time step.}};
+    % Draw edges
+    \path [line, line width=0.6mm] (init) -- (check);
+    \path [line, line width=0.6mm] (check) -- node {\textbf{Yes}} (evaluate);
+    \path [line, line width=0.6mm] (evaluate) -- (update);
+    \path [line, line width=0.6mm] (check) -- node {\textbf{No}}(stop);
+    \draw[->, line width=0.6mm] (update) edge[bend right=65] node[right]{} (check);
+  \end{tikzpicture}
+  \caption{The greedy deployment diagram demonstrates the preference for the larger power capacity reactors, and shows how the scheme could under-deploy if the remaining capacity is less than the size of the smallest reactor.}
+  \label{fig:greedy_diagram}
 \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.3]{images/schemes/greedy_diagram.png}
+%     \caption{The greedy deployment diagram demonstrates the preference for the larger power capacity reactors, and shows how the scheme could under-deploy if the remaining capacity is less than the size of the smallest reactor.}
+%     \label{fig:greedy_diagram}
+% \end{figure}
 
 The \textit{greedy deployment} does not attempt to capture the complexity of the deployment problem but rather to explore the implications of deploying a certain number of reactors. The scheme could mirror large actors in a market, but is likely not realistic. The scheme will deploy reactors until the demand is met within the amount of the smallest capacity reactor. Sections \ref{sec:greedy_reactors}, \ref{sec:greedy_swu}, \ref{sec:greedy_fresh}, and \ref{sec:greedy_used} show the \textit{greedy deployment} results for the \textit{no growth} scenario and the \textit{double nuclear by 2050} scenario.
 

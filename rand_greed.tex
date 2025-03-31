@@ -6,11 +6,38 @@ Combining the random and greedy deployment schemes allows us to inject uncertain
 This deployment scheme randomly deploys reactors until a reactor bigger than the remaining capacity is proposed for each year, then it fills the remaining capacity with a greedy algorithm. Figure \ref{fig:init_random_greedy_diagram} outlines, which shows the two loops (first random, then greedy) in the logic from the top down.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.55]{images/schemes/random_greedy_diagram.png}
-    \caption{Initially random, greedy deployment diagram.}
-    \label{fig:init_random_greedy_diagram}
+  \centering
+  \begin{tikzpicture}[node distance = 2.5cm, auto]
+    % Place random nodes
+    \node [block] (init) {\textbf{Initialize demand.}};
+    \node [block, below of=init, node distance=2.5cm] (evaluate) {\textbf{Randomly deploy one reactor.}};
+    \node [block, right of=evaluate, node distance=3.5cm] (update) {\textbf{Does this reactor exceed demand?}};
+    % Place greedy nodes
+    \node [block, below of=update] (checkg) {\textbf{Is there demand?}};
+    \node [block, below of=checkg, node distance=2.5cm] (evaluateg) {\textbf{Deploy the largest capacity reactor below demand.}};
+    \node [block, below of=evaluateg, node distance=2.5cm] (updateg) {\textbf{Update demand.}};
+    \node [block, left of=checkg, node distance=4cm] (stopg) {\textbf{Next time step.}};
+    % Draw edges
+    \path [line, line width=0.6mm] (init) -- (evaluate);
+    \path [line, line width=0.6mm] (evaluate) -- (update);
+    \draw[->, line width=0.6mm] (update) -- node[left]{\textbf{Yes}}(checkg);
+    \draw[->, line width=0.6mm] (update) edge[bend right=65] node[above]{\textbf{No}} (evaluate);
+    % Draw greedy edges
+    \path [line, line width=0.6mm] (checkg) -- node {\textbf{Yes}} (evaluateg);
+    \path [line, line width=0.6mm] (evaluateg) -- (updateg);
+    \path [line, line width=0.6mm] (checkg) -- node {\textbf{No}}(stopg);
+    \draw[->, line width=0.6mm] (updateg) edge[bend right=65] node[right]{} (checkg);
+  \end{tikzpicture}
+  \caption{Initially random, greedy deployment diagram.}
+  \label{fig:init_random_greedy_diagram}
 \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.55]{images/schemes/random_greedy_diagram.png}
+%     \caption{Initially random, greedy deployment diagram.}
+%     \label{fig:init_random_greedy_diagram}
+% \end{figure}
 
 Section \ref{sec:random_deployment} highlights how this thesis did not implement the initially random, greedy deployment scheme to capture additional realism in the deployment problem. This scheme combines random and greedy deployment schemes and inherits their realistic and unrealistic elements. The random deployment scheme captures some of the complexity of the deployment problem but does not guarantee the capture of the nuance of future user needs. The greedy deployment scheme captures the efficiency of the deployment problem but does not capture the complexity of the deployment problem. This scheme is a compromise between the two and does not capture the nuance of the deployment problem.
 

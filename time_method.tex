@@ -96,8 +96,13 @@ The results in Table \ref{tab:tod_profile} indicate an average speedup of 1.038,
 The wall clock time values can vary by machine, architecture, and other demands during operation; however, the number of instructions issued using these archetypes, shown in Figure \ref{fig:isn_violin}, is distinct between the \gls{tod} and \cycamore reactors and is specific to the code, not the machine. The distributions of instructions per cycle, presented alongside the instructions, overlap but indicate that the average \gls{tod} reactor simulation has a higher utilization than the \cycamore reactor.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=0.9\linewidth]{images/power_reactor/ins_cyc_both.pdf}
-    \caption{Number of instructions and instructions per cycle from the \gls{tod} and \cycamore reactors.}
+    \subfloat[Number of instructions for \gls{tod} and the \cycamore Reactor.\label{fig:ins_tod_cyc}]{%
+      \includegraphics[width=0.49\textwidth]{images/power_reactor/ins_violin.pdf}
+   }
+    \hfill
+    \subfloat[Number of instructions per cycle for \gls{tod} and the \cycamore Reactor.\label{fig:ins_per_cyc}]{%
+      \includegraphics[width=0.49\textwidth]{images/power_reactor/ins_per_cyc.pdf}
+   }
+    \caption{Comparing the number of instructions and instructions per cycle for the \gls{tod} and \cycamore reactors shows that \gls{tod} has a higher utilization.}
     \label{fig:isn_violin}
 \end{figure}
