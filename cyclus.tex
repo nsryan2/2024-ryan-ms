@@ -2,6 +2,31 @@
 \label{sec:cyclus}
 \cyclus \cite{huff_cyclus_intro_2016} is an agent-based \gls{nfc} simulator that is versatile, open-source, and modular. The software achieves this versatility through a series of generic archetypes that are primarily transaction-based. Over the years, the user community and developers have created a litany of nuclear-facility archetypes for everything from proliferation assessment to fuel burnup. Many standard fuel cycle facility archetypes have been implemented in the \cycamore repository \cite{Carlsen_cycamore_2014}, which holds technology-agnostic archetypes for material sources, material sinks, enrichment services, separations capabilities, storage services, and a generic reactor.
 
+The architecture of \cyclus is designed to facilitate the simulation of complex interactions between various agents in a nuclear fuel cycle. Figure \ref{fig:cyclus_architecture} provides an overview of the architecture, highlighting the core components of the \cyclus kernel and the Agent API. The kernel manages the simulation's overall state and handles the scheduling and execution of events, while the Agent API allows users to define custom agents (e.g., regions, institutions, and facilities) that can interact with each other through the \gls{dre}. Facilities are the primary agents in the simulation, and they can represent various types of nuclear facilities, such as reactors, enrichment plants, and waste repositories. Each facility can have its own internal logic for managing resources and making decisions based on the interactions with other agents in the simulation. The interactions between facilities can be modified by grouping them in institutions, which are analogous to real-world organizations that manage multiple facilities. The interactions between institutions can be modified by grouping them into regions, which can represent larger geographical areas or regulatory jurisdictions. This hierarchical structure allows for a more organized and manageable way to model complex fuel cycles with multiple layers of interaction.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        % Main rectangle
+        \draw[thick, fill=lightpurple] (0,0) -- (1,1.5) -- (7, 1.5) -- (8,0) -- (8,3) -- (0,3) -- (0,0);
+        \node at (4,2) {\textbf{Cyclus Kernel}};
+
+        % Trapezoid cut-out at the bottom
+        \draw[thick, fill=lightgreen] (0,-0.5) -- (1,1) -- (7,1) -- (8,-0.5) -- (6.75, -0.5) -- (6, 0.4) -- (5.25, -0.5) -- (4.75, -0.5) -- (4.75, 0.4) -- (3.25, 0.4) -- (3.25, -0.5) -- (2.75, -0.5) -- (2.75, 0.0) -- (2, 0.4) -- (1.25, 0.0) -- (1.25, -0.5) -- cycle;
+        \node at (4,0.7) {\textbf{Agent API}};
+        \node at (2, -0.75) {\textbf{Regions}};
+        % \node at (2, -1.1) {\textbf{API}};
+
+        \node at (4, -0.75) {\textbf{Institutions}};
+        % \node at (4, -1.1) {\textbf{API}};
+
+        \node at (6, -0.75) {\textbf{Facilities}};
+        % \node at (6, -1.1) {\textbf{API}};
+    \end{tikzpicture}
+    \caption{\cyclus architecture overview. The Cyclus kernel manages the simulation, while the Agent API allows for the creation of regions, institutions, and facilities. Facilities are the primary agents that interact with each other through the Dynamic Resource Exchange (DRE).}
+    \label{fig:cyclus_architecture}
+\end{figure}
+
 \cyclus treats each facility as an agent that can interact with other agents in
 the simulation. These agents are defined by their capabilities and the resources
 they can provide or consume. The agents are connected through a unique market

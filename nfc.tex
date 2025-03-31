@@ -17,12 +17,42 @@ cycle is currently more expensive and may pose proliferation risks associated wi
 proliferation risks, but it produces more waste that must be stored in a
 repository. The choice between an open and closed fuel cycle is a policy decision for the country using nuclear technology.
 
+
 \begin{figure}[H]
       \centering
-      \includegraphics[scale=0.55]{images/nfc/closed_fc.png}
-      \caption{Hypothetical closed fuel cycle.}
+      \begin{tikzpicture}
+            \node[blockfront] (mine) {\textbf{Mine}};
+            \node[blockfront, right of=mine, node distance=3.5cm] (mill) {\textbf{Mill}};
+            \node[blockfront, right of=mill, node distance=3.5cm] (conversion) {\textbf{Conversion}};
+            \node[blockfront, right of=conversion, node distance=3.5cm] (enrichment) {\textbf{Enrichment}};
+            \node[blockfront, right of=enrichment, node distance=3.5cm] (fabrication) {\textbf{Fabrication}};
+            \node[blockreactor, below of=fabrication, node distance=2cm] (reactor) {\textbf{Reactor}};
+            \node[blockback, below of=reactor, node distance=2cm] (interim) {\textbf{Interim Storage}};
+            \node[blockback, left of=interim, node distance=3.5cm] (reprocessing) {\textbf{Reprocessing}};
+            \node[blockback, left of=reprocessing, node distance=3.5cm] (disposal) {\textbf{Disposal}};
+
+            \path [line, line width=0.6mm] (mine) -- (mill);
+            \path [line, line width=0.6mm] (mill) -- (conversion);
+            \path [line, line width=0.6mm] (conversion) -- (enrichment);
+            \path [line, line width=0.6mm] (enrichment) -- (fabrication);
+            \path [line, line width=0.6mm] (fabrication) -- (reactor);
+            \path [line, line width=0.6mm] (reactor) -- (interim);
+            \path [line, line width=0.6mm] (interim) -- (reprocessing);
+            \path [line, line width=0.6mm] (reprocessing) -- (disposal);
+
+            \draw[dashed, line width=0.6mm] (reprocessing) edge[bend left=15] node[left]{\textbf{Plutonium}} (fabrication);
+            \draw[dashed, line width=0.6mm] (reprocessing) edge[bend left=35] node[left]{\textbf{Uranium}} (enrichment);
+      \end{tikzpicture}
+      \caption{Hypothetical closed fuel cycle where the front end of the fuel cycle results in an initial fuel form, which moves to the reactor before entering the back end of the fuel cycle for reprocessing and disposal. Reproduced from \cite{penn_fc}.}
       \label{fig:closed_fc}
 \end{figure}
+
+% \begin{figure}[H]
+%       \centering
+%       \includegraphics[scale=0.55]{images/nfc/closed_fc.png}
+%       \caption{Hypothetical closed fuel cycle.}
+%       \label{fig:closed_fc}
+% \end{figure}
 
 
 \subsection{Front End of the Fuel Cycle}
