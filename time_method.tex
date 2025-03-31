@@ -16,10 +16,25 @@ In the \cyclus ecosystem there is an archetype called \textit{PatternSink} where
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.4]{images/cyclus/a-b-c.png}
+    \begin{tikzpicture}
+        % Place nodes
+        \node [abc] (reactor) {\textbf{Reactor}};
+        \node [abc, left of=reactor, node distance=4.5cm] (source) {\textbf{Fuel Source}};
+        \node [abc, right of=reactor, node distance=4.5cm] (sink) {\textbf{Fuel Sink}};
+        % Draw edges
+        \path [line, line width=0.6mm] (source) -- node[above]{\textbf{Fresh Fuel}} (reactor);
+        \path [line, line width=0.6mm] (reactor) -- node[above]{\textbf{Used Fuel}} (sink);
+    \end{tikzpicture}
     \caption{Simple A-B-C scenario.}
     \label{fig:a-b-c}
 \end{figure}
+
+% \begin{figure}[H]
+%     \centering
+%     \includegraphics[scale=0.4]{images/cyclus/a-b-c.png}
+%     \caption{Simple A-B-C scenario.}
+%     \label{fig:a-b-c}
+% \end{figure}
 
 Examining the material that the sink receives, it becomes clear that this
 frequency alters how frequently the archetype updates its internal
