@@ -54,63 +54,63 @@ These deployment schemes choose reactors to fill demand growth based on two pred
 
 As shown in Table \ref{tab:simulations}, each growth scenario has two enrichment deployments: 1) the reactors are never fueled with \gls{leup}; 2) the \gls{mmr} and \gls{xe} reactors are fueled with \gls{leup} until 2040, when they move to \gls{haleu}. \glspl{mmr} deployed before this fuel transition will continue to use \gls{leup} fuel until the end of their lifetime as they do not refuel; however, the \gls{xe} reactors will refuel with \gls{leup} until 2040, when they will refuel with \gls{haleu}. The AP1000 reactors will continue to use \gls{leu} fuel throughout the simulation.
 
-\begin{longtable}[c]{l l l l}
-    \caption{Transition scenario simulations run.} \label{tab:simulations} \\
-    \hline
-    \textbf{Run} & \textbf{Deployment Scheme} & \textbf{Demand Growth} & \textbf{Fuel Choice} \\
-    \hline
-    \endfirsthead
+% \begin{longtable}[c]{l l l l}
+%     \caption{Transition scenario simulations run.} \label{tab:simulations} \\
+%     \hline
+%     \textbf{Run} & \textbf{Deployment Scheme} & \textbf{Demand Growth} & \textbf{Fuel Choice} \\
+%     \hline
+%     \endfirsthead
 
-    \hline
-    \textbf{Run} & \textbf{Deployment Scheme} & \textbf{Demand Growth} & \textbf{Fuel Choice} \\
-    \hline
-    \endhead
+%     \hline
+%     \textbf{Run} & \textbf{Deployment Scheme} & \textbf{Demand Growth} & \textbf{Fuel Choice} \\
+%     \hline
+%     \endhead
 
-    \hline
-    \endfoot
+%     \hline
+%     \endfoot
 
-    \hline
-    \endlastfoot
-    \RomanNumeralCaps{1} & Greedy & 0.0\% & Single\\
-        \RomanNumeralCaps{2} & Greedy & 0.0\% & Multi\\
-        \RomanNumeralCaps{3} & Greedy & 0.17\% & Single\\
-        \RomanNumeralCaps{4} & Greedy & 0.17\% & Multi\\
-        \RomanNumeralCaps{5} & Greedy & 0.5\% & Single\\
-        \RomanNumeralCaps{6} & Greedy & 0.5\% & Multi\\
-        \RomanNumeralCaps{7} & Greedy & 1.0\% & Single\\
-        \RomanNumeralCaps{8} & Greedy & 1.0\% & Multi\\
-        \RomanNumeralCaps{9} & Greedy & 3.5\% & Single\\
-        \RomanNumeralCaps{10} & Greedy & 3.5\% & Multi\\
-        \RomanNumeralCaps{11} & Greedy & 5.6\% & Single\\
-        \RomanNumeralCaps{12} & Greedy & 5.6\% & Multi\\
-        \hline
-        \RomanNumeralCaps{13} & Random & 0.0\% & Single\\
-        \RomanNumeralCaps{14} & Random & 0.0\% & Multi\\
-        \RomanNumeralCaps{15} & Random & 0.17\% & Single\\
-        \RomanNumeralCaps{16} & Random & 0.17\% & Multi\\
-        \RomanNumeralCaps{17} & Random & 0.5\% & Single\\
-        \RomanNumeralCaps{18} & Random & 0.5\% & Multi\\
-        \RomanNumeralCaps{19} & Random & 1.0\% & Single\\
-        \RomanNumeralCaps{20} & Random & 1.0\% & Multi\\
-        \RomanNumeralCaps{21} & Random & 3.5\% & Single\\
-        \RomanNumeralCaps{22} & Random & 3.5\% & Multi\\
-        \RomanNumeralCaps{23} & Random & 5.6\% & Single\\
-        \RomanNumeralCaps{24} & Random & 5.6\% & Multi\\
-        \hline
-        \RomanNumeralCaps{25} & Random + Greedy & 0.0\% & Single\\
-        \RomanNumeralCaps{26} & Random + Greedy & 0.0\% & Multi\\
-        \RomanNumeralCaps{27} & Random + Greedy & 0.17\% & Single\\
-        \RomanNumeralCaps{28} & Random + Greedy & 0.17\% & Multi\\
-        \RomanNumeralCaps{29} & Random + Greedy & 0.5\% & Single\\
-        \RomanNumeralCaps{30} & Random + Greedy & 0.5\% & Multi\\
-        \RomanNumeralCaps{31} & Random + Greedy & 1.0\% & Single\\
-        \RomanNumeralCaps{32} & Random + Greedy & 1.0\% & Multi\\
-        \RomanNumeralCaps{33} & Random + Greedy & 3.5\% & Single\\
-        \RomanNumeralCaps{34} & Random + Greedy & 3.5\% & Multi\\
-        \RomanNumeralCaps{35} & Random + Greedy & 5.6\% & Single\\
-        \RomanNumeralCaps{36} & Random + Greedy & 5.6\% & Multi\\
-        \hline
-    \end{longtable}
+%     \hline
+%     \endlastfoot
+%     \RomanNumeralCaps{1} & Greedy & 0.0\% & Single\\
+%         \RomanNumeralCaps{2} & Greedy & 0.0\% & Multi\\
+%         \RomanNumeralCaps{3} & Greedy & 0.17\% & Single\\
+%         \RomanNumeralCaps{4} & Greedy & 0.17\% & Multi\\
+%         \RomanNumeralCaps{5} & Greedy & 0.5\% & Single\\
+%         \RomanNumeralCaps{6} & Greedy & 0.5\% & Multi\\
+%         \RomanNumeralCaps{7} & Greedy & 1.0\% & Single\\
+%         \RomanNumeralCaps{8} & Greedy & 1.0\% & Multi\\
+%         \RomanNumeralCaps{9} & Greedy & 3.5\% & Single\\
+%         \RomanNumeralCaps{10} & Greedy & 3.5\% & Multi\\
+%         \RomanNumeralCaps{11} & Greedy & 5.6\% & Single\\
+%         \RomanNumeralCaps{12} & Greedy & 5.6\% & Multi\\
+%         \hline
+%         \RomanNumeralCaps{13} & Random & 0.0\% & Single\\
+%         \RomanNumeralCaps{14} & Random & 0.0\% & Multi\\
+%         \RomanNumeralCaps{15} & Random & 0.17\% & Single\\
+%         \RomanNumeralCaps{16} & Random & 0.17\% & Multi\\
+%         \RomanNumeralCaps{17} & Random & 0.5\% & Single\\
+%         \RomanNumeralCaps{18} & Random & 0.5\% & Multi\\
+%         \RomanNumeralCaps{19} & Random & 1.0\% & Single\\
+%         \RomanNumeralCaps{20} & Random & 1.0\% & Multi\\
+%         \RomanNumeralCaps{21} & Random & 3.5\% & Single\\
+%         \RomanNumeralCaps{22} & Random & 3.5\% & Multi\\
+%         \RomanNumeralCaps{23} & Random & 5.6\% & Single\\
+%         \RomanNumeralCaps{24} & Random & 5.6\% & Multi\\
+%         \hline
+%         \RomanNumeralCaps{25} & Random + Greedy & 0.0\% & Single\\
+%         \RomanNumeralCaps{26} & Random + Greedy & 0.0\% & Multi\\
+%         \RomanNumeralCaps{27} & Random + Greedy & 0.17\% & Single\\
+%         \RomanNumeralCaps{28} & Random + Greedy & 0.17\% & Multi\\
+%         \RomanNumeralCaps{29} & Random + Greedy & 0.5\% & Single\\
+%         \RomanNumeralCaps{30} & Random + Greedy & 0.5\% & Multi\\
+%         \RomanNumeralCaps{31} & Random + Greedy & 1.0\% & Single\\
+%         \RomanNumeralCaps{32} & Random + Greedy & 1.0\% & Multi\\
+%         \RomanNumeralCaps{33} & Random + Greedy & 3.5\% & Single\\
+%         \RomanNumeralCaps{34} & Random + Greedy & 3.5\% & Multi\\
+%         \RomanNumeralCaps{35} & Random + Greedy & 5.6\% & Single\\
+%         \RomanNumeralCaps{36} & Random + Greedy & 5.6\% & Multi\\
+%         \hline
+%     \end{longtable}
 
 Under each enrichment deployment, each demand projection is met by deploying reactors using the
 schemes outlined in Table \ref{tab:deployment_schemes}. The following sections will discuss the results of these deployment schemes, their limitations, and propose future work. Regardless of the enrichment deployment, each run will attempt to deploy reactors to meet the capacity outlined in Figure \ref{fig:dep_goals}. The results will focus on the \textit{no growth} and $3.5\%$ growth (corresponding to doubling nuclear by 2050) scenarios.
