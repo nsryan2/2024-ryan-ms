@@ -1,12 +1,12 @@
-This chapter discusses proposed transition scenarios for new nuclear reactor deployment in the \gls{usa} and the reactor models used to simulate them. It also discusses the theoretical framework and key concepts that underpin the research and the results for each deployment scheme.
+This chapter discusses transition scenarios for reactor deployment of the \gls{xe}, \gls{usnc} \gls{mmr}, and the AP1000 in the \gls{usa} and the reactor models used to simulate them. It also discusses transition scenarios broadly, the schemes used to set deployment schedules, and the results for each deployment scheme.
 
 \section{Transition Scenarios}
 \label{sec:transition_scenarios}
 % Discuss the theoretical framework and key concepts that underpin the research.
 
-This chapter explores the deployment schemes implemented in this thesis---outlined in Table \ref{tab:deployment_schemes}---and the demand growth scenarios that this thesis considered---outlined in Table \ref{tab:demand_scenarios}. Appendix \ref{sec:considered_deployment_schemes} will discuss two additional deployment schemes that I implemented but did not leverage, as they are more useful for problems not considered herein.
-
 As the energy landscape evolves, compounding factors will drive the actual deployment of these reactors in ways this thesis does not capture. The value of energy system modeling and \textit{transition scenarios} is to understand the deployment implications compared with and measured relative to business-as-usual cases with similar approximations. In this work, a \textit{transition scenario} refers to a modeled system wherein, when the existing \gls{lwr} fleet is decommissioned, a deployment scheme selects new reactors to meet an objective. The objective in this thesis is to meet a projected demand growth.
+
+This chapter explores the deployment schemes implemented in this thesis---outlined in Table \ref{tab:deployment_schemes}---and the demand growth scenarios that this thesis considered---outlined in Table \ref{tab:demand_scenarios}. Appendix \ref{sec:considered_deployment_schemes} will discuss two additional deployment schemes that I implemented but did not leverage, as they are more useful for problems not considered herein.
 
 \begin{table}[H]
     \centering
@@ -32,7 +32,7 @@ As the energy landscape evolves, compounding factors will drive the actual deplo
     \end{tabular}
 \end{table}
 
-These deployment schemes choose reactors to fill demand growth based on two predictions of future. The \gls{eia} publishes demand expansion projections for the totality of the \gls{usa} \cite{eia_aeo_2023}. The administration has refrained from publishing AEO 2024 in light of recent accelerations in demand growth. The assumptions for the low-growth scenarios are that the relative percentage of nuclear power remains constant and that the relative performance of the various fuel cycle metrics will remain constant. The high-growth scenarios come from the \gls{doe} Liftoff Report \cite{julie_liftoff_pathways_2024}, which does not reflect this constant percentage assumption for nuclear power in their demand scenarios. Their growth projections are specific to nuclear energy deployment increases, and the number is agnostic to the total increase.
+The deployment schemes shown in Table \ref{tab:deployment_schemes} choose reactors to fill demand growth based on two predictions of future. The \gls{eia} publishes demand expansion projections for the totality of the \gls{usa} \cite{eia_aeo_2023}. The administration has refrained from publishing AEO 2024 in light of recent accelerations in demand growth. The assumptions for the low-growth scenarios are that the relative percentage of nuclear power remains constant and that the relative performance of the various fuel cycle metrics will remain constant. The high-growth scenarios come from the \gls{doe} Liftoff Report \cite{julie_liftoff_pathways_2024}, which does not reflect this constant percentage assumption for nuclear power in their demand scenarios. Their growth projections are specific to nuclear energy deployment increases, and the number is agnostic to the total increase.
 
 \begin{table}[H]
     \centering
@@ -52,7 +52,7 @@ These deployment schemes choose reactors to fill demand growth based on two pred
     \end{tabular}
   \end{table}
 
-As shown in Table \ref{tab:simulations}, each growth scenario has two enrichment deployments: 1) the reactors are never fueled with \gls{leup}; 2) the \gls{mmr} and \gls{xe} reactors are fueled with \gls{leup} until 2040, when they move to \gls{haleu}. \glspl{mmr} deployed before this fuel transition will continue to use \gls{leup} fuel until the end of their lifetime as they do not refuel; however, the \gls{xe} reactors will refuel with \gls{leup} until 2040, when they will refuel with \gls{haleu}. The AP1000 reactors will continue to use \gls{leu} fuel throughout the simulation.
+As shown in Table \ref{tab:simulations}, each growth scenario has two enrichment deployments: 1) the reactors are never fueled with \gls{leup}; 2) the \gls{mmr} and \gls{xe} reactors are fueled with \gls{leup} until 2040, when they move to \gls{haleu}. \glspl{mmr} deployed before this fuel transition will continue to use \gls{leup} fuel until the end of their lifetime as they do not refuel; however, the \gls{xe} reactors will refuel with \gls{leup} until 2040, at which point they will refuel with \gls{haleu}. The AP1000 reactors will continue to use \gls{leu} fuel throughout the simulation.
 
 % \begin{longtable}[c]{l l l l}
 %     \caption{Transition scenario simulations run.} \label{tab:simulations} \\
@@ -122,8 +122,7 @@ schemes outlined in Table \ref{tab:deployment_schemes}. The following sections w
     \label{fig:dep_goals}
 \end{figure}
 
-As shown, advanced reactors (for this thesis, the designs are the \gls{mmr},
-\gls{xe}, and AP1000) begin deployment in 2030. While this is an aggressive deployment schedule, \cite{bachmann_thesis_2023} established that the precise deployment start did not significantly impact the total results for this type of analysis and could reasonably serve as an upper bound of deployment. The business-as-usual, or \textit{no growth}, scenario does not require the deployment of a new nuclear reactor until just before 2050, whereas the other scenarios understandably commence deployment in 2030. As it is on a logarithmic plot, the linear appearance of the data belies the compounding effect that the year-to-year percentage growth requires.
+As shown in Figure \ref{fig:dep_goals}, advanced reactors (for this thesis, the designs are the \gls{mmr}, \gls{xe}, and AP1000) begin deployment in 2030. While this is an aggressive deployment schedule, \cite{bachmann_thesis_2023} established that the precise deployment start did not significantly impact the total results for this type of analysis and could reasonably serve as an upper bound of deployment. The business-as-usual, or \textit{no growth}, scenario does not require the deployment of a new nuclear reactor until just before 2050, whereas the other scenarios understandably commence deployment in 2030. As it is on a logarithmic plot, the linear appearance of the data belies the compounding effect that the year-to-year percentage growth requires.
 
 Comparing these projected deployments with the results from the \textit{no growth} and \textit{double by 2050} scenarios, Table \ref{tab:cap_diff} consolidates the over- and under- deployments of capacity into Table to show that the random deployment scheme had the least total difference between the results and the projection. The initially random, then greedy deployment scheme showed the largest total difference between the results and the projection, while the greedy deployment scheme was between the two.
 
