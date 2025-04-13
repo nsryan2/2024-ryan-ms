@@ -7,18 +7,18 @@ This thesis develops a nuclear energy model of the \gls{usa} using concepts from
 \subsection{Separative Work Units}
 \label{sec:swu}
 % justify what swu is and why it is a valuable metric
-The process of enriching uranium is a critical step in the nuclear fuel cycle, and is expected to be a bottleneck in the deployment of advanced reactors. The Separative Work Unit (SWU), is a ubiquitous measure of effort that goes into separating isotopes. It is simplified as:
+The process of enriching uranium is a crucial step in the nuclear fuel cycle, and is expected to be a bottleneck in the deployment of advanced reactors. The Separative Work Unit (SWU), is a ubiquitous measure of effort that goes into separating isotopes. It is simplified as:
 \begin{align}
     SWU&= (P V(x_p) + T  V(x_t) - F  V(x_f)) t\nonumber \\
     \intertext{where:}
     V(x_i)&= (2x_i - 1)  \ln\left(\frac{x_i}{1 - x_i}\right)\nonumber
-    \intertext{where:}
+    \intertext{and}
     SWU&= \mbox{Separative Work Units [kgSWU]}\nonumber\\
     P&= \mbox{Product mass flow rate [kg/d]}\nonumber\\
     F&= \mbox{Feed mass flow rate [kg/d]}\nonumber\\
     T&= \mbox{Tails mass flow rate [kg/d]}\nonumber\\
-    V(x_i)&= \mbox{Separation Potential [-]}\nonumber\\
-    x_i&= \mbox{Weight fraction of $^{235}U$ in the i stream [-]}\nonumber\\
+    V(x)&= \mbox{Separation Potential [-]}\nonumber\\
+    % x_i&= \mbox{Weight fraction of $^{235}U$ in the i stream [-]}\nonumber\\
     x_p&= \mbox{Weight fraction of $^{235}U$ in the product stream [-]}\nonumber\\
     x_f&= \mbox{Weight fraction of $^{235}U$ in the feed stream [-]}\nonumber\\
     x_t&= \mbox{Weight fraction of $^{235}U$ in the tails stream [-]}\nonumber\\
