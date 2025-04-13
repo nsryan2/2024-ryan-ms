@@ -65,17 +65,42 @@ For example, the \cycamore reactor, when it refuels, will first identify which f
 % 5,202,746,245 (52.57%)  => /home/rhysmac/cyclus/src/exchange_manager.h:cyclus::ExchangeManager<cyclus::Material>::Execute() (24x)
 % 1,312,800,228 (13.26%)  => ???:cycamore::Reactor::Tock() (18,000x)
 % 461,172,309 ( 4.66%)  => ???:cycamore::Reactor::Tick() (18,000x)
-Valgrind's \cite{valgrind} Callgrind \cite{callgrind} tool profiles a source-reactor-sink scenario and establish which parts of the \cycamore reactor code generate the most instructions. 52.27\% of the 9,897,385,005 instructions come from the exchange manager in \cyclus, and the reactor's tock (which appends each time step) is the source of 13.26\% of the instructions. The reactor's tick (which pre-pends each time step) is the source of 4.66\% of the instructions.
 
-The basic structure of each time step is fundamental to aligning the material transactions and bids in the existing \gls{dre}, so a reduction in computational cost could come from checking whether or not it is time to refuel before engaging with the calculations that take place when the reactor needs to refuel. This new archetype is called the \gls{tod} reactor, and the tock was the source of 11.5\% of the 9,519,845,814 instructions, while tick was the source of 2.77\% of the instructions.
+
+
+The basic structure of each time step is fundamental to aligning the material transactions and bids in the existing \gls{dre}, so a reduction in computational cost could come from checking whether or not it is time to refuel before engaging with the calculations that take place when the reactor needs to refuel. This thesis explores this reduction by building the \gls{tod} reactor, a modification on top of the \cycamore reactor that calculates the time to refuel and skips the Tick and Tock phases if it is not time to refuel.
+
+This thesis uses Valgrind's \cite{valgrind} Callgrind \cite{callgrind} tool to profile a source-reactor-sink scenario and establish which parts of the \cycamore reactor code generate the most instructions. 52.27\% of the 9,897,385,005 instructions come from the exchange manager in \cyclus, and the reactor's Tock (which appends each time step) is the source of 13.26\% of the instructions. The \cycamore reactor's Tick (which pre-pends each time step) is the source of 4.66\% of the instructions. For the \gls{tod} reactor, and the Tock was the source of 11.5\% of the 9,519,845,814 instructions, while Tick was the source of 2.77\% of the instructions.
 
 % Silent reactor
 % 5,083,560,026 (53.40%)  => /home/rhysmac/cyclus/src/exchange_manager.h:cyclus::ExchangeManager<cyclus::Material>::Execute() (24x)
 % 1,094,637,634 (11.50%)  => ???:cycamore::SilentReactor::Tock() (18,102x)
 % 264,086,388 ( 2.77%)  => ???:cycamore::SilentReactor::Tick() (18,102x)
 
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        % Place nodes
+        \node [abc] (reactor) {\textbf{\cycamore Reactor Fleet}};
+        \node [abc, left of=reactor, node distance=4.5cm] (source) {\textbf{Fuel Source}};
+        \node [abc, right of=reactor, node distance=4.5cm] (sink) {\textbf{Fuel Sink}};
 
-There are ten duplicates in this thesis of a simple source-reactor-sink scenario to further compare how the \cycamore and \gls{tod} reactors perform and collected statistics with the Linux tool Perf \cite{perf}. In these scenarios, \cyclus deploys 1000 reactors over the first ten time steps, and the reactors operate for three time steps before refueling for two. This scenario demonstrates an intensive deployment to exacerbate the differences between the two reactor archetypes. The mean, maximum, minimum, and standard deviation of the wall clock time, number of instructions, and instructions per cycle are in Table \ref{tab:tod_profile}.
+        \node [abc, below of=reactor, node distance=3cm] (todreactor) {\textbf{TOD Reactor Fleet}};
+        \node [abc, left of=todreactor, node distance=4.5cm] (todsource) {\textbf{Fuel Source}};
+        \node [abc, right of=todreactor, node distance=4.5cm] (todsink) {\textbf{Fuel Sink}};
+
+        % Draw edges
+        \path [line, line width=0.6mm] (source) -- node[above]{\textbf{Fresh Fuel}} (reactor);
+        \path [line, line width=0.6mm] (reactor) -- node[above]{\textbf{Used Fuel}} (sink);
+
+        \path [line, line width=0.6mm] (todsource) -- node[above]{\textbf{Fresh Fuel}} (todreactor);
+        \path [line, line width=0.6mm] (todreactor) -- node[above]{\textbf{Used Fuel}} (todsink);
+    \end{tikzpicture}
+    \caption{Simple A-B-C scenarios for the \cycamore and \gls{tod} reactor archetypes.}
+    \label{fig:abc_tod}
+\end{figure}
+
+In the scenarios from Figure \ref{fig:abc_tod}, \cyclus deploys 1000 reactors over the first ten time steps, and the reactors operate for three time steps before refueling for two. This scenario demonstrates an intensive deployment to exacerbate the differences between the two reactor archetypes. The mean, maximum, minimum, and standard deviation of the wall clock time, number of instructions, and instructions per cycle are in Table \ref{tab:tod_profile}, measured across ten duplicate runs of the same source-reactor-sink scenario with statistics from the Linux tool Perf \cite{perf}.
 
 % make a table for the time_context max, min, average, and standard deviation
 \begin{table}[H]
@@ -96,7 +121,7 @@ There are ten duplicates in this thesis of a simple source-reactor-sink scenario
     \end{tabular}
 \end{table}
 
-The results in Table \ref{tab:tod_profile} indicate an average speedup of 1.038, going from the \cycamore reactor to the \gls{tod} reactor. As Figure \ref{fig:time_violin} indicates, these time results are significant outside their combined standard deviations.
+The results in Table \ref{tab:tod_profile} indicate an average speedup of 1.038 when using the \gls{tod} reactor compared with the \cycamore reactor. As Figure \ref{fig:time_violin} indicates, these time results are significant outside their combined standard deviations.
 
 \begin{figure}[H]
     \centering
@@ -118,3 +143,5 @@ The wall clock time values can vary by machine, architecture, and other demands 
     \caption{Comparing the number of instructions and instructions per cycle for the \gls{tod} and \cycamore reactors shows that \gls{tod} has a higher utilization.}
     \label{fig:isn_violin}
 \end{figure}
+
+These results are in line with our hypothesis, but are an initial step on improving the computational efficiency of simulations using a reactor in \cyclus. The utilization is similar, and the number of instructions are similar; both of which could be improved by expanding this on-demand logic to the Exchange phase of each time step.
