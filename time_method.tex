@@ -8,11 +8,9 @@ each other in a fixed, user-defined time step, forcing the entire simulation
 to operate on the smallest universal time step. For example, if a fabrication
 facility can produce material every 2 months but the enrichment facility can
 only provide material every 3 months, \cyclus would need to use a 1-month time step to capture both. When the time step is smaller than the minimum for a given
-facility, that facility still participates in the \gls{dre} with a zero bid.
-These zero bids, across hundreds of facilities, add complexity and
-inefficiencies to solving the transaction problem at each time step.
+facility, that facility still participates in the \gls{dre} despite not needing to receive or send any materials. These, across hundreds of facilities, add inefficiencies when solving the transaction problem at each time step.
 
-In the \cyclus ecosystem there is an archetype called \textit{PatternSink} wherein the user can alter the frequency at which the sink, often called the repository, can accept the material. Figure \ref{fig:a-b-c} outlines an example scenario for this archetype with a simple A-B-C flow path. In this scenario, material is received from a source (A) to a reactor (B) with a final (C) sink that can only accept material at a specific frequency.
+In the \cyclus ecosystem there is an archetype called \textit{PatternSink} wherein the user can alter the frequency at which the sink, often a repository, can accept the material. Figure \ref{fig:a-b-c} outlines an example scenario for this archetype with a simple A-B-C flow path. In this scenario, material is received from a source (A) to a reactor (B) with a final (C) sink that can only accept material at a specific frequency.
 
 \begin{figure}[H]
     \centering
@@ -36,33 +34,32 @@ In the \cyclus ecosystem there is an archetype called \textit{PatternSink} where
 %     \label{fig:a-b-c}
 % \end{figure}
 
-Examining the material that the sink receives, it becomes clear that this
-frequency alters how frequently the archetype updates its internal
-understanding of time. It appears in Figure \ref{fig:pattern_freq_50} as though
-multiple groups of material are received in one time step despite this
-archetype not having an idea of individual shipments. This archetype
-accomplishes the artificial restriction on accepting material by simply not
-updating the time step that the archetype is at until the next universal time
-step is met. Regardless of function, this is the only example of the
-timekeeping flexibility found in the ecosystem.
+The code alters how frequently the archetype updates its internal time step tracker. Figure \ref{fig:pattern_freq_50} shows  It appears, in Figure \ref{fig:pattern_freq_50}, as though multiple groups of material are received in one time step despite this archetype not having an idea of individual shipments. This archetype accomplishes the artificial restriction on accepting material by simply not updating the time step that the archetype is at until the next universal time step is met. Regardless of function, this is the only example of the timekeeping flexibility found in the ecosystem.
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{images/cyclus/pattern_sink_fuel_transactions.pdf}
-    \caption{Acceptance of $^{239}$Pu into the Sink with a frequency of 50 months.}
+    \caption{Acceptance of $^{239}$Pu into the Sink with a frequency of 50 months using the \textit{PatternSink} archetype.}
     \label{fig:pattern_freq_50}
 \end{figure}
 
-While archetypes like \textit{PatternSink} introduce new internal capabilities, they all inherit a set of base capabilities from the \cyclus toolkit. The \cyclus toolkit provides a modular and extensible framework for modeling \glspl{nfc}, allowing users to create custom archetypes that simulate various facilities and processes. These base capabilities standardize how archetypes create material buffers, interact with the \gls{dre}, and connect to the internal clock of the simulation, which are essential for coordinating the agents and commodities across their complex interactions within an \gls{nfc}. This thesis examines the fundamental capabilities of the \cyclus ecosystem and identifies time-intensive components of the current \cycamore Reactor. Section \ref{sec:trading_reactor} of this thesis creates an archetype called the \gls{tod} reactor, that interacts with the \gls{dre} only when it is time to refuel.
+While archetypes like \textit{PatternSink} introduce new internal capabilities, they all inherit a set of base capabilities from the \cyclus toolkit. The \cyclus toolkit provides a modular and extensible framework for modeling \glspl{nfc}, allowing users to create custom archetypes that simulate various facilities and processes. These base capabilities standardize how archetypes create material buffers, interact with the \gls{dre}, and connect to the internal clock of the simulation, which are essential for coordinating the agents and commodities across their complex interactions within an \gls{nfc}. This thesis examines the fundamental capabilities of the \cyclus ecosystem and identifies time-intensive components of the current \cycamore Reactor. %Section \ref{sec:trading_reactor} of this thesis creates an archetype called the \gls{tod} reactor, that interacts with the \gls{dre} only when it is time to refuel.
 
-The toolkit’s modular architecture allows users to integrate new archetypes and models, promoting innovation and collaboration within the \cyclus community. This thesis contributes a reactor archetype called \gls{dpr} to the ecosystem that can adjust the power of the reactor based on user inputs to better capture real fluctuations in reactor operation. Through this archetype, this thesis explores incorporating historical realism and allowing for small timescale simulations to better capture the power output dynamics of the reactor fleet.
+% The toolkit’s modular architecture allows users to integrate new archetypes and models, promoting innovation and collaboration within the \cyclus community. This thesis contributes a reactor archetype called \gls{dpr} to the ecosystem that can adjust the power of the reactor based on user inputs to better capture real fluctuations in reactor operation. Through this archetype, this thesis explores incorporating historical realism and allowing for small timescale simulations to better capture the power output dynamics of the reactor fleet.
 
 \section{Trading On-Demand Reactor}
 \label{sec:trading_reactor}
 % Review the literature related to the third subtopic. Summarize key findings and highlight important studies.
 
 % Start with Cyclus time, go into pattern sink, and then archetype time toolkit update.
-As Section \ref{sec:archetypes_and_time_management} discusses, \cyclus simulations have a universal time step at which every facility operates. The \cycamore reactor, like other archetypes, operates on this universal time step and interacts with the \gls{dre} at every time step. This interaction is necessary for the reactor to receive fuel and to bid on material from other facilities. However, this interaction is not necessary if the reactor does not need to refuel.
+As Section \ref{sec:archetypes_and_time_management} discusses, \cyclus simulations have a universal time step at which every facility operates. In each \cyclus time step, every archetype undergoes three phases:
+\begin{enumerate}
+    \item Tick: Agents respond to the current simulation state.
+    \item Exchange: This is where the market interactions happen with the \gls{dre}.
+    \item Tock: Agents reconcile their state.
+\end{enumerate}
+
+For example, the \cycamore reactor, when it refuels, will first identify which fuel is ready to be discharged in the Tick phase. Then, it will submit bids for new fuel and requests for somebody to take the used fuel away during the Exchange phase. In the Tock phase, it loads the new fuel, and the old fuel is removed. From Tick to Tock, that's one time step, and the \cycamore reactor, like other archetypes, operates on this universal time step and interacts with the \gls{dre} at every time step. This interaction is necessary for the reactor to receive fuel and to bid on material from other facilities; However, it is not necessary if the reactor does not need to refuel.
 
 % Normal reactor
 % 5,202,746,245 (52.57%)  => /home/rhysmac/cyclus/src/exchange_manager.h:cyclus::ExchangeManager<cyclus::Material>::Execute() (24x)
