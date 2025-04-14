@@ -33,12 +33,12 @@ Previous work from Bachmann et al. \cite{bachmann_enrichment_2021} employed a si
 %     \label{fig:greedy_diagram}
 % \end{figure}
 
-The \textit{greedy deployment} does not attempt to capture the complexity of the deployment problem but rather to explore the implications of deploying a certain number of reactors. The scheme could mirror large actors in a market, but is likely not realistic. The scheme will deploy reactors until the demand is met within the amount of the smallest capacity reactor. Sections \ref{sec:greedy_reactors}, \ref{sec:greedy_swu}, \ref{sec:greedy_fresh}, and \ref{sec:greedy_used} show the \textit{greedy deployment} results for the \textit{no growth} scenario and the \textit{double nuclear by 2050} scenario.
+The \textit{greedy deployment} does not attempt to capture the complexity of the deployment problem but rather to explore the implications of deploying a certain number of reactors. The scheme could mirror large actors in a market, but is likely not realistic. The scheme will deploy reactors until the demand is met within the amount of the smallest capacity reactor. Sections \ref{sec:greedy_reactors}, \ref{sec:greedy_swu}, \ref{sec:greedy_fresh}, and \ref{sec:greedy_used} show the \textit{greedy deployment} results for the \textit{no growth} scenario and the \textit{double nuclear by 2050} scenario for each metric from Section \ref{sec:metrics}.
 
 \subsection{Number of Reactors}
 \label{sec:greedy_reactors}
 
-As Section \ref{fig:dep_goals} mentions, one difference between the \textit{no growth} scenario and the doubling scenario is that the transition for the \textit{no growth} scenario will begin closer to 2050 instead of 2030. This trend is reflected in Figures \ref{fig:greedy_mf_reactors} and \ref{fig:greedy_of_reactors}, where the \glspl{mmr}, \glspl{xe}, and AP1000s start as the existing \gls{lwr} fleet is retired. Comparing fuel enrichment deployments, Figures \ref{fig:greedy_mf_ng_reactors} and \ref{fig:greedy_of_ng_reactors} are identical, which typifies the impact of the delayed transition in the \textit{no growth} scenario.
+As Section \ref{fig:dep_goals} mentions, one difference between the \textit{no growth} scenario and the doubling scenario is that the transition for the \textit{no growth} scenario will begin closer to 2050 instead of 2030. Figure \ref{fig:greedy_mf_reactors} and \ref{fig:greedy_of_reactors} show the cumulative number of each reactor deployed in the \textit{no growth} and \textit{double by 2050} for the greedy scheme. This trend is reflected in Figures \ref{fig:greedy_mf_reactors} and \ref{fig:greedy_of_reactors}, where the \glspl{mmr}, \glspl{xe}, and AP1000s start as the existing \gls{lwr} fleet is retired. Comparing fuel enrichment deployments, Figures \ref{fig:greedy_mf_ng_reactors} and \ref{fig:greedy_of_ng_reactors} are identical, which typifies the impact of the delayed transition in the \textit{no growth} scenario.
 
 % Show total number of reactors multi-fuel
 
@@ -70,11 +70,11 @@ A direct consequence of the \textit{greedy deployment} scheme is that, in the do
   \label{fig:greedy_of_reactors}
 \end{figure}
 
-Table \ref{tab:greedy_reac_avg} shows how the average number of reactors by design is not influenced by the interstitial period included in this thesis. Compared to the \textit{no growth} scenario, the \textit{double by 2050} scenario shows a significant increase in the average number of each design operating across the 2030-2104 timeline. Consequently, the average number of the AP1000s increases by 757\% between the two growth scenarios, which is the largest increase of any design. The \gls{xe} reactors show the second largest increase at 163\%, followed by the \gls{mmr} at 109\%.
+Table \ref{tab:greedy_reac_avg} shows how the average number of reactors by design is not influenced by the interstitial period from 2030 to 2040 included in this thesis. Compared to the \textit{no growth} scenario, the \textit{double by 2050} scenario shows a significant increase in the average number of each design operating across the 2030-2104 timeline. Consequently, the average number of the AP1000s increases by 757\% between the two growth scenarios, which is the largest increase of any design. The \gls{xe} reactors show the second largest increase at 163\%, followed by the \gls{mmr} at 109\%.
 
 \begin{table}[H]
   \centering
-  \caption{Average greedy total operating reactors by design.}
+  \caption{Average greedy total operating reactors by design from 2030 to the end of the simulation.}
   \label{tab:greedy_reac_avg}
   \begin{tabular}{l c c c c}
     \toprule
@@ -96,7 +96,7 @@ Table \ref{tab:greedy_reac_avg} shows how the average number of reactors by desi
 \label{sec:greedy_swu}
 
 % talk about the types of category facility
-In Figure \ref{fig:swu_yearly_greedy}, the yearly \gls{swu} demand periodically spikes as enrichment production grows to meet the fuel demand for the fleet. When reactors begin operation in the depicted \textit{no growth} scenario around 2050, the \gls{swu} demand for the AP1000 peaks above the other two reactors, while the demand from \glspl{xe} exceeds the demand from \glspl{mmr}. This trend is exacerbated in the \textit{double by 2050} scenarios shown in Figures \ref{fig:greedy_mf_d2_swu} and \ref{fig:greedy_of_d2_swu}, where the \gls{swu} from AP1000 \gls{leu} fuel rises quickly and eventually exceeds the total \gls{swu} for the existing fleet.
+Figure \ref{fig:swu_yearly_greedy} shows the yearly \gls{swu} demand periodically spiking over time as enrichment production grows to meet the fuel demand for the fleet. When reactors begin operation in the depicted \textit{no growth} scenario around 2050, the \gls{swu} demand for the AP1000 peaks above the other two reactors, while the demand from \glspl{xe} exceeds the demand from \glspl{mmr}.
 
 % talk about the SWU demand
 
@@ -105,11 +105,11 @@ In Figure \ref{fig:swu_yearly_greedy}, the yearly \gls{swu} demand periodically 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{images/results/swu/multi_dgng_swu_by_fuel.pdf}
-    \caption{Greedy yearly SWU demand multi-fuel, no growth scenario.}
+    \caption{Greedy yearly SWU demand multi-fuel, no growth scenario by fuel type.}
     \label{fig:swu_yearly_greedy}
 \end{figure}
 
-As the features of the yearly data are regular and dictated by the reactor's fuel cycle, Figures \ref{fig:greedy_mf_swu} and \ref{fig:greedy_of_swu} visualize the total cumulative \gls{swu} demand.
+As the features of the yearly data are regular and dictated by the reactor's fuel cycle, Figures \ref{fig:greedy_mf_swu} and \ref{fig:greedy_of_swu} visualize the total cumulative \gls{swu} demand for each type of fuel. The trend where the AP1000 peaks above \gls{swu} to the other reactors is exacerbated in the \textit{double by 2050} scenarios shown in Figures \ref{fig:greedy_mf_d2_swu} and \ref{fig:greedy_of_d2_swu}, where the \gls{swu} from AP1000 \gls{leu} fuel rises quickly and eventually exceeds the total \gls{swu} for the existing fleet.
 
 \begin{figure}[H]
   \subfloat[No Growth. \label{fig:greedy_mf_ng_swu}]{%
@@ -119,7 +119,7 @@ As the features of the yearly data are regular and dictated by the reactor's fue
   \subfloat[Double. \label{fig:greedy_mf_d2_swu}]{%
     \includegraphics[width=0.495\textwidth]{images/results/swu/multi_dg2_swu_cumulative_by_fuel.pdf}
  }
-  \caption{Greedy multi-fuel SWU.}
+  \caption{Greedy multi-fuel SWU by fuel type.}
   \label{fig:greedy_mf_swu}
 \end{figure}
 
@@ -134,7 +134,7 @@ As the features of the yearly data are regular and dictated by the reactor's fue
   \subfloat[Double. \label{fig:greedy_of_d2_swu}]{%
     \includegraphics[width=0.495\textwidth]{images/results/swu/one_dg2_swu_cumulative_by_fuel.pdf}
  }
-  \caption{Greedy single-fuel SWU.}
+  \caption{Greedy single-fuel SWU by fuel type.}
   \label{fig:greedy_of_swu}
 \end{figure}
 
@@ -142,7 +142,7 @@ Table \ref{tab:greedy_swu_avg} shows how the \gls{swu} demand for the \gls{mmr} 
 
 \begin{table}[H]
   \centering
-  \caption{Average greedy yearly SWU by design in k\gls{swu}.}
+  \caption{Average greedy yearly SWU by fuel design in k\gls{swu} from 2030 to the end of the simulation.}
   \label{tab:greedy_swu_avg}
   \begin{tabular}{l c c c c}
      \toprule
@@ -159,7 +159,7 @@ Table \ref{tab:greedy_swu_avg} shows how the \gls{swu} demand for the \gls{mmr} 
 
 
 
-\subsection{Fresh Fuel Results}
+\subsection{Mass of Fresh Fuel Results}
 \label{sec:greedy_fresh}
 
 % talk about the types of fuel
@@ -175,7 +175,7 @@ Figures \ref{fig:greedy_mf_fresh} and \ref{fig:greedy_of_fresh} show the fresh f
   \subfloat[Double. \label{fig:greedy_mf_d2_fresh}]{%
     \includegraphics[width=0.495\textwidth]{images/results/fresh/multi_dg2_fresh_fuel_cumulative_by_fuel.pdf}
  }
-  \caption{Greedy multi fresh fuel demanded.}
+  \caption{Greedy multi fresh fuel demanded by fuel type.}
   \label{fig:greedy_mf_fresh}
 \end{figure}
 
@@ -190,7 +190,7 @@ Figures \ref{fig:greedy_mf_fresh} and \ref{fig:greedy_of_fresh} show the fresh f
   \subfloat[Double. \label{fig:greedy_of_d2_fresh}]{%
     \includegraphics[width=0.495\textwidth]{images/results/fresh/one_dg2_fresh_fuel_cumulative_by_fuel.pdf}
  }
-  \caption{Greedy single fresh fuel demanded.}
+  \caption{Greedy single fresh fuel demanded by fuel type.}
   \label{fig:greedy_of_fresh}
 \end{figure}
 
@@ -199,7 +199,7 @@ Table \ref{tab:greedy_fresh_avg} quantifies the average yearly fresh fuel demand
 
 \begin{table}[H]
   \centering
-  \caption{Average greedy yearly fresh fuel by design in tonnes.}
+  \caption{Average greedy yearly fresh fuel by fuel design in tonnes from 2030 to the end of the simulation.}
   \label{tab:greedy_fresh_avg}
   \begin{tabular}{l c c c c}
      \toprule
@@ -216,7 +216,7 @@ Table \ref{tab:greedy_fresh_avg} quantifies the average yearly fresh fuel demand
 
 
 
-\subsection{Used Fuel Results}
+\subsection{Mass of Used Fuel Results}
 \label{sec:greedy_used}
 
 Figures \ref{fig:greedy_mf_used} and \ref{fig:greedy_of_used} describe the used fuel demand for the reactors in the \textit{no growth} and \textit{double by 2050} scenarios. The used fuel curves in each scenario lag the reactor deployment curves, as \cyclus removes the used fuel after the given number of cycles from each operating, and eventually decommissioning, reactor.
@@ -230,7 +230,7 @@ Figures \ref{fig:greedy_mf_used} and \ref{fig:greedy_of_used} describe the used 
   \subfloat[Double. \label{fig:greedy_mf_d2_used}]{%
     \includegraphics[width=0.495\textwidth]{images/results/used/multi_dg2_used_fuel_cumulative_by_fuel.pdf}
  }
-  \caption{Greedy multi used fuel accumulation.}
+  \caption{Greedy multi used fuel accumulation by fuel type.}
   \label{fig:greedy_mf_used}
 \end{figure}
 
@@ -243,7 +243,7 @@ Figures \ref{fig:greedy_mf_used} and \ref{fig:greedy_of_used} describe the used 
   \subfloat[Double. \label{fig:greedy_of_d2_used}]{%
     \includegraphics[width=0.495\textwidth]{images/results/used/one_dg2_used_fuel_cumulative_by_fuel.pdf}
  }
-  \caption{Greedy single used fuel accumulation.}
+  \caption{Greedy single used fuel accumulation by fuel type.}
   \label{fig:greedy_of_used}
 \end{figure}
 
@@ -252,7 +252,7 @@ Table \ref{tab:greedy_used_avg} itemizes the average yearly used fuel by design 
 
 \begin{table}[H]
   \centering
-  \caption{Average greedy yearly used fuel by design in tonnes.}
+  \caption{Average greedy yearly used fuel by fuel design in tonnes from 2030 to the end of the simulation.}
   \label{tab:greedy_used_avg}
   \begin{tabular}{l c c c c}
      \toprule
