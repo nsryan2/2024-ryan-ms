@@ -1,7 +1,7 @@
 \section{Initially Random, Greedy Deployment}
 \label{sec:initially_random_greedy}
 
-Combining the random and greedy deployment schemes allows us to inject uncertainty as to which reactor will be deployed at any given time while ensuring that the demand is met efficiently. This scheme does not give us more insight than the random or greedy deployment; it merely allows us to leverage the strengths of both.
+Combining the random and greedy deployment schemes allows us to inject uncertainty as to which reactor will be deployed at any given time while ensuring that the demand is met efficiently. This scheme does merely allows us to leverage the strengths of both the random or greedy deployment.
 
 This deployment scheme randomly deploys reactors until a reactor bigger than the remaining capacity is proposed for each year, then it fills the remaining capacity with a greedy algorithm. Figure \ref{fig:init_random_greedy_diagram} outlines, which shows the two loops (first random, then greedy) in the logic from the top down.
 
@@ -39,7 +39,7 @@ This deployment scheme randomly deploys reactors until a reactor bigger than the
 %     \label{fig:init_random_greedy_diagram}
 % \end{figure}
 
-Section \ref{sec:random_deployment} highlights how this thesis did not implement the initially random, greedy deployment scheme to capture additional realism in the deployment problem. This scheme combines random and greedy deployment schemes and inherits their realistic and unrealistic elements. The random deployment scheme captures some of the complexity of the deployment problem but does not guarantee the capture of the nuance of future user needs. The greedy deployment scheme captures the efficiency of the deployment problem but does not capture the complexity of the deployment problem. This scheme is a compromise between the two and does not capture the nuance of the deployment problem.
+This scheme combines random and greedy deployment schemes and inherits their realistic and unrealistic elements. The random deployment scheme captures some of the complexity of the deployment problem but does not guarantee the capture of the nuance of future user needs. The greedy deployment scheme captures the efficiency of the deployment problem but does not capture the complexity of the deployment problem.
 
 The seed, which was set to 20240527121205 for every run for this scheme, for
 the random number generator is set by the date and time of the simulation,
