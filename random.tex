@@ -11,7 +11,7 @@ that utilities and ratepayers behind the meter make in their reactor choices.
 The random deployment scheme has the potential to capture some of the
 complexities in overall market development, but the extent to which it captures these details is not explored in this thesis.
 
-The random deployment scheme is implemented by randomly selecting reactors from the list of deployable reactors until the demand is covered. Figure \ref{fig:random_diagram} illustrates this scheme, which shows the single loop in the logic from the top down. There is an irreducible demand that cannot be met because the power capacity is assumed to be constant. At its best, the random deployment scheme will meet the demand but has the potential to fall short of the demand by one of the smallest capacity reactors. This thesis implements a rough random case that deploys until the randomly selected reactor exceeds the demand to reduce the computational cost. This rough approximation is coupled with the greedy deployment scheme in the initially random, greedy deployment scheme in Section \ref{sec:initially_random_greedy}.
+The random deployment scheme is implemented by randomly selecting reactors from the list of deployable reactors until the demand is covered. Figure \ref{fig:random_diagram} illustrates this scheme, which shows the single loop in the logic from the top down. There is an irreducible demand that cannot be met because the power capacity is assumed to be constant. At its best, the random deployment scheme will meet the demand but has the potential to fall short of the demand by one of the smallest capacity reactors. This thesis implements a random rough case that deploys until the randomly selected reactor exceeds the demand to reduce the computational cost. This rough approximation is coupled with the greedy deployment scheme in the initially random, greedy deployment scheme in Section \ref{sec:initially_random_greedy}.
 
 \begin{figure}[H]
   \centering
@@ -41,8 +41,8 @@ The random deployment scheme is implemented by randomly selecting reactors from 
 % \end{figure}
 
 The seed, which was set to 20240527121205 for every run for this scheme, for
-the random number generator is set by the date and time of the simulation,
-which allows for the reproducibility of the results. This scheme is a proxy for
+the random number generator is set by the date and time of the simulation to
+allow for the reproducibility of the results. This scheme is a proxy for
 aggregate decisions by actors and would fail to reliably capture individual
 actor decisions. This scheme is most useful for scenarios or timescales where
 there is a high degree of uncertainty in the deployment of reactors.
@@ -51,7 +51,7 @@ there is a high degree of uncertainty in the deployment of reactors.
 \subsection{Number of Reactors}
 \label{sec:random_reactors}
 
-As discussed in Section \ref{sec:greedy_reactors}, the difference between the \textit{no growth} and \textit{double by 2050} scenarios in Figures \ref{fig:random_mf_reactors} and \ref{fig:random_of_reactors} is that the \textit{double by 2050} scenario requires new reactors to be deployed immediately during the transition. A consequence of the random reactor deployment scheme is that the reactors in Figures \ref{fig:random_mf_ng_reactors} and \ref{fig:random_mf_d2_reactors} grows similarly over time as they are sampled for deployment. This scheme has the potential to stochastically capture the complexity of deploying reactors in the real world but likely represents an extreme where utilities are not narrowing in on a single reactor design to reduce deployment costs.
+Figure \ref{fig:random_mf_reactors} and \ref{fig:random_of_reactors} show the cumulative number of each reactor deployed in the \textit{no growth} and \textit{double by 2050} for the random scheme. The difference between the \textit{no growth} and \textit{double by 2050} scenarios in Figures \ref{fig:random_mf_reactors} and \ref{fig:random_of_reactors} is that the \textit{double by 2050} scenario requires new reactors to be deployed immediately during the transition. A consequence of the random reactor deployment scheme is that the reactors in Figures \ref{fig:random_mf_ng_reactors} and \ref{fig:random_mf_d2_reactors} grows similarly over time as they are sampled for deployment. This scheme has the potential to stochastically capture the complexity of deploying reactors in the real world but likely represents an extreme where utilities are not narrowing in on a single reactor design to reduce deployment costs.
 
 % Show total number of reactors multi-fuel
 \begin{figure}[H]
@@ -91,7 +91,7 @@ In the multi-fuel enrichment deployment, the AP1000 reactors show a 660\% increa
 
 \begin{table}[H]
     \centering
-    \caption{Average random total operating reactors by design.}
+    \caption{Average random total operating reactors by design from 2030 to the end of the simulation.}
     \label{tab:random_reac_avg}
     \begin{tabular}{l c c c c}
        \toprule
@@ -121,7 +121,7 @@ Figure \ref{fig:swu_yearly_random} visualizes the yearly \gls{swu} demand period
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{images/results/swu/multi_drng_swu_by_fuel.pdf}
-    \caption{Random reactor yearly SWU demand.}
+    \caption{Random reactor yearly SWU demand by fuel type.}
     \label{fig:swu_yearly_random}
 \end{figure}
 
@@ -137,7 +137,7 @@ reactors, and overlapping, Figures \ref{fig:random_mf_swu} and \ref{fig:random_o
   \subfloat[Double. \label{fig:random_mf_d2_swu}]{%
     \includegraphics[width=0.495\textwidth]{images/results/swu/multi_dr2_swu_cumulative_by_fuel.pdf}
  }
-  \caption{Random reactor multi-fuel SWU.}
+  \caption{Random reactor multi-fuel SWU by fuel type.}
   \label{fig:random_mf_swu}
 \end{figure}
 
@@ -151,7 +151,7 @@ reactors, and overlapping, Figures \ref{fig:random_mf_swu} and \ref{fig:random_o
     \subfloat[Double. \label{fig:random_of_d2_swu}]{%
       \includegraphics[width=0.495\textwidth]{images/results/swu/one_dr2_swu_cumulative_by_fuel.pdf}
    }
-    \caption{Random reactor single-fuel SWU.}
+    \caption{Random reactor single-fuel SWU by fuel type.}
     \label{fig:random_of_swu}
 \end{figure}
 
@@ -160,7 +160,7 @@ Table \ref{tab:random_swu_avg} shows the average total yearly \gls{swu} demand f
 
 \begin{table}[H]
     \centering
-    \caption{Average random yearly SWU by design in tonnes of \gls{swu}.}
+    \caption{Average random yearly SWU by fuel design in tonnes of \gls{swu} from 2030 to the end of the simulation.}
     \label{tab:random_swu_avg}
     \begin{tabular}{l c c c c}
        \toprule
@@ -179,7 +179,7 @@ Table \ref{tab:random_swu_avg} shows the average total yearly \gls{swu} demand f
 
 
 
-\subsection{Fresh Fuel Results}
+\subsection{Mass of Fresh Fuel Results}
 \label{sec:random_fresh}
 
 % talk about the types of fuel
@@ -195,7 +195,7 @@ Figures \ref{fig:random_mf_fresh} and \ref{fig:random_of_fresh} show the fresh f
     \subfloat[Double. \label{fig:random_mf_d2_fresh}]{%
       \includegraphics[width=0.495\textwidth]{images/results/fresh/multi_dr2_fresh_fuel_cumulative_by_fuel.pdf}
    }
-    \caption{Random multi fresh fuel demanded.}
+    \caption{Random multi fresh fuel demanded by fuel type.}
     \label{fig:random_mf_fresh}
   \end{figure}
 
@@ -210,7 +210,7 @@ Figures \ref{fig:random_mf_fresh} and \ref{fig:random_of_fresh} show the fresh f
     \subfloat[Double. \label{fig:random_of_d2_fresh}]{%
       \includegraphics[width=0.495\textwidth]{images/results/fresh/one_dr2_fresh_fuel_cumulative_by_fuel.pdf}
    }
-    \caption{Random single fresh fuel demanded.}
+    \caption{Random single fresh fuel demanded by fuel type.}
     \label{fig:random_of_fresh}
 \end{figure}
 
@@ -218,7 +218,7 @@ Table \ref{tab:random_fresh_avg} shows the average total yearly fresh fuel for t
 
 \begin{table}[H]
     \centering
-    \caption{Average random yearly fresh fuel by design in tonnes.}
+    \caption{Average random yearly fresh fuel by fuel design in tonnes from 2030 to the end of the simulation.}
     \label{tab:random_fresh_avg}
     \begin{tabular}{l c c c c}
        \toprule
@@ -237,7 +237,7 @@ Table \ref{tab:random_fresh_avg} shows the average total yearly fresh fuel for t
 
 
 
-\subsection{Used Fuel Results}
+\subsection{Mass of Used Fuel Results}
 \label{sec:random_used}
 
 Figures \ref{fig:random_mf_used} and \ref{fig:random_of_used} depict the used fuel accumulation for the reactors in the \textit{no growth} and \textit{double by 2050} scenarios. The used fuel curves in each scenario follow the reactor deployment curves with a lag corresponding to the cycle length of the reactor from Figures \ref{fig:random_mf_reactors} and \ref{fig:random_of_reactors}, as \cyclus removes fuel from each reactor.
@@ -252,7 +252,7 @@ Figures \ref{fig:random_mf_used} and \ref{fig:random_of_used} depict the used fu
     \subfloat[Double. \label{fig:random_mf_d2_used}]{%
       \includegraphics[width=0.495\textwidth]{images/results/used/multi_dr2_used_fuel_cumulative_by_fuel.pdf}
    }
-    \caption{Random multi used fuel accumulation.}
+    \caption{Random multi used fuel accumulation by fuel type.}
     \label{fig:random_mf_used}
   \end{figure}
 
@@ -265,7 +265,7 @@ Figures \ref{fig:random_mf_used} and \ref{fig:random_of_used} depict the used fu
     \subfloat[Double. \label{fig:random_of_d2_used}]{%
       \includegraphics[width=0.495\textwidth]{images/results/used/one_dr2_used_fuel_cumulative_by_fuel.pdf}
    }
-    \caption{Random single used fuel accumulation.}
+    \caption{Random single used fuel accumulation by fuel type.}
     \label{fig:random_of_used}
 \end{figure}
 
@@ -274,7 +274,7 @@ Table \ref{tab:random_used_avg} shows the average total yearly used fuel for the
 
 \begin{table}[H]
     \centering
-    \caption{Average random yearly used fuel by design in tonnes.}
+    \caption{Average random yearly used fuel by fuel design in tonnes from 2030 to the end of the simulation.}
     \label{tab:random_used_avg}
     \begin{tabular}{l c c c c}
        \toprule
