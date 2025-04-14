@@ -56,8 +56,7 @@ the deployment.
 \subsection{Number of Reactors}
 \label{sec:rand_greed_reactors}
 
-As with the random deployment scheme, Figures
-\ref{fig:rand_greed_mf_reactors} and \ref{fig:rand_greed_of_reactors} show that the share of reactors by design is much closer than the greedy deployment scheme. The reactors in the \textit{no growth} scenarios (shown in Figures \ref{fig:rand_greed_mf_ng} and \ref{fig:rand_greed_of_ng}) are deployed close to 2050, whereas the advanced reactors in the \textit{double by 2050} scenarios (shown in Figures \ref{fig:rand_greed_mf_d2} and \ref{fig:rand_greed_of_d2}) are deployed close to 2030.
+Figure \ref{fig:rand_greed_mf_reactors} and \ref{fig:rand_greed_of_reactors} show the cumulative number of each reactor deployed in the \textit{no growth} and \textit{double by 2050} for the greedy scheme. As with the random deployment scheme, they show that the share of reactors by design is much closer than the greedy deployment scheme. The reactors in the \textit{no growth} scenarios (shown in Figures \ref{fig:rand_greed_mf_ng_reactors} and \ref{fig:rand_greed_of_ng_reactors}) are deployed close to 2050, whereas the advanced reactors in the \textit{double by 2050} scenarios (shown in Figures \ref{fig:rand_greed_mf_d2_reactors} and \ref{fig:rand_greed_of_d2_reactors}) are deployed close to 2030.
 
 % Show total number of reactors multi-fuel
 \begin{figure}[H]
@@ -94,7 +93,7 @@ Table \ref{tab:rand_greed_reac_avg} shows the average total operating reactors b
 
 \begin{table}[H]
     \centering
-    \caption{Average initially random, then greedy total operating reactors by design.}
+    \caption{Average initially random, then greedy total operating reactors by design from 2030 to the end of the simulation.}
     \label{tab:rand_greed_reac_avg}
     \begin{tabular}{l c c c c}
        \toprule
@@ -119,7 +118,7 @@ Figure \ref{fig:swu_yearly_rand_greed} shows the yearly \gls{swu} demand periodi
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.7]{images/results/swu/multi_drgng_swu_by_fuel.pdf}
-    \caption{Initially random, then greedy yearly SWU demand.}
+    \caption{Initially random, then greedy yearly SWU demand by fuel type.}
     \label{fig:swu_yearly_rand_greed}
 \end{figure}
 
@@ -134,7 +133,7 @@ As the features of the yearly data are regular, dictated by the cycles of the re
   \subfloat[Double. \label{fig:rand_greed_mf_d2_swu}]{%
     \includegraphics[width=0.495\textwidth]{images/results/swu/multi_drg2_swu_cumulative_by_fuel.pdf}
  }
-  \caption{Initially random, then greedy multi-fuel SWU.}
+  \caption{Initially random, then greedy multi-fuel SWU by fuel type.}
   \label{fig:rand_greed_mf_swu}
 \end{figure}
 
@@ -148,7 +147,7 @@ As the features of the yearly data are regular, dictated by the cycles of the re
     \subfloat[Double. \label{fig:rand_greed_of_d2_swu}]{%
       \includegraphics[width=0.495\textwidth]{images/results/swu/one_drg2_swu_cumulative_by_fuel.pdf}
    }
-    \caption{Initially random, then greedy single-fuel SWU.}
+    \caption{Initially random, then greedy single-fuel SWU by fuel type.}
     \label{fig:rand_greed_of_swu}
 \end{figure}
 
@@ -158,7 +157,7 @@ Table \ref{tab:rand_greed_swu_avg} shows the average yearly \gls{swu} for the \t
 
 \begin{table}[H]
     \centering
-    \caption{Average initially random, then greedy yearly SWU by design in k\gls{swu}.}
+    \caption{Average initially random, then greedy yearly SWU by fuel design in k\gls{swu} from 2030 to the end of the simulation.}
     \label{tab:rand_greed_swu_avg}
     \begin{tabular}{l c c c c}
        \toprule
@@ -175,7 +174,7 @@ Table \ref{tab:rand_greed_swu_avg} shows the average yearly \gls{swu} for the \t
 
 
 
-\subsection{Fresh Fuel Results}
+\subsection{Mass of Fresh Fuel Results}
 \label{sec:rand_greed_fresh}
 
 % talk about the types of fuel
@@ -191,7 +190,7 @@ Figures \ref{fig:rand_greed_mf_fresh} and \ref{fig:rand_greed_of_fresh} show the
     \subfloat[Double. \label{fig:rand_greed_mf_d2_fresh}]{%
       \includegraphics[width=0.495\textwidth]{images/results/fresh/multi_drg2_fresh_fuel_cumulative_by_fuel.pdf}
    }
-    \caption{Initially random, then greedy multi fresh fuel demanded.}
+    \caption{Initially random, then greedy multi fresh fuel demanded by fuel type.}
     \label{fig:rand_greed_mf_fresh}
   \end{figure}
 
@@ -206,7 +205,7 @@ Figures \ref{fig:rand_greed_mf_fresh} and \ref{fig:rand_greed_of_fresh} show the
     \subfloat[Double. \label{fig:rand_greed_of_d2_fresh}]{%
       \includegraphics[width=0.495\textwidth]{images/results/fresh/one_drg2_fresh_fuel_cumulative_by_fuel.pdf}
    }
-    \caption{Initially random, then greedy single fresh fuel demanded.}
+    \caption{Initially random, then greedy single fresh fuel demanded by fuel type.}
     \label{fig:rand_greed_of_fresh}
   \end{figure}
 
@@ -214,7 +213,7 @@ Table \ref{tab:rand_greed_fresh_avg} shows the average yearly fresh fuel by desi
 
 \begin{table}[H]
     \centering
-    \caption{Average initially random, then greedy yearly fresh fuel by design in tonnes.}
+    \caption{Average initially random, then greedy yearly fresh fuel by fuel design in tonnes from 2030 to the end of the simulation.}
     \label{tab:rand_greed_fresh_avg}
     \begin{tabular}{l c c c c}
        \toprule
@@ -230,7 +229,7 @@ Table \ref{tab:rand_greed_fresh_avg} shows the average yearly fresh fuel by desi
 \end{table}
 
 
-\subsection{Used Fuel Results}
+\subsection{Mass of Used Fuel Results}
 \label{sec:rand_greed_used}
 
 Figures \ref{fig:rand_greed_mf_used} and \ref{fig:rand_greed_of_used} depict the used fuel accumulation for the reactors in the \textit{no growth} and \textit{double by 2050} scenarios. The used fuel curves in each scenario follow the reactor deployment curves with a lag corresponding to the cycle length of the reactor from Figures \ref{fig:rand_greed_mf_reactors} and \ref{fig:rand_greed_of_reactors}, as \cyclus removes fuel from each reactor.
@@ -245,7 +244,7 @@ Figures \ref{fig:rand_greed_mf_used} and \ref{fig:rand_greed_of_used} depict the
     \subfloat[Double. \label{fig:rand_greed_mf_d2_used}]{%
       \includegraphics[width=0.495\textwidth]{images/results/used/multi_drg2_used_fuel_cumulative_by_fuel.pdf}
    }
-    \caption{Initially random, then greedy multi used fuel accumulation.}
+    \caption{Initially random, then greedy multi used fuel accumulation by fuel type.}
     \label{fig:rand_greed_mf_used}
   \end{figure}
 
@@ -258,7 +257,7 @@ Figures \ref{fig:rand_greed_mf_used} and \ref{fig:rand_greed_of_used} depict the
     \subfloat[Double. \label{fig:rand_greed_of_d2_used}]{%
       \includegraphics[width=0.495\textwidth]{images/results/used/one_drg2_used_fuel_cumulative_by_fuel.pdf}
    }
-    \caption{Initially random, then greedy single used fuel accumulation.}
+    \caption{Initially random, then greedy single used fuel accumulation by fuel type.}
     \label{fig:rand_greed_of_used}
   \end{figure}
 
@@ -267,7 +266,7 @@ Table \ref{tab:rand_greed_used_avg} shows the average yearly used fuel by design
 
   \begin{table}[H]
     \centering
-    \caption{Average initially random, then greedy yearly used fuel by design in tonnes.}
+    \caption{Average initially random, then greedy yearly used fuel by fuel design in tonnes from 2030 to the end of the simulation.}
     \label{tab:rand_greed_used_avg}
     \begin{tabular}{l c c c c}
        \toprule
