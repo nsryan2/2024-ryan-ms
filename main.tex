@@ -131,10 +131,10 @@ Advisor \\ Professor Rizwan Uddin}
 %% List of Figures
 %% List Symbols and/or Abbreviations
 %% etc.
-
+\setcounter{tocdepth}{1}
 \tableofcontents
-\listoftables
-\listoffigures
+% \listoftables
+% \listoffigures
 
 %% Create a List of Abbreviations. The left column
 %% is 1 inch wide and left-justified
@@ -210,12 +210,12 @@ Advisor \\ Professor Rizwan Uddin}
 \newcommand\mainmatterWithoutReset
  {\edef\temppagenumber{\arabic{page}}%
   \mainmatter
-  \setcounter{page}{\temppagenumber}%
+  \setcounter{page}{\temppagenumber+1}%
  }
 \mainmatterWithoutReset
 \appendix
 \glsresetall
-
+\newpage
 \input{appendix}
 \glsresetall
 
